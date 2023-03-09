@@ -1,0 +1,51 @@
+class Enemy {
+public:
+    Enemy(int x, int y, int speed, int health, int damage) {
+        this->x = x;
+        this->y = y;
+        this->speed = speed;
+        this->health = health;
+        this->damage = damage;
+    }
+
+    void move() {
+        if (x < maxX) {
+            mvaddch(y, x, ' '); // cancella il nemico dall'attuale posizione
+            x += speed; // muovi il nemico verso destra
+            mvaddch(y, x, 'E'); // disegna il nemico nella nuova posizione
+        } else {
+            health = 0; // il nemico è stato sconfitto perché è arrivato alla fine del percorso
+        }
+    }
+
+    int getX() const {
+        return x;
+    }
+
+    int getY() const {
+        return y;
+    }
+
+    int getHealth() const {
+        return health;
+    }
+
+    void takeDamage(int damage) {
+        health -= damage;
+        if (health <= 0) {
+            mvaddch(y, x, ' '); // cancella il nemico dalla posizione attuale quando viene sconfitto
+        }
+    }
+
+    int getDamage() const {
+        return damage;
+    }
+
+private:
+    int x;
+    int y;
+    int speed;
+    int health;
+    int damage;
+    static const int maxX = 50; // il limite di destra del percorso dei nemici
+};
