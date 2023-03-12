@@ -1,3 +1,4 @@
+#include<ncurses.h>
 class Enemy {
 public:
     Enemy(int x, int y, int speed, int health, int damage) {
@@ -8,25 +9,18 @@ public:
         this->damage = damage;
     }
 
-    void move() {
-        if (x < maxX) {
-            mvaddch(y, x, ' '); // cancella il nemico dall'attuale posizione
-            x += speed; // muovi il nemico verso destra
-            mvaddch(y, x, 'E'); // disegna il nemico nella nuova posizione
-        } else {
-            health = 0; // il nemico è stato sconfitto perché è arrivato alla fine del percorso
-        }
-    }
+    //void move(){}
+    // bisogna dare dei pattern di movimento al nemico casuali o di reazione al personaggio, casuali sono piu facili
 
-    int getX() const {
+    int getX(){
         return x;
     }
 
-    int getY() const {
+    int getY(){
         return y;
     }
 
-    int getHealth() const {
+    int getHealth(){
         return health;
     }
 
@@ -37,7 +31,7 @@ public:
         }
     }
 
-    int getDamage() const {
+    int getDamage(){
         return damage;
     }
 
@@ -47,5 +41,5 @@ private:
     int speed;
     int health;
     int damage;
-    static const int maxX = 50; // il limite di destra del percorso dei nemici
 };
+
