@@ -12,7 +12,7 @@ class Player{
         // potenza di attacco
         int power;
     public:
-        Player(WINDOW *win, int x, int y, char c, int h, int s, int d=1, int p);
+        Player(WINDOW *win, int x, int y, char c, int h, int s, int d, int p);
         // colpo subito
         void registerHit();
         void plusScore(int points);
@@ -53,11 +53,12 @@ void Player::plusHealth(int hp){
     health += hp;
 }
 
+/* Gestire gameOver prima di implementare
 void Player::minusHealth(int hp){
-    healt -= hp;
+    health -= hp;
     if(health = 0)
         gameOver = true;
-}
+}*/
 
 void Player::mvup(){
     mvwaddch(curwin, yLoc, xLoc, ' ');
@@ -120,9 +121,10 @@ void Player::powerUp(int plusP){
     power += plusP;
 }
 
-// gestire insiem ad enemy
+/*
+// gestire insieme ad enemy
 void Player::hitEnemy(){
     Enemy.registerHit(power);
-}
+}*/
 
 
