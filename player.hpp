@@ -11,6 +11,8 @@ class Player{
         int distance;
         // potenza di attacco
         int power;
+        // soldi
+        int coins;
     public:
         Player(WINDOW *win, int x, int y, char c, int h, int s, int d, int p);
         // colpo subito
@@ -30,6 +32,9 @@ class Player{
         void powerUp(int plusP);
         // nemico colpito
         void hitEnemy();
+        // gestione soldi
+        void plusMoney(int plusM);
+        void minusMoney(int minusM);
 };
 
 Player::Player(WINDOW *win, int y, int x, char c, int h=100, int s=0, int d=1, int p=1){
@@ -127,4 +132,10 @@ void Player::hitEnemy(){
     Enemy.registerHit(power);
 }*/
 
+void Player::plusMoney(int plusM){
+    coins += plusM;
+}    
 
+void Player::minusMoney(int minusM){
+    coins -= minusM;
+}
