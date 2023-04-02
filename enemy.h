@@ -25,6 +25,8 @@ public:
     void increasedamage(int plusd);
 
     void movement();
+     
+    void dropgold();
 
 };
 #endif
