@@ -9,7 +9,7 @@
     }
    
     void enemy::increasehealth(int plush){      //vuol dire plus health
-        if(map.level%3==0){                   //da cambiare .........
+        if(map.level%3==0){                   //da cambiare .........    //forse da togliere
            this->health++;
         }
     }
