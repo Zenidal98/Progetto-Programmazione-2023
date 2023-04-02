@@ -21,10 +21,23 @@
     }
     
     
+   void enemy::drop_gold(){
+     int drop=0;                                      //crea un drop basato sulla vita del nemico
+     if(enemy.health==1){
+        drop=1;
+     } else if (enemy.health==2){
+        drop=2;
+     } else {
+        drop=3;
+     }
+     player.gold = player.gold + drop; 
+    }
+
     void enemy::takeDamage(int damage) {
         this->health -= damage;
         if (this->health <= 0) {
-            mvaddch(y, x, ' '); // cancella il nemico dalla posizione attuale quando viene sconfitto
+            mvaddch(y, x, ' ');                     // cancella il nemico dalla posizione attuale quando viene sconfitto
+            drop_gold();
         }
     }
         int enemy::getX(){
