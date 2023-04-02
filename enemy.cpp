@@ -33,6 +33,19 @@
      player.gold = player.gold + drop; 
     }
 
+   void enemy::drop_points(){                      //da punti in base al nemico ucciso
+    int points=0;
+    if(enemy.health==1){                                      
+        points=1;
+     } else if (enemy.health==2){
+        points=2;
+     } else {
+        points=3;
+     }
+     player.points = player.points + points; 
+    }
+
+
     void enemy::takeDamage(int damage) {
         this->health -= damage;
         if (this->health <= 0) {
