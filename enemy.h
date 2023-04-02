@@ -27,6 +27,8 @@ public:
     void movement();
      
     void drop_gold();
+     
+    void drop_points();
 
 };
 #endif
