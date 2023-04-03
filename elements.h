@@ -6,9 +6,10 @@ private:
    int value;
    int x;
    int y;
+   char type;
 
 public:
-   elements(int value);
+   elements(int value, int x, int y, char type);
 
    void touch();                   //funzione che si attiva sempre quando il player tocca un elemento.
    
