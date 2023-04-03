@@ -1,7 +1,7 @@
 #ifndef elements.h
 #define elements.h
 
-class elements{                     // classe usata per definire 2 buff del gioco (ciliegia, bibita) e 2 debuff (sasso, buco)
+class elements{                     // classe usata per definire 2 buff del gioco (ciliegia, bibita) e 2 debuff (sasso, buco). Il giocatore li raccoglie toccandoli.
 private:
    int value;
 
