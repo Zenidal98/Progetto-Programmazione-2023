@@ -9,8 +9,8 @@ elements::elements(int value, int x, int y, char type){       //i tipi sono d, h
 
 void touch(){
     if((player.x==elements.x)&&(player.y==elements.y)){
-        if(elements.char=='d'){                         //check sul tipo di collezionabile raccolto
-            elements::health_up(value);
+        if(elements.char=='d'){                               //check sul tipo di collezionabile raccolto
+            elements::health_up(value); 
         } else if(elements.char=='h'){
             elements::health_down(value);
         } else if(elements.char=='c'){
