@@ -2,7 +2,7 @@
 #define enemy.h
 
 class enemy {
-private:
+protected:
         int x;
         int y;
         int speed;
