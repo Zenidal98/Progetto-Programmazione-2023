@@ -1,5 +1,5 @@
-#include <iostream>
-#include <cmath>
+#ifndef room.h
+#define room.h
 class Room{
 	public:
 		Room(Room *prev);  //nel costruttore next non serve perche' creo le stanze serve in fondo alla lista
@@ -12,39 +12,22 @@ class Room{
 		Room *next;
 };
 
-Room::Room(Room *previous){
-previous->next = this;
-prev = previous;
-next = NULL;
-}
+Room::Room(Room *previous);
 
 Room *currentRoom;
 
-Room*  Room::goprev(r){
-if (r->prev != NULL) currentRoom = r->prev;
-return currentRoom; 
+Room*  Room::goprev(r);
+
+Room* Room::gonext(r);
+
+void Room::initRooms();
+
+void generateRoom();
+
+
 }
 
-Room* Room::gonext(r){
-if (r->next != NULL) currentRoom = r->next;
-return currentRoom;
-}
-
-void Room::initRooms(){
-	Room* head_room = new Room();
-	head_room->prev = NULL; 
-	currentRoom = head_room;                //probabile che la prima stanza sia speciale (market)
-}
-
-void generateRoom(){
-srand(time(NULL));
-rand()%20+1;          //19 stanze + 1 market per ora;
-// qui devo capire come salvare e caricare le stanze
-}
-
-
-
-WINDOW definedLevels[20];
+#endif room.h
 
 
 
