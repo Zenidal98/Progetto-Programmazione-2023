@@ -13,7 +13,7 @@ public:
 
    void touch();                   //funzione che si attiva sempre quando il player tocca un elemento.
    
-   void health_up(value);          //bibita
+   void health_up(value);          //bibita. Va messa anche nel livello market per potersi curare.
 
    void health_down(value);        //buco
 
