@@ -21,7 +21,7 @@ void touch(){
         mvaddch(WINDOW*map,y,x,' ');             //libero quel pezzetto. Forse non basta o crea problemi, da tenere in considerazione
     }
 
-int elements::health_up(int value){           //drink
+int elements::health_up(int value){           //drink. Questo va messo anche nel market.
     player.hp = player.hp + value;
 }
 
