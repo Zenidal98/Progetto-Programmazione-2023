@@ -1,33 +1,31 @@
-#ifndef room.h
-#define room.h
-class Room{
-	public:
-		Room(Room *prev);  //nel costruttore next non serve perche' creo le stanze serve in fondo alla lista
-		Room *goprev(Room *r);
-		Room *gonext(Room *r);
-		void initRooms();
-		void generateRoom();
+#include <ncurses.h>
+#include <iostream>
+#include <fstream>
+#include <cmath>
+#define floor '='
+class room{
+
 	private:
-		Room *prev;
-		Room *next;
+		struct roomList{
+			roomList *prev;
+			int roomID;
+			int roomType;
+			roomList *next;
+		};	
+	WINDOW *currentWin;	
+	public:
+		room(WINDOW *win);
+		typedef roomList *pRL;
+		pRL initRoomList();
+		pRL generateRoomStruct(pRL oldStage);
+		pRL generateRoom();
+		pRL getRoomList();
+		void room::gameOver();
+		pRL spawnMarket(pRL marketPosition);
+
 };
 
-Room::Room(Room *previous);
 
-Room *currentRoom;
-
-Room*  Room::goprev(r);
-
-Room* Room::gonext(r);
-
-void Room::initRooms();
-
-void generateRoom();
-
-
-}
-
-#endif room.h
 
 
 
