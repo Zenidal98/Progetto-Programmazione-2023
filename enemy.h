@@ -29,6 +29,8 @@ public:
     void drop_gold();
      
     void drop_points();
+        
+    void display_enemy();
 
 };
 #endif
