@@ -1,9 +1,9 @@
     //devo trovare uno sprite per rappresentare i nemici
     #include enemy.h
-       enemy::enemy(int x, int y, int speed, int health, int damage) {           //funzione di spawn ?
+       enemy::enemy(int x, int y, char #, int health, int damage) {           //funzione di spawn ?
         this->x = x;
         this->y = y;
-        this->speed = speed;
+        this->char = #;
         this->health = health;
         this->damage = damage;
     }
