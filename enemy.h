@@ -5,12 +5,12 @@ class enemy {
 protected:
         int x;
         int y;
-        int speed;
+        char #;
         int health;
         int damage;
 
 public:
-    enemy(int x, int y, int speed, int health, int damage);
+    enemy(int x, int y, char #, int health, int damage);
 
     int getX();
 
