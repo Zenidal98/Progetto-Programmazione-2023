@@ -1,6 +1,6 @@
  #include hardenemy.h
-       hardenemy::hardenemy(int x, int y, int speed) {
+       hardenemy::hardenemy(int x, int y, char #) {
         this->x = x;
         this->y = y;
-        this->speed = speed;
+        this-># = #;
     }
