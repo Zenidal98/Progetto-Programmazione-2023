@@ -7,7 +7,7 @@ int health=30;
 int damage=15;
 
 public:
-hardenemy(int x, int y, int speed)::enemy(x,y,speed);
+hardenemy(int x, int y, char #)::enemy(x,y,#);
 
 };
 #endif
