@@ -33,7 +33,7 @@ room::pRL room::generateRoomStruct(pRL oldStage){
 	p->next = NULL;
 	return p;
 }
-room::pRL room::generateRoom(pRL newStage ){
+void room::generateRoom(pRL newStage ){
 //10 stanze + 1 market + 1 starting level
 // qui devo capire come salvare e caricare le stanze
 	switch(stage->roomType){

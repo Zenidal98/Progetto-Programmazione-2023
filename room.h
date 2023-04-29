@@ -18,7 +18,7 @@ class room{
 		typedef roomList *pRL;
 		pRL initRoomList();
 		pRL generateRoomStruct(pRL oldStage);
-		pRL generateRoom();
+		void generateRoom();
 		pRL getRoomList();
 		void room::gameOver();
 		pRL spawnMarket(pRL marketPosition);
