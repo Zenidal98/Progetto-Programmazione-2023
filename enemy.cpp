@@ -89,6 +89,10 @@
                 new_x++;
                 break;
             }
+     
+       void enemy::display_enemy(){
+           mvwaddch(curwin,y,x,c);
+           }
                                                                  //check collisioni
                                                                  
             if (new_y >= 1 && new_y < map.y-1 && new_x >= 1 && new_x < map.x -1) {       //da cambiare
