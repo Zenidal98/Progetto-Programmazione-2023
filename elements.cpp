@@ -1,7 +1,6 @@
   #include elements.h         
 
-elements::elements(int value, int x, int y, char type){       //i tipi sono d, c, r, ossia drink,hole,cherry,rock
-    this->value=value;
+elements::elements(int x, int y, char type){       //i tipi sono d, c, r, ossia drink, cherry, rock
     this->x=x;
     this->y=y;
     this->type=type;
@@ -19,17 +18,19 @@ void touch(){
         mvaddch(WINDOW*map,y,x,' ');             //libero quel pezzetto. Forse non basta o crea problemi, da tenere in considerazione
     }
 
-void elements::health_up(int value){           //drink. Questo va messo anche nel market.    D
-    player.hp = player.hp + value;
+void elements::health_up(){   //drink. Questo va messo anche nel market.  Nel gioco è rappresentato con la lettera  D
+  if(player.hp<//max){
+    player.hp = player.hp + 1;
+     }
 }
 
 
-void elements::score_up(int value){           //cherry   C
-    player.hp = player.score + value;
+void elements::score_up(){           //cherry. Nel gioco è rappresentato con la lettera  C
+    player.score = player.score + 200 ;
 }
 
-void elements::score_down(int value){         //rock    R. Il punteggio può andare anche in negativo
-    player.hp = player.score - value;
+void elements::score_down(){         //rock    R. Il punteggio può andare anche in negativo. Nel gioco è rappresentato con la lettera R.
+    player.score = player.score - 200;
 }
   
 void elements::display(){
