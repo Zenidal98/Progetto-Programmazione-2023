@@ -2,6 +2,8 @@
 #include "room.h"
 #include "bullet.h"
 #include "easyenemy.h"
+#include "mediumenemy.h"
+#include "hardenemy.h"
 #include "elements.h"
 #include "specialpowers.h"
 #include "weapons.h"
