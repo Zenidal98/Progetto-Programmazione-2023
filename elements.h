@@ -22,6 +22,7 @@ public:
    void score_down(value);         //sasso
        
                              //manca un'ultima funzione per evitare che i buff/debuff spawnino sui bordi della finestra o sulle piattaforme. O forse non serve ?
+   void elements_display();
 
 }
 
