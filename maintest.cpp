@@ -29,7 +29,7 @@ elementSpawn(newStage);
 }
 
 char randomizeElementType(){
-	int i =rand()%2;
+	int i =rand()%3;
 	char a;
 	switch(i){
 	case 0:
@@ -39,7 +39,10 @@ char randomizeElementType(){
 		a = 'c';
 		break;		
 	case 2:
-		a = 'd';
+		a = 'r';
+		break;
+	case 3:
+	        a = 'g';
 		break;
 	}
 }
