@@ -44,7 +44,7 @@ char randomizeElementType(){
 
 
 void elementSpawn(pRL stage){
-	if(rand()%2==1){
+	if(rand()%2==1){                             // probabilità del 33% che spawni qualcosa in un livello
 		char a = randomizeElementType;
 		elements::elements(rand()%29+1,rand()%29+1,a);
 		elements::display();
