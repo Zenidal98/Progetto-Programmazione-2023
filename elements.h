@@ -15,8 +15,6 @@ public:
    
    void health_up(value);          //bibita. Va messa anche nel livello market per potersi curare.
 
-   void health_down(value);        //buco
-
    void score_up(value);           //ciliegia
 
    void score_down(value);         //sasso
