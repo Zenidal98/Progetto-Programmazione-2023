@@ -21,18 +21,18 @@ void touch(){
         mvaddch(WINDOW*map,y,x,' ');             //libero quel pezzetto. Forse non basta o crea problemi, da tenere in considerazione
     }
 
-int elements::health_up(int value){           //drink. Questo va messo anche nel market.
+void elements::health_up(int value){           //drink. Questo va messo anche nel market.
     player.hp = player.hp + value;
 }
 
-int elements::health_down(int value){        //hole
+void elements::health_down(int value){        //hole
     player.hp = player.hp - value;
 }
 
-int elements::score_up(int value){           //cherry
+void elements::score_up(int value){           //cherry
     player.hp = player.score + value;
 }
 
-int elements::score_down(int value){         //rock
+void elements::score_down(int value){         //rock
     player.hp = player.score - value;
 }
