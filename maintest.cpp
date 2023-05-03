@@ -47,6 +47,20 @@ char randomizeElementType(){
 	}
 }
 
+void gameOver(){
+    wclear(win);
+    mvprintw(7,20,"   ______ ___     __  ___ ______");
+    mvprintw(8,20,"  / ____//   |   /  |/  // ____/");
+    mvprintw(9,20," / / __ / /| |  / /|_/ // __/   ");
+    mvprintw(10,20,"/ /_/ // ___ | / /  / // /___   ");
+    mvprintw(11,20,"\\____//_/  |_|/_/  /_//_____/   ");
+    mvprintw(12,20,"                                ");
+    mvprintw(13,25,"   ____  _    __ ______ ____ ");
+    mvprintw(14,25,"  / __ \\| |  / // ____// __ \\");
+    mvprintw(15,25," / / / /| | / // __/  / /_/ /");
+    mvprintw(16,25,"/ /_/ / | |/ // /___ / _, _/ ");
+    mvprintw(17,25,"\\____/  |___//_____//_/ |_|  ");
+}
 
 void elementSpawn(pRL stage){
 	if(rand()%2==1){                             // probabilità del 33% che spawni qualcosa in un livello
@@ -55,7 +69,6 @@ void elementSpawn(pRL stage){
 		elements::display();
 	}	
 }
-
 
 void enemySpawn(pRL stage){
 	if(stage->roomID>=2 && stage->roomID<=3){
@@ -115,22 +128,6 @@ void enemySpawn(pRL stage){
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 int main(){
 initscr();
 noecho();
@@ -140,6 +137,7 @@ room(win);
 pippo = initRoomList();
 Player::Player(win,1,1,'P',100,0,1,3,1,1,1,0,0);
 Player::display();
+
 do{
 	p->display();
 	wrefresh(win);
@@ -150,8 +148,26 @@ do{
 }while(Player::xLoc!=30 && Player::yLoc!=1)
 goNextRoom(pippo);
 	
-	
-	
+//bool rightDoor = Player::xLoc!=30 && Player::yLoc!=1;	
+//bool leftDoor = Player::xLoc!=1 && Player::yLoc!=1;
+//bool escape = p->getmv()=='x'
+//bool gameOver = Player::health<=0
+
+//do{
+//	p->display();
+//	wrefresh(win);
+//	Player::getmv();
+//
+//
+//}while(rightDoor==true && leftDoor==true && escape==false && gameOver==false);
+//if(escape==true || gameOver==true){
+//	gameOver();
+//}
+//------------------qui andra' messo il salvataggio su file----------------------------------------
+//
+//
+
+
 
 return 0;
 }
