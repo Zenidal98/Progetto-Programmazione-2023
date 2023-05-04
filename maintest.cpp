@@ -28,6 +28,18 @@ enemySpawn(newStage);
 elementSpawn(newStage);
 }
 
+void goPreviousRoom(pRL oldStage){
+if(oldStage->roomID!=0){              // non il primo livello
+pRL newStage = oldStage->prev;
+room::generateRoom(newStage);
+teleport();
+enemySpawn(newStage);
+elementSpawn(newStage);
+   }
+}
+
+
+
 char randomizeElementType(){
 	int i =rand()%3;
 	char a;
@@ -148,6 +160,7 @@ do{
 }while(Player::xLoc!=30 && Player::yLoc!=1)
 goNextRoom(pippo);
 	
+/*	
 //bool rightDoor = Player::xLoc!=30 && Player::yLoc!=1;	
 //bool leftDoor = Player::xLoc!=1 && Player::yLoc!=1;
 //bool escape = p->getmv()=='x'
@@ -156,16 +169,18 @@ goNextRoom(pippo);
 //do{
 //	p->display();
 //	wrefresh(win);
-//	Player::getmv();
-//
-//
+	if(rightDoor==true){
+		goNextRoom(pRL oldstage);
+	 } else if(leftDoor==true){
+		goPreviousRoom(pRL oldstage);
+	}
+	Player::getmv();
 //}while(rightDoor==true && leftDoor==true && escape==false && gameOver==false);
 //if(escape==true || gameOver==true){
 //	gameOver();
 //}
 //------------------qui andra' messo il salvataggio su file----------------------------------------
-//
-//
+*/
 
 
 
