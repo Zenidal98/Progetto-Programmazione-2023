@@ -68,24 +68,15 @@
     void enemy::movement(){     
         srand(time(NULL));               //imposto il seed per la generazione di numeri casuali                
         while(true){
-            int direction = rand() % 4 + 1;
-            int new_y=this->y;           //ci serviranno come variabili per la prossima posizione
-            int new_x=this->x;
+            int direction = rand() % 2 + 1;  
+            int new_x=this->x;  //ci serviranno come variabili per la prossima posizione
             
             switch(direction){
-                case 1:   //su
-                new_y--;
-                break;
-                
-                case 2 :   //giù
-                new_y++;
-                break;
-
-                case 3 :  //sinistra
+                case 1 :  //sinistra
                 new_x--;
                 break;
 
-                case 4 :  //destra
+                case 2 :  //destra
                 new_x++;
                 break;
             }
