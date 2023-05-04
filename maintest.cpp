@@ -1,5 +1,6 @@
 #include "player.h"
 #include "room.h"
+#include "enemy.h"
 #include "bullet.h"
 #include "easyenemy.h"
 #include "mediumenemy.h"
@@ -37,6 +38,10 @@ enemySpawn(newStage);
 elementSpawn(newStage);
    }
 }
+
+struct enemylist(enemy* ptrenemy){           //serve un check isenemydead e che riaggiorni lo schermo togliendoli
+enemylist* next;
+};
 
 
 
@@ -87,6 +92,9 @@ void enemySpawn(pRL stage){
 		for(int i=0, i<2,i++){
 			easyenemy::easyenemy(rand()%29+1,rand()%29+1);
 			easyenemy::display();
+			enemylist = new enemylist;
+			
+			
 		}	
 	}
 	if(stage->roomID>3 && stage->roomID<=5){
@@ -159,6 +167,11 @@ do{
 	Player::getmv();
 }while(Player::xLoc!=30 && Player::yLoc!=1)
 goNextRoom(pippo);
+
+	
+	
+	
+	
 	
 /*	
 //bool rightDoor = Player::xLoc!=30 && Player::yLoc!=1;	
