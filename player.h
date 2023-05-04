@@ -5,7 +5,6 @@
 class Player{
     private:
         int xLoc, yLoc, xMax, yMax;
-        int health;
         int score;
         char character;
         WINDOW *curwin;
@@ -22,8 +21,13 @@ class Player{
         int baseDamage;
         int plusDamage;
     public:
+        // spostata in public per testing
+        int health;
         Player(WINDOW *win, int x, int y, char c, int h, int s, int jf, int jh, int d, int p, int bd, int pd, int m);
         // Player(WINDOW *win, int x, int y, char c);
+        //get x e y
+        int getX();
+        int getY();
         // colpo subito
         void registerHit();
         void plusScore(int points);
