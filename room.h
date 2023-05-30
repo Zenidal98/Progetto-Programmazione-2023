@@ -10,6 +10,7 @@ class room{
 			roomList *prev;
 			int roomID;
 			int roomType;
+			bool isMarked = false;
 			roomList *next;
 		};	
 	WINDOW *currentWin;	
@@ -22,7 +23,6 @@ class room{
 		pRL getRoomList();
 		void room::gameOver();
 		pRL spawnMarket(pRL marketPosition);
-		bool isMarked = false;
 
 };
 
