@@ -25,13 +25,18 @@ room::pRL room::initRoomList(){
 	return head;
 }
 room::pRL room::generateRoomStruct(pRL oldStage){
-	pRL p = new roomList;
-	stage->next = p;
-	p->prev = oldStage;
-	p->roomID = (oldStage->roomID)+1;
-	p->roomType = (rand()%10+1);
-	p->next = NULL;
-	return p;
+	if( oldStage->next==NULL){
+		pRL p = new roomList;
+		stage->next = p;
+		p->prev = oldStage;
+		p->roomID = (oldStage->roomID)+1;
+		p->roomType = (rand()%10+1);
+		p->next = NULL;
+		p->isMarked = true;
+		return p;
+	}else if (oldStage->next->isMarked==true){
+		return p;
+	}//esiste nella realta' il terzo caso?
 }
 room::pRL room::generateRoom(pRL newStage ){
 //10 stanze + 1 market + 1 starting level
