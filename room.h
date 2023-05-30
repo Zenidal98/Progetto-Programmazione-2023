@@ -22,6 +22,7 @@ class room{
 		pRL getRoomList();
 		void room::gameOver();
 		pRL spawnMarket(pRL marketPosition);
+		bool isMarked;
 
 };
 
