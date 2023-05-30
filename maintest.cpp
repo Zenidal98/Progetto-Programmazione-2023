@@ -41,6 +41,8 @@ elementSpawn(newStage);
 
 struct enemylist(enemy* ptrenemy){           //serve un check isenemydead e che riaggiorni lo schermo togliendoli
 enemylist* next;
+//enemy value;         c'e' modo per farne una unica tra tutti i tipi di nemico?
+	
 };
 
 
@@ -93,8 +95,6 @@ void enemySpawn(pRL stage){
 			easyenemy::easyenemy(rand()%29+1,rand()%29+1);
 			easyenemy::display();
 			enemylist = new enemylist;
-			
-			
 		}	
 	}
 	if(stage->roomID>3 && stage->roomID<=5){
