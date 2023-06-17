@@ -2,7 +2,7 @@
 #define Save.h
 
 void saveRoomState(pRL r);   
-pRL loadRoomState();  
+room::pRL loadRoomState();  
 void saveCharacter();
 void loadCharacter();
 
