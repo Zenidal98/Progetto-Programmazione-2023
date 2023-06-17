@@ -1,5 +1,6 @@
 #include <fstream>
 #include <sstream>
+#include <room.h>
 
 //Bisogna capire dove va messo il salvataggio. Si attiva alla pressione di 'Esc' ?
 
