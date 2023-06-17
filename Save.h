@@ -1,8 +1,8 @@
 #ifndef Save.h
 #define Save.h
 
-void room::saveRoomState(pRL r);   
-pRL room::loadRoomState();  
+void saveRoomState(pRL r);   
+pRL loadRoomState();  
 void saveCharacter();
 void loadCharacter();
 
