@@ -1,3 +1,6 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
 // dove mettere gameover?
 #pragma once
 #include <ncurses.h>
@@ -34,6 +37,8 @@ class Player{
         void plusHealth(int hp);
         void minusHealth(int hp);
         void jump();
+        //il personaggio cade se non è su un blocco
+        void gravity();
         void mvup();
         void mvdown();
         void mvleft();
@@ -50,3 +55,5 @@ class Player{
         void plusMoney(int plusM);
         void minusMoney(int minusM);
 };
+
+#endif

@@ -19,6 +19,14 @@ Player::Player(WINDOW *win, int y, int x, char c, int h=100, int s=0, int jf=1, 
     coins = m;
 }
 
+int Player::getX(){
+    return xLoc;
+}
+
+int Player::getY(){
+    return yLoc;
+}
+
 void Player::plusScore(int points){
     score += points;
 }
@@ -27,15 +35,26 @@ void Player::plusHealth(int hp){
     health += hp;
 }
 
-/* Gestire gameOver prima di implementare
+// Gestire gameOver prima di implementare
 void Player::minusHealth(int hp){
     health -= hp;
-    if(health = 0)
-        gameOver = true;
-}*/
+
+    // if(health = 0)
+    //    gameOver = true;
+}
+
+void Player::gravity(){
+    //nodelay(curwin, true);
+    while(mvwinch(curwin, yLoc+1, xLoc) == ' '){
+        mvdown();
+        display();
+        wrefresh(curwin);
+        napms(150);
+    }
+}
 
 void Player::jump(){
-    int i, right;
+    int i, direction;
     // evitare che wgetch blocchi il salto
     nodelay(curwin, true);
     for(i=0; i<jumpHeight; i++){
@@ -44,19 +63,25 @@ void Player::jump(){
         wrefresh(curwin);
         napms(150);
         // spostarsi in volo
-        right = wgetch(curwin);
-        if(right == KEY_RIGHT){
+        direction = wgetch(curwin);
+        if(direction == KEY_RIGHT){
             mvright();
             display();
             wrefresh(curwin);
         }
+        else if(direction == KEY_LEFT){
+            mvleft();
+            display();
+            wrefresh(curwin);
+        } 
     }
-    for(i=0; i<jumpHeight; i++){
+    gravity();
+    /*for(i=0; i<jumpHeight; i++){
         mvdown();
         display();
         wrefresh(curwin);
         napms(150);
-    }
+    }*/
 }
 
 void Player::mvup(){
@@ -88,14 +113,15 @@ void Player::mvright(){
 }
 
 int Player::getmv(){
+    gravity();
     int choice = wgetch(curwin);
     switch(choice){
         case KEY_UP:
             jump();
             break;
-        case KEY_DOWN:
-            mvdown();
-            break;
+        //case KEY_DOWN:
+        //    mvdown();
+        //    break;
         case KEY_LEFT:
             mvleft();
             break;
@@ -110,6 +136,7 @@ int Player::getmv(){
 
 void Player::display(){
     mvwaddch(curwin, yLoc, xLoc, character);
+    wrefresh(curwin);
 }
 
 void Player::distanceUp(int plusD){

@@ -1,54 +1,81 @@
-  #include elements.h         
+#include "elements.h"         
 
-elements::elements(int x, int y, char type){       //i tipi sono d, c, r, g ossia drink, cherry, rock, gold
+//i tipi sono d, c, r, g ossia drink, cherry, rock, gold
+elements::elements(WINDOW *win, int x, int y, char type){       
+    this->win = win;
     this->x=x;
     this->y=y;
     this->type=type;
+    getmaxyx(win, yMax, xMax);
+    keypad(win, true);
 }
 
-void touch(){
-    if((player.x==elements.x)&&(player.y==elements.y)){
-        if(elements.type=='d'){                               //check sul tipo di collezionabile raccolto
-            elements::health_up(); 
-        } else if(elements.type=='c'){
-            elements::score_up()
-        } else if(elements.type=='r'){
-            elements::score_down();
-        } else if(elements.type=='g'){
-            elements::coins_up();
-        }
-        mvaddch(WINDOW*map,y,x,' ');             //libero quel pezzetto. Forse non basta o crea problemi, da tenere in considerazione
+int elements::getX(){
+    return x;
+}
+
+int elements::getY(){
+    return y;
+}
+
+// Spostare in Logics la parte di contatto (qui non vedo Player) --> Qui CONSIDERO GIA' TOCCATO
+void elements::touch(){
+    // non qua -> dentro Logics
+    //if((player.x==elements.x)&&(player.y==elements.y)){
+    
+    //check sul tipo di collezionabile raccolto
+    if(type=='d'){                               
+        hp = health_up(); 
+    } else if(type=='c'){
+        points = score_up();
+    } else if(type=='r'){
+        points = score_down();
+    } else if(type=='g'){
+        coins = coins_up();
     }
 
-void elements::health_up(){   //drink. Questo va messo anche nel market.  Nel gioco è rappresentato con la lettera  D
-  if(player.hp<//max){
-    player.hp = player.hp + 1;
-     }
-}
-     
-void elements::coins_up(){  //gold. Aumenta le monete di 1. Nel gioco è rappresentato con la lettera G.
-  player.coins++;
+    //libero quel pezzetto. Forse non basta o crea problemi, da tenere in considerazione
+    // mvaddch(WINDOW*map,y,x,' ');            
+    
+    //}
 }
 
-void elements::score_up(){           //cherry. Nel gioco è rappresentato con la lettera  C
-    player.score = player.score + 200 ;
+
+// NON SI PUO' FARE QUI per Player --> creare una variabile che ritorna vita da aggiungere?
+int elements::health_up(){   //drink. Questo va messo anche nel market.  Nel gioco è rappresentato con la lettera  D
+    return 50;
 }
 
-void elements::score_down(){         //rock    R. Il punteggio può andare anche in negativo. Nel gioco è rappresentato con la lettera R.
-    player.score = player.score - 200;
+
+// uguale a health_up     
+//gold. Aumenta le monete di 1. Nel gioco è rappresentato con la lettera G.
+int elements::coins_up(){  
+    return 1;
+}
+
+// uguale
+//cherry. Nel gioco è rappresentato con la lettera  C
+int elements::score_up(){           
+    return 200;
+}
+
+//  uguale --> DECIDERE SE DARE E TOGLIERE STESSI PUNTI
+//rock    R. Il punteggio può andare anche in negativo. Nel gioco è rappresentato con la lettera R
+int elements::score_down(){         
+    return 200;
 }
   
 void elements::display(){
-  if(elements.type=='c'){
-  mvwaddch(curwin,y,x,'C')
+    if(type=='c'){
+        mvwaddch(win,y,x,'C');
     }
-   else if(elements.type=='r'){
-  mvwaddch(curwin,y,x,'R')
-     }
-   else if(elements.type=='d'){
-  mvwaddch(curwin,y,x,'D')
-     }
-   else if(elements.type=='g'){
-   mvwaddch(curwin,y,x,'G');
-   }
+    else if(type=='r'){
+        mvwaddch(win,y,x,'R');
+    }
+    else if(type=='d'){
+        mvwaddch(win,y,x,'D');
+    }
+    else if(type=='g'){
+        mvwaddch(win,y,x,'G');
+    }
 }

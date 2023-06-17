@@ -1,27 +1,42 @@
-#ifndef elements.h
-#define elements.h
+#include <ncurses.h>
+#pragma once
 
-class elements{                     // classe usata per definire 3 buff del gioco (ciliegia, bibita, oro) e un debuff (sasso)
-private:
-   int x;
-   int y;
-   char type;
+// classe usata per definire 3 buff del gioco (ciliegia, bibita, oro) e un debuff (sasso)
 
-public:
-   elements(int x, int y, char type);
+class elements{                     
+    private:
+        WINDOW *win;
+        int x, xMax;
+        int y, yMax;
+        char type;
 
-   void touch();             //funzione che si attiva sempre quando il player tocca un elemento.
+        // variabili per aggiornamento player
+        int hp;
+        int coins;
+        int points;
+
+    public:
+        elements(WINDOW *win, int x, int y, char type);
+
+        int getX();
+
+        int getY();
+
+        //funzione che si attiva sempre quando il player tocca un elemento.
+        void touch();             
    
-   void health_up();          //bibita. Va messa anche nel livello market per potersi curare.
+        // d - bibita. Va messa anche nel livello market per potersi curare.
+        int health_up();          
 
-   void score_up();           //ciliegia
+        // c - ciliegia
+        int score_up();           
 
-   void score_down();         //sasso
+        // r - sasso
+        int score_down();         
      
-   void coins_up();           //oro
+        // g - oro
+        int coins_up();           
                             
-   void elements_display();
+        void display();
 
-}
-
-#endif elements.h
+};   
