@@ -1,4 +1,9 @@
-void room::saveRoomState(pRL r);   //che argomento metto ? nel .h metto room:: o solo pRL ?
+#ifndef Save.h
+#define Save.h
+
+void room::saveRoomState(pRL r);   
 pRL room::loadRoomState();  
 void saveCharacter();
 void loadCharacter();
+
+#endif
