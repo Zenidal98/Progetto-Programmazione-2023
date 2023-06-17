@@ -4,7 +4,7 @@
 
 //Bisogna capire dove va messo il salvataggio. Si attiva alla pressione di 'Esc' ?
 
-void room::saveRoomState(pRL roomList) {
+void saveRoomState(pRL roomList) {
     std::ofstream file("room_state.txt");
     // Scorrere la lista delle stanze e salvare le informazioni di tutte le  mappe nel file
     pRL currentRoom = roomList;
@@ -16,7 +16,7 @@ void room::saveRoomState(pRL roomList) {
     file.close();
 }
 
-pRL room::loadRoomState() {
+pRL loadRoomState() {
     std::ifstream file("room_state.txt");
     pRL head = NULL;
     pRL currentRoom = NULL;
