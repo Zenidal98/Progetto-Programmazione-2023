@@ -7,9 +7,11 @@
 class Logics {
     private:
         WINDOW* playwin;
+        WINDOW* statwin;
         enemy* e;
         Player* p;
         elements* el;
+        bool end = false;
 
     public:
         // setta i vari parametri -> capire cosa fare con enemy e elements
@@ -23,4 +25,6 @@ class Logics {
 
         // controlla se player ha preso danno
         void check_damage();
+
+        void gameOver();
 };

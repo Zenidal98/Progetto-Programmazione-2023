@@ -104,7 +104,7 @@ void enemy::movement(){
     }
 
     napms(150);
-    /*
+    
     int direction = rand()%2+1;          
     switch(direction){
         case 1 :  //sinistra
@@ -122,7 +122,7 @@ void enemy::movement(){
             display_enemy();
             break;
     }
-    */
+    
 }
     
 void enemy::display_enemy(){
