@@ -22,7 +22,7 @@ void touch(){
 
 void elements::health_up(){   //drink. Questo va messo anche nel market.  Nel gioco è rappresentato con la lettera  D
   if(player.hp<//max){
-    player.hp = player.hp + 1;
+    player.hp = player.hp + 3;
      }
 }
      
