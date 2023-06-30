@@ -1,7 +1,7 @@
   #include specialpowers.h
   #include enemy.h              //serve per takedamage
 
-specialpowers::specialpowers(int x, int y, char type){       //i tipi sono b,d,
+specialpowers::specialpowers(int x, int y, char type){       //i tipi sono b,d,s
     this->x=x;
     this->y=y;
     this->type=type;
@@ -26,5 +26,13 @@ void specialpowers::bomb(){
 
 void specialpowers::damageup(){
     player.bonusdamage=player.bonusdamage*1,5;  //aumenta il danno bonus del player. Questo sommato al danno arma è il danno totale.
+                                                //bisogna far si che avvenga in una sola stanza
 }
+ 
+void specialpowers::teleport(){                   //teletrasporta il giocatore in una nuova stanza
+    //player che va nella stanza dopo o in una casuale, non ho idea di come farlo
+}
+ 
+ 
+    
 
