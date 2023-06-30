@@ -29,7 +29,7 @@ void showmarket() {
         powername="DamageUp";
         powername2='d';
     } else if (casualindex==2){
-        powername="........";
+        powername="Teleport";
         powername2='.'
     }
     
