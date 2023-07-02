@@ -1,6 +1,7 @@
 #include "room.h"
 #include <iostream>
 #include <cmath>
+#include "market.h"
 srand(time(NULL));
 
 room::room(WINDOW *win){
@@ -47,7 +48,7 @@ room::pRL room::generateRoom(pRL newStage ){
 		}
 		break;
 		case 1:      //Market (uso funzione esterna per espandere
-		{room::spawnMarket(newStage);
+		{showmarket();
 		}
 		break;
 		case 2:
