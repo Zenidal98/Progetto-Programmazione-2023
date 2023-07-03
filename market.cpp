@@ -1,7 +1,7 @@
 Note: -Bisogna capire dove va visto che usa un sacco di attributi di classi diverse.
       -Testare se il mvprintw cosi funziona
       - Manca andare avanti dopo che si esegue azione associata a tasto
-      - Mancano i prezzi
+      - Ho messo dei prezzi iniziali. In futuro se vogliamo, se possiamo, ci metteremo un moltiplicatore di velocità.
 #include<elements.h>
 #include<weapons.h>
 #include<player.h>
@@ -16,8 +16,15 @@ void showmarket() {
 
     // Inizializzazione attributi da comprare:
 
+     //Inizializzazione prezzi.
+    int healthprice=0;
+    int powerprice=0;
+    int weaponprice=0;
+
+      
     // Per la vita è semplice. Il player ha vita max di 100 quindi un numero casuale fra 1 e 50 va bene.
-    int casualhealth=rand%(50)+1;
+    int casualhealth=rand%(50)+10;   //cosi non ho problemi nella divisione per 10
+    healthprice=healthprice/10;
 
      // Per i poteri la probabilità che appaia come nome è equivalente 
     int casualindex=rand%(3);
@@ -26,12 +33,15 @@ void showmarket() {
     if(casualindex==0){
         powername="Bomb";      
         powername2='b';
+        powerprice=20;
     } else if (casualindex==1){
         powername="DamageUp";
         powername2='d';
+        powerprice=30;
     } else if (casualindex==2){
         powername="Teleport";
         powername2='.'
+        poweprice=50;
     }
     
     // La pistola appare nel 50% dei casi, il fucile nel 40% ed il lanciarazzi nel 10% dei casi.
@@ -41,18 +51,22 @@ void showmarket() {
     if((casualindex2>=0)&&(casualindex2<=4)){
         weaponname="Pistol";
         weaponname2='p';
+        weaponprice=10;
     } else if ((casualindex2>=5)&&(casualindex2<=8)){
         weaponname="Firelock";
         weaponname2='f';
+        weaponprice=100;
     } else if (casualindex2==9){
         weaponname="Rocket_Launcher";
         weaponname2='l';
+        weaponprice=200;
     }
+  
 
     // Mostra il relativo pulsante da premere per acquistare qualcosa che corrisponde alla iniziale in inglese
-    mvwprintw(healthWin, 1, 1, "Health: " +  casualhealth + " H ");
-    mvwprintw(powerWin, 1, 1, "Power: " + powername + " P ");
-    mvwprintw(weaponWin, 1, 1, "Weapon: " + weaponname +" W ");
+    mvwprintw(healthWin, 1, 1, "Health: " +  casualhealth + "," + healthprice + " press H ");
+    mvwprintw(powerWin, 1, 1, "Power: " + powername + "," + powerprice + " press P ");
+    mvwprintw(weaponWin, 1, 1, "Weapon: " + weaponname + ","+ weaponprice + " press W ");
     
     // Aggiorna le finestre
     wrefresh(healthWin);
@@ -63,20 +77,23 @@ void showmarket() {
     char ch = getch();
     switch (ch) {
         case 'h':                       // Compra la vita. Se non è al massimo la fa comprare e se è più di 100 torna a 100 (il massimo)
+        if(player.coins>=healthprice){
         if(player.health<100){
               player.health=player.health+casualhealth;
               if(player.health>100){
                     player.health=100;
               }
+           }
         }
             break;
         case 'p':                       // Compra il potere se non ne ha già uno
-
+        if(player.coins>=powerprice){
       //assegna il potere al player. Troppe cose da decidere per scriverlo adesso
           
             break;
         case 'w':                       // Compra l'arma che va a sostituire il potere base del player
-        weapons::buyweapons(weaponname2);                
+        if(player.coins>=weaponprice){
+        weapons::buyweapons(weaponname2);                  
             break;
         default:
             break;
