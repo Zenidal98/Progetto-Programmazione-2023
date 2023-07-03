@@ -1,6 +1,7 @@
 Note: -Bisogna capire dove va visto che usa un sacco di attributi di classi diverse.
       -Testare se il mvprintw cosi funziona
       - Manca andare avanti dopo che si esegue azione associata a tasto
+      - Mancano i prezzi
 #include<elements.h>
 #include<weapons.h>
 #include<player.h>
