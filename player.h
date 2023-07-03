@@ -26,11 +26,14 @@ class Player{
     public:
         // spostata in public per testing
         int health;
-        Player(WINDOW *win, int x, int y, char c, int h, int s, int jf, int jh, int d, int p, int bd, int pd, int m);
+        char specialpower;
+        Player(WINDOW *win, int x, int y, char c, int h, int s, int jf, int jh, int d, int p, int bd, int pd, int m, char sp);
         // Player(WINDOW *win, int x, int y, char c);
         //get x e y
         int getX();
         int getY();
+        // get Damage
+        int getDamage();
         // colpo subito
         void registerHit();
         void plusScore(int points);

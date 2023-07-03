@@ -1,6 +1,6 @@
 #include "player.h"
 
-Player::Player(WINDOW *win, int y, int x, char c, int h=100, int s=0, int jf=1, int jh=1, int d=1, int p=1, int bd=1, int pd=0, int m=0){
+Player::Player(WINDOW *win, int y, int x, char c, int h=100, int s=0, int jf=1, int jh=1, int d=1, int p=1, int bd=1, int pd=0, int m=0, char sp='\0'){
 // Player::Player(WINDOW *win, int y, int x, char c){
     curwin = win;
     yLoc = y;
@@ -17,6 +17,7 @@ Player::Player(WINDOW *win, int y, int x, char c, int h=100, int s=0, int jf=1, 
     baseDamage = bd;
     plusDamage = pd;
     coins = m;
+    specialpower = sp;
 }
 
 int Player::getX(){
@@ -25,6 +26,10 @@ int Player::getX(){
 
 int Player::getY(){
     return yLoc;
+}
+
+int Player::getDamage(){
+    return baseDamage + plusDamage;
 }
 
 void Player::plusScore(int points){
@@ -44,13 +49,19 @@ void Player::minusHealth(int hp){
 }
 
 void Player::gravity(){
+    // ChatGPT code
+    if (mvwinch(curwin, yLoc + 1, xLoc) == ' ') {
+        mvdown();
+        display();
+        wrefresh(curwin);
+    }
     //nodelay(curwin, true);
-    while(mvwinch(curwin, yLoc+1, xLoc) == ' '){
+    /* while(mvwinch(curwin, yLoc+1, xLoc) == ' '){
         mvdown();
         display();
         wrefresh(curwin);
         napms(150);
-    }
+    }*/
 }
 
 void Player::jump(){
