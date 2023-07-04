@@ -80,6 +80,7 @@ void showmarket() {
         if(player.coins>=healthprice){
         if(player.health<100){
               player.health=player.health+casualhealth;
+              player.coins=player.coins-healthprice;
               if(player.health>100){
                     player.health=100;
               }
@@ -88,11 +89,13 @@ void showmarket() {
             break;
         case 'p':                       // Compra il potere se non ne ha già uno
         if(player.coins>=powerprice){
+        player.coins=player.coins-powerprice;
       //assegna il potere al player. Troppe cose da decidere per scriverlo adesso
           
             break;
         case 'w':                       // Compra l'arma che va a sostituire il potere base del player
         if(player.coins>=weaponprice){
+        player.coins=player.coins-weaponprice;
         weapons::buyweapons(weaponname2);                  
             break;
         default:
