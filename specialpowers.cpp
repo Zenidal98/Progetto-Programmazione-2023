@@ -13,6 +13,8 @@ void touch(){
             specialpowers::bomb(); 
         } else if(specialpowers.char=='d'){
             specialpowers::damageup();
+        } else if(specialpowers.char=='t'){
+            specialpowers::teleport();
         }
         mvaddch(WINDOW*map,y,x,' ');             //libero quel pezzetto. Forse non basta o crea problemi, da tenere in considerazione
     }
@@ -20,7 +22,7 @@ void touch(){
 void specialpowers::bomb(){
     for //each enemy in a room
         {                                        //fa come takedamage ma con un danno altissimo, in modo da ucciderli tutti sicuro 
-         takedamage(10000000);
+         enemy.health=0;
     }
 }
 
