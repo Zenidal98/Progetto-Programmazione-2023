@@ -17,6 +17,8 @@ public:
 
    void damageup();                //aumenta il danno bonus
 
+   void teleport();                //teletrasporta in una stanza casuale
+
 }
 
 #endif specialpowers.h
