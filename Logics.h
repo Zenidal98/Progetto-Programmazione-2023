@@ -6,6 +6,7 @@
 
 class Logics {
     private:
+        bool isCollected;
         WINDOW* playwin;
         WINDOW* statwin;
         enemy* e;
@@ -25,6 +26,9 @@ class Logics {
 
         // controlla se player ha preso danno
         void check_damage();
+
+        // controlla se player ha fatto danno
+        void check_melee();
 
         void gameOver();
 };
