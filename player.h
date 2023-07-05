@@ -34,6 +34,8 @@ class Player{
         int getY();
         // get Damage
         int getDamage();
+        // get coins
+        int getCoins();
         // colpo subito
         void registerHit();
         void plusScore(int points);

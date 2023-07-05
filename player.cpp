@@ -32,6 +32,10 @@ int Player::getDamage(){
     return baseDamage + plusDamage;
 }
 
+int Player::getCoins(){
+    return coins;
+}
+
 void Player::plusScore(int points){
     score += points;
 }
@@ -50,10 +54,11 @@ void Player::minusHealth(int hp){
 
 void Player::gravity(){
     // ChatGPT code
-    if (mvwinch(curwin, yLoc + 1, xLoc) == ' ') {
+    while(mvwinch(curwin, yLoc + 1, xLoc) == ' ') {
         mvdown();
         display();
         wrefresh(curwin);
+        napms(150);
     }
     //nodelay(curwin, true);
     /* while(mvwinch(curwin, yLoc+1, xLoc) == ' '){
@@ -66,7 +71,7 @@ void Player::gravity(){
 
 void Player::jump(){
     int i, direction;
-    // evitare che wgetch blocchi il salto
+    // evitare che wgetch blocchi il salto --> modo di saltare diverso?
     nodelay(curwin, true);
     for(i=0; i<jumpHeight; i++){
         mvup();
