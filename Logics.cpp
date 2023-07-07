@@ -46,18 +46,47 @@ void Logics::start(){
     //ciclo di movimento e cose
     while(true && end == false){
         e->movement();
-        p->getmv();
+        p->getinput();
+        if(p->getinput() == 'd'){
+            check_melee();
+        }
         p->display();
-        
+        // wprintw(statwin, "\nEnemy hit!");
+        // wrefresh(statwin);
+        // check_melee();
+
         // funziona
         check_upgrades();
         // funziona
         // check_damage();
         // non funziona
-        check_melee();
+        // check_melee();
 
         wrefresh(playwin);
     }
+
+    /* il contrario, check_melee funziona ma per il movimento devo tenere premuto
+    while (true && end == false) {
+        e->movement();
+
+        // Get the input without waiting
+        int key = wgetch(playwin);
+
+        if (key != ERR) {
+            if (key == 'd') {
+                check_melee();
+            }
+            else
+                p->getinput();
+        }
+
+        p->display();
+        check_upgrades();
+        wrefresh(playwin);
+    }
+    */
+
+
 }
 
 void Logics::check_upgrades(){
@@ -94,22 +123,28 @@ void Logics::check_damage(){
 }
 
 void Logics::check_melee(){
+
+    wprintw(statwin, "\nEnemy hit!");
+    wrefresh(statwin);
+
+    /*
     int distance = abs(p->getX()-e->getX());
+    wprintw(statwin, "\nEnemy hit!");
     int key = wgetch(playwin);
     // int key = wgetch(stdscr);
     if(key == 'd'){
         wprintw(statwin, "\nEnemy hit!");
         wrefresh(statwin);
-        /*
         if(distance <= 2){
             e->takeDamage(p->getDamage());
             wprintw(statwin, "\nEnemy hit!");
             wrefresh(statwin);
             // morte nemico?
-        }*/
+        }
     }
     else
         return;
+    */
 }
 
 void Logics::gameOver(){
