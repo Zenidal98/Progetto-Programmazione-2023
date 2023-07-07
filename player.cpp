@@ -128,7 +128,7 @@ void Player::mvright(){
         xLoc = xMax-2;
 }
 
-int Player::getmv(){
+int Player::getinput(){
     gravity();
     int choice = wgetch(curwin);
     switch(choice){
@@ -143,6 +143,8 @@ int Player::getmv(){
             break;
         case KEY_RIGHT:
             mvright();
+            break;
+        case 'd':
             break;
         default:
             break;

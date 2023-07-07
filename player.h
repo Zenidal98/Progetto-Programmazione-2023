@@ -48,7 +48,7 @@ class Player{
         void mvdown();
         void mvleft();
         void mvright();
-        int getmv();
+        int getinput();
         void display();
         // aumenta distanza di attacco 
         void distanceUp(int plusD);
