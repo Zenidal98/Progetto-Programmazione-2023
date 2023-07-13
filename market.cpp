@@ -6,7 +6,7 @@ Note: -Bisogna capire dove va visto che usa un sacco di attributi di classi dive
 #include<weapons.h>
 #include<player.h>
 
-void showmarket() {
+void showmarket(int roomID) {
     clear();  // Cancella lo schermo
   
     // Le slide richiedono 3 opzioni: vita, poteri e armi
@@ -24,7 +24,7 @@ void showmarket() {
       
     // Per la vita è semplice. Il player ha vita max di 100 quindi un numero casuale fra 1 e 50 va bene.
     int casualhealth=rand%(50)+10;   //cosi non ho problemi nella divisione per 10
-    healthprice=healthprice/10;
+    healthprice=healthprice*roomID;
 
      // Per i poteri la probabilità che appaia come nome è equivalente 
     int casualindex=rand%(3);
@@ -33,15 +33,15 @@ void showmarket() {
     if(casualindex==0){
         powername="Bomb";      
         powername2='b';
-        powerprice=20;
+        powerprice=20*roomID;
     } else if (casualindex==1){
         powername="DamageUp";
         powername2='d';
-        powerprice=30;
+        powerprice=30*roomID;
     } else if (casualindex==2){
         powername="Teleport";
         powername2='.'
-        poweprice=50;
+        poweprice=50*roomID;
     }
     
     // La pistola appare nel 50% dei casi, il fucile nel 40% ed il lanciarazzi nel 10% dei casi.
@@ -51,15 +51,15 @@ void showmarket() {
     if((casualindex2>=0)&&(casualindex2<=4)){
         weaponname="Pistol";
         weaponname2='p';
-        weaponprice=10;
+        weaponprice=10*roomID;
     } else if ((casualindex2>=5)&&(casualindex2<=8)){
         weaponname="Firelock";
         weaponname2='f';
-        weaponprice=100;
+        weaponprice=100*roomID;
     } else if (casualindex2==9){
         weaponname="Rocket_Launcher";
         weaponname2='l';
-        weaponprice=200;
+        weaponprice=200*roomID;
     }
   
 
