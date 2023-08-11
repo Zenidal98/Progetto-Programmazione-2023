@@ -10,11 +10,6 @@ void showmarket(int roomID) {
     clear();  // Cancella lo schermo
 
 
-    mvprintw(20,1,floor,30);
-    mvprintw(20,5,"|               |");
-    mvprintw(19,6,"|               |"); 
-    mvprintw(18,6," /             \ ");
-    mvprintw(17,6,"  _____________  ");
     // Le slide richiedono 3 opzioni: vita, poteri e armi
     WINDOW *healthWin = newwin(10, 20, 5, 5);  
     WINDOW *powerWin = newwin(10, 20, 5, 30); 
@@ -27,7 +22,7 @@ void showmarket(int roomID) {
     int powerprice=0;
     int weaponprice=0;
 
-      
+    
     // Per la vita è semplice. Il player ha vita max di 100 quindi un numero casuale fra 1 e 50 va bene.
     int casualhealth=rand%(50)+10;   //cosi non ho problemi nella divisione per 10
     healthprice=healthprice*roomID;
@@ -87,6 +82,7 @@ void showmarket(int roomID) {
         if(player.health<100){
               player.health=player.health+casualhealth;
               player.coins=player.coins-healthprice;
+
               if(player.health>100){
                     player.health=100;
               }
