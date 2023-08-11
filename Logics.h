@@ -4,6 +4,8 @@
 #include "enemy.h"
 #include "elements.h"
 
+#include "bullet.h"
+
 class Logics {
     private:
         bool isCollected;
@@ -12,6 +14,7 @@ class Logics {
         enemy* e;
         Player* p;
         elements* el;
+        Bullet* sh;
         bool end = false;
 
     public:
@@ -31,4 +34,8 @@ class Logics {
         void check_melee();
 
         void gameOver();
+
+
+        // se premo tasto sparo
+        void check_shoot();
 };

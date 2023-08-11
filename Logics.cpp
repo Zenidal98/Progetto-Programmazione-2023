@@ -18,12 +18,14 @@ Logics::Logics() {
     //            (WINDOW, x, y, ch,  hp, dam, hard);
     e = new enemy(playwin, 1, 1, 'e', 100, 10, true);
     // Player      (window, x, y, char,hp, sc,jf,jh,dst,pow,bd,pd,coin, sp)
-    p = new Player(playwin, 1, 1, 'P', 100, 0, 1, 4, 1, 1, 1, 0, 0, '\0');
+    p = new Player(playwin, 1, 1, 'P', 100, 0, 1, 4, 1, 1, 50, 0, 0, '\0');
     srand(time(NULL));
     char letters[] = "dcrg";
     char x = letters[rand() % 4];
     // el = new elements(playwin, rand()%yMax+1, rand()%xMax+1, x);
     el = new elements(playwin, 48, 18, x);
+
+
 }
 
 void Logics::start(){
@@ -39,54 +41,28 @@ void Logics::start(){
     // mostra elements
     el->display();
 
-    // senza check_melee funziona
     nodelay(playwin, true);
-    // con questo si muove strano ma si muove
-    // nodelay(stdscr, true);
+
     //ciclo di movimento e cose
     while(true && end == false){
-        e->movement();
-        p->getinput();
-        if(p->getinput() == 'd'){
+        if(e != NULL)
+            e->movement();
+        int key = p->getinput();
+        if(key == 'd'){
             check_melee();
         }
-        p->display();
-        // wprintw(statwin, "\nEnemy hit!");
-        // wrefresh(statwin);
-        // check_melee();
 
-        // funziona
-        check_upgrades();
-        // funziona
-        // check_damage();
-        // non funziona
-        // check_melee();
-
-        wrefresh(playwin);
-    }
-
-    /* il contrario, check_melee funziona ma per il movimento devo tenere premuto
-    while (true && end == false) {
-        e->movement();
-
-        // Get the input without waiting
-        int key = wgetch(playwin);
-
-        if (key != ERR) {
-            if (key == 'd') {
-                check_melee();
-            }
-            else
-                p->getinput();
+        if(key == 's'){
+            check_shoot();
         }
 
         p->display();
+
         check_upgrades();
+        check_damage();
+
         wrefresh(playwin);
     }
-    */
-
-
 }
 
 void Logics::check_upgrades(){
@@ -123,32 +99,33 @@ void Logics::check_damage(){
 }
 
 void Logics::check_melee(){
-
-    wprintw(statwin, "\nEnemy hit!");
-    wrefresh(statwin);
-
-    /*
     int distance = abs(p->getX()-e->getX());
-    wprintw(statwin, "\nEnemy hit!");
-    int key = wgetch(playwin);
-    // int key = wgetch(stdscr);
-    if(key == 'd'){
-        wprintw(statwin, "\nEnemy hit!");
+    if(distance <= 2){
+        e->takeDamage(p->getDamage());
+        wprintw(statwin, "\nEnemy hit, Health: %d!", e->getHealth());
         wrefresh(statwin);
-        if(distance <= 2){
-            e->takeDamage(p->getDamage());
-            wprintw(statwin, "\nEnemy hit!");
-            wrefresh(statwin);
-            // morte nemico?
+        // morte enemy 
+        if(e->getHealth() <= 0){
+            mvwaddch(playwin, e->getY(), e->getX(), ' ');
+            wrefresh(playwin);
+
+            // Erase pointer
+            delete(e);
+            e = nullptr;
         }
     }
     else
         return;
-    */
 }
 
 void Logics::gameOver(){
     mvaddch(p->getY(), p->getX(), ' ');
     wrefresh(playwin);
     end = true;
+}
+
+void Logics::check_shoot(){
+    // bullet(      WINDOW,  x, y, char, damage)
+    sh = new Bullet(playwin, p->getX()+1, p->getY(), '-', 10);
+    sh->Fire(sh->getX(), sh->getY());
 }
