@@ -42,6 +42,8 @@ room::pRL room::generateRoomStruct(pRL oldStage){
 room::pRL room::generateRoom(pRL newStage ){
 //10 stanze + 1 market + 1 starting level
 // qui devo capire come salvare e caricare le stanze
+	if((roomID%5)==0){showmarket()}
+	else{
 	switch(stage->roomType){
 		case 0:      //starting level
 		{
@@ -124,6 +126,7 @@ room::pRL room::generateRoom(pRL newStage ){
 			mvwhline(currentWin, 8, 20, floor, 4);
 		}
 		break;
+	}
 	}
 
 			
