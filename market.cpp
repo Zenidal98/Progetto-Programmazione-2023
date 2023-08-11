@@ -5,10 +5,16 @@ Note: -Bisogna capire dove va visto che usa un sacco di attributi di classi dive
 #include<elements.h>
 #include<weapons.h>
 #include<player.h>
-
+#define floor '='
 void showmarket(int roomID) {
     clear();  // Cancella lo schermo
-  
+
+
+    mvprintw(20,1,floor,30);
+    mvprintw(20,5,"|               |");
+    mvprintw(19,6,"|               |"); 
+    mvprintw(18,6," /             \ ");
+    mvprintw(17,6,"  _____________  ");
     // Le slide richiedono 3 opzioni: vita, poteri e armi
     WINDOW *healthWin = newwin(10, 20, 5, 5);  
     WINDOW *powerWin = newwin(10, 20, 5, 30); 
