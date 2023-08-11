@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <cmath>
-
+#include "room.h"
 Logics::Logics() {
     bool isCollected = false;
     int yMax, xMax;
@@ -128,4 +128,12 @@ void Logics::check_shoot(){
     // bullet(      WINDOW,  x, y, char, damage)
     sh = new Bullet(playwin, p->getX()+1, p->getY(), '-', 10);
     sh->Fire(sh->getX(), sh->getY());
+}
+
+
+void Logics:teleportpower(){
+	room::teleportpowerRoom();
+
+
+
 }

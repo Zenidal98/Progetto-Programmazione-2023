@@ -1,7 +1,7 @@
-  #include specialpowers.h
-  #include enemy.h              //serve per takedamage
-
-specialpowers::specialpowers(int x, int y, char type){       //i tipi sono b,d,
+  #include "specialpowers.h"
+  #include "enemy.h"            //serve per takedamage
+  #include "Logics.h"
+specialpowers::specialpowers(int x, int y, char type){       //i tipi sono b,d,s
     this->x=x;
     this->y=y;
     this->type=type;
@@ -13,17 +13,33 @@ void touch(){
             specialpowers::bomb(); 
         } else if(specialpowers.char=='d'){
             specialpowers::damageup();
+        } else if(specialpowers.char=='t'){
+            specialpowers::teleport();
         }
         mvaddch(WINDOW*map,y,x,' ');             //libero quel pezzetto. Forse non basta o crea problemi, da tenere in considerazione
     }
 
-void specialpowers::bomb(){
+/**void specialpowers::bomb(){
     for //each enemy in a room
         {                                        //fa come takedamage ma con un danno altissimo, in modo da ucciderli tutti sicuro 
-         takedamage(10000000);
+         enemy.health=0;
     }
-}
+}**/
 
 void specialpowers::damageup(){
     player.bonusdamage=player.bonusdamage*1,5;  //aumenta il danno bonus del player. Questo sommato al danno arma è il danno totale.
+      
+
+      }
+void specialpowers::damagedown(){
+    player.bonusdamage=player.bonusdamage/1,5;
+      }
+void specialpowers::teleport(){                   //teletrasporta il giocatore in una nuova stanza
+	Logics::teleportpower();
+       
+
 }
+ 
+
+    
+

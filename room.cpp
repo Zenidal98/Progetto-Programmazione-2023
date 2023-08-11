@@ -148,3 +148,21 @@ room::pRL room::spawnMarket(pRL marketPosition){
 }
 
 
+// void room::teleportpowerRoom(){
+// int p = 1;
+// 	for(int i=0;i<3;i++){
+//		if(isRoomCreated(roomID+p)){
+//                p++;}
+//		else{
+//              metodipercrearestruct*
+//              p++;}
+// 	}
+//	player display  (30,1)		
+//      
+//
+//
+//
+
+
+
+
