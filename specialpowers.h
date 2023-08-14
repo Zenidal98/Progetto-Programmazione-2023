@@ -17,6 +17,9 @@ public:
 
    void damageup();                //aumenta il danno bonus
 
+   void damagedown();              //funzione che riporta il danno a prima di damageup. Serve per riportare le cose alla normalità dopo il bonus
+
+   void invincible();              //invulnerabilità per una stanza, il più raro        
 }
 
 #endif specialpowers.h
