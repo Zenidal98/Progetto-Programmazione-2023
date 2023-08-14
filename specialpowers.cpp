@@ -34,11 +34,12 @@ void specialpowers::damageup(){
 void specialpowers::damagedown(){
     player.bonusdamage=player.bonusdamage/1,5;
       }
+
 void specialpowers::teleport(){                   //teletrasporta il giocatore in una nuova stanza
 	Logics::teleportpower();
-       
-
 }
+
+
  
 
     
