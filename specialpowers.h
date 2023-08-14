@@ -1,8 +1,8 @@
 #ifndef specialpowers.h
 #define specialpowers.h
 
-class specialpowers{                     // classe usata per definire i poteri speciali del player, il quale può comprarne uno nel market, può
-                                         // tenerne solo uno e può attivarlo con un tasto dedicato ossia 'x'.
+class specialpowers{                // classe usata per definire i poteri speciali del player, il quale può comprarne uno nel market, può
+                                    // tenerne solo uno e può attivarlo con un tasto dedicato ossia 'x'.
 private:
    int x;
    int y;
