@@ -1,7 +1,7 @@
   #include "specialpowers.h"
   #include "enemy.h"            //serve per takedamage
   #include "Logics.h"
-specialpowers::specialpowers(int x, int y, char type){       //i tipi sono b,d,s
+specialpowers::specialpowers(int x, int y, char type){       //i tipi sono d,t,i
     this->x=x;
     this->y=y;
     this->type=type;
@@ -9,29 +9,35 @@ specialpowers::specialpowers(int x, int y, char type){       //i tipi sono b,d,s
 
 void touch(){
     if((player.x==specialpowers.x)&&(player.y==specialpowers.y)){
-        if(specialpowers.char=='b'){                               //check sul tipo di collezionabile raccolto
-            specialpowers::bomb(); 
-        } else if(specialpowers.char=='d'){
-            specialpowers::damageup();
+        if(specialpowers.char=='d'){                               //il potere va nello slot carattere singolo di player
+            player.sp='d';
         } else if(specialpowers.char=='t'){
-            specialpowers::teleport();
+            player.sp='t'
+        } else if(specialpowers.char=='i'){
+            player.sp='i';
         }
         mvaddch(WINDOW*map,y,x,' ');             //libero quel pezzetto. Forse non basta o crea problemi, da tenere in considerazione
     }
 
-/**void specialpowers::bomb(){
-    for //each enemy in a room
-        {                                        //fa come takedamage ma con un danno altissimo, in modo da ucciderli tutti sicuro 
-         enemy.health=0;
-    }
-}**/
+void poweractivation(){                          //funzione che attiva gli specialpowers. Forse va messa nel main e basta.
+     char getinput = getch();
+     if (getinput=='x'){
+         if (player.sp='d'){
+         specialpowers::damageup();
+	 }
+         if (player.sp='t'){ 
+         specialpowers::teleport();
+	 }
+         if (player.sp='i'){
+         specialpowers::invincible();
+	 }
+
 
 void specialpowers::damageup(){
     player.bonusdamage=player.bonusdamage*1,5;  //aumenta il danno bonus del player. Questo sommato al danno arma è il danno totale.
-      
-
       }
-void specialpowers::damagedown(){
+
+void specialpowers::damagedown(){                //legata a damagedown
     player.bonusdamage=player.bonusdamage/1,5;
       }
 
@@ -39,6 +45,14 @@ void specialpowers::teleport(){                   //teletrasporta il giocatore i
 	Logics::teleportpower();
 }
 
+void specialpowers::invincible(){
+       //check sulla stanza
+	if(isinvincible==true){
+            player.hp=
+       
+       
+       
+	
 
  
 
