@@ -45,11 +45,13 @@ void specialpowers::teleport(){                   //teletrasporta il giocatore i
 	Logics::teleportpower();
 }
 
-void specialpowers::invincible(){
-       //check sulla stanza
-	if(isinvincible==true){
-            player.hp=
-       
+void specialpowers::invincible(){                //Idea: salvo gli hp che ho al momento di invincible e l'id della stanza
+       int invinciblelhp=player.hp;              //Finchè l'id non cambia ossia finchè sono lì, gli hp rimangono quelli che erano al momento
+       int invincibleroomID=roomID;              //dell'attivazione del potere. Probabile errore su roomID. 
+	while(invincibleroomID==roomID){
+            player.hp=invinciblehp;
+	}
+}
        
        
 	
