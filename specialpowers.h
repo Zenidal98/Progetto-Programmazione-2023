@@ -13,7 +13,7 @@ public:
 
    void touch();                   //funzione che si attiva sempre quando il player tocca un elemento.
 
-   void poweractivation();              //serve a dare l'effetto desiderato quando si preme 'x'. Si potrebbe togliere e mettere nel main ?
+   void poweractivation();         //serve a dare l'effetto desiderato quando si preme 'x'. Si potrebbe togliere e mettere nel main ?
 
    void damageup();                //aumenta il danno bonus
 
