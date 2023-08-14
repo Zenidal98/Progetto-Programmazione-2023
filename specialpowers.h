@@ -1,8 +1,8 @@
 #ifndef specialpowers.h
 #define specialpowers.h
 
-class specialpowers{                     // classe usata per definire poteri speciali. Il player può comprarne uno nel market, può
-                                         // tenerne solo uno e può attivarlo con un tasto dedicato.
+class specialpowers : public player{      // sottoclasse usata per definire i poteri speciali del player, il quale può comprarne uno nel market, può
+                                         // tenerne solo uno e può attivarlo con un tasto dedicato ossia 'x'.
 private:
    int x;
    int y;
@@ -12,6 +12,8 @@ public:
    specialpowers(int x, int y, char type);
 
    void touch();                   //funzione che si attiva sempre quando il player tocca un elemento.
+
+   void activation();              //serve a dare l'effetto desiderato quando si preme 'x'. Si potrebbe togliere e mettere nel main ?
 
    void damageup();                //aumenta il danno bonus
 
