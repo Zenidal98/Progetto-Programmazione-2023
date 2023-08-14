@@ -12,12 +12,12 @@ public:
    specialpowers(int x, int y, char type);
 
    void touch();                   //funzione che si attiva sempre quando il player tocca un elemento.
-   
-   void bomb();                    //uccide tutti i nemici in una stanza
 
    void damageup();                //aumenta il danno bonus
 
    void damagedown();              //funzione che riporta il danno a prima di damageup. Serve per riportare le cose alla normalità dopo il bonus
+
+   void teleport();                //teletrasporta in un'altra stanza
 
    void invincible();              //invulnerabilità per una stanza, il più raro        
 }
