@@ -1,23 +1,22 @@
   #include "specialpowers.h"
   #include "enemy.h"            //serve per takedamage
   #include "Logics.h"
-specialpowers::specialpowers(int x, int y, char type){       //i tipi sono d,t,i
-    this->x=x;
-    this->y=y;
+specialpowers::specialpowers(int cost, char type){       //i tipi sono d,t,i
+    this->cost=cost
     this->type=type;
 }
 
-void touch(){
-    if((player.x==specialpowers.x)&&(player.y==specialpowers.y)){
-        if(specialpowers.char=='d'){                               //il potere va nello slot carattere singolo di player
-            player.sp='d';
-        } else if(specialpowers.char=='t'){
-            player.sp='t'
-        } else if(specialpowers.char=='i'){
-            player.sp='i';
-        }
-        mvaddch(WINDOW*map,y,x,' ');             //libero quel pezzetto. Forse non basta o crea problemi, da tenere in considerazione
+void specialpowers::buyspecialpowers(char type){
+    if(player.gold >= this->cost){                    //se si ha abbastanza gold si può comprare
+        if(this->type=='d'){                          //comprare la pistola
+          player.sp='d';
+        } else if(this->type=='t'){                   //comprare il fucile
+          player.sp='t';
+        } else if(this->type=='i'){                   //comprare il lanciarazzi
+          player.sp='i';
+        }                  
     }
+}
 
 void poweractivation(){                          //funzione che attiva gli specialpowers. Forse va messa nel main e basta.
      char getinput = getch();
@@ -53,8 +52,8 @@ void specialpowers::invincible(){                //Idea: salvo gli hp che ho al 
 	}
 }
        
-       
-	
+ 
+
 
  
 
