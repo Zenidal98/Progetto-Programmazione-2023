@@ -92,7 +92,7 @@ void showmarket(int roomID) {
         case 'p':                       // Compra il potere se non ne ha già uno
         if(player.coins>=powerprice){
         player.coins=player.coins-powerprice;
-      //assegna il potere al player. Troppe cose da decidere per scriverlo adesso
+        specialpowers::buyspecialpowers(powername2);
           
             break;
         case 'w':                       // Compra l'arma che va a sostituire il potere base del player
