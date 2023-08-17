@@ -8,7 +8,6 @@
 #include "room.h"
 #include "specialpowers.h"
 Logics::Logics() {
-    bool isCollected = false;
     int yMax, xMax;
     getmaxyx(stdscr, yMax, xMax);
     playwin = newwin(20, 50, (yMax / 2) - 10, 10);
@@ -21,12 +20,6 @@ Logics::Logics() {
     // Player      (window, x, y, char,hp, sc,jf,jh,dst,pow,bd,pd,coin, sp)
     p = new Player(playwin, 1, 1, 'P', 100, 0, 1, 4, 1, 1, 50, 0, 0, '\0');
     srand(time(NULL));
-    char letters[] = "dcrg";
-    char x = letters[rand() % 4];
-    // el = new elements(playwin, rand()%yMax+1, rand()%xMax+1, x);
-    el = new elements(playwin, 48, 18, x);
-
-
 }
 
 void Logics::start(){
@@ -38,9 +31,6 @@ void Logics::start(){
     box(statwin, 0, 0);
     mvwprintw(statwin, 1, 1, "Health: %d", p->health);
     wrefresh(statwin);
-    
-    // mostra elements
-    el->display();
 
     nodelay(playwin, true);
 
@@ -58,31 +48,13 @@ void Logics::start(){
         }
 
         p->display();
-
-        check_upgrades();
+	    
         check_damage();
 
         wrefresh(playwin);
     }
 }
 
-void Logics::check_upgrades(){
-    if(!isCollected && (p->getX() == el->getX()) && (p->getY() == el->getY())){
-        wprintw(statwin, "\nPower up!!");
-        wrefresh(statwin);
-        el->touch();
-
-        // Erase the element from the screen
-        mvwaddch(playwin, el->getY(), el->getX(), ' ');
-        wrefresh(playwin);
-
-        // Erase pointer
-        delete(el);
-        el = nullptr;
-
-        isCollected = true;
-    }
-}
 
 void Logics::check_damage(){
     if((p->getX() == e->getX()) && (p->getY() == e->getY())){
