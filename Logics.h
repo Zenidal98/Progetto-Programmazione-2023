@@ -13,7 +13,6 @@ class Logics {
         WINDOW* statwin;
         enemy* e;
         Player* p;
-        elements* el;
         Bullet* sh;
         bool end = false;
 
@@ -23,9 +22,6 @@ class Logics {
 
         // inizializza tutto
         void start();
-
-        // controlla se player è finito su elements
-        void check_upgrades();
 
         // controlla se player ha preso danno
         void check_damage();
