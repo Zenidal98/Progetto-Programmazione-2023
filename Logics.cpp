@@ -6,6 +6,7 @@
 #include <ctime>
 #include <cmath>
 #include "room.h"
+#include "specialpowers.h"
 Logics::Logics() {
     bool isCollected = false;
     int yMax, xMax;
@@ -85,17 +86,18 @@ void Logics::check_upgrades(){
 
 void Logics::check_damage(){
     if((p->getX() == e->getX()) && (p->getY() == e->getY())){
-        p->minusHealth(e->getDamage());
-
-        wprintw(statwin, "\n%d Damage taken!", e->getDamage());
-        wrefresh(statwin);
-        wprintw(statwin, "\nHealth: %d", p->health);
-        wrefresh(statwin);
-
-        if(p->health <= 0)
-            gameOver();
-
-    }
+	if (specialpowers::inv==false){
+		p->minusHealth(e->getDamage());
+		wprintw(statwin, "\n%d Damage taken!", e->getDamage());
+		wrefresh(statwin);
+		wprintw(statwin, "\nHealth: %d", p->health);
+		wrefresh(statwin);
+		if(p->health <= 0)
+		gameOver();
+	}
+    }else{
+		wprintw(statwin,"\n You are invicible!");
+	}
 }
 
 void Logics::check_melee(){
@@ -134,6 +136,14 @@ void Logics::check_shoot(){
 void Logics:teleportpower(){
 	room::teleportpowerRoom();
 
+
+
+}
+
+int invRID ;
+void Logics::invPower(){
+	invRID = room::roomID;
+	
 
 
 }

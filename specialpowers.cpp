@@ -19,18 +19,18 @@ void specialpowers::buyspecialpowers(char type){
 }
 
 void poweractivation(){                          //funzione che attiva gli specialpowers. Forse va messa nel main e basta.
-     char getinput = getch();
-     if (getinput=='x'){
-         if (player.sp='d'){
-         specialpowers::damageup();
-	 }
-         if (player.sp='t'){ 
-         specialpowers::teleport();
-	 }
-         if (player.sp='i'){
-         specialpowers::invincible();
-	 }
-
+	if (wgetch(curwin)=='x'){
+		if (player.sp='d'){
+        	specialpowers::damageup();
+		}
+        	if (player.sp='t'){ 
+        	specialpowers::teleport();
+		}
+        	if (player.sp='i'){
+        	specialpowers::invincible();
+		}
+	}
+}
 
 void specialpowers::damageup(){
     player.bonusdamage=player.bonusdamage*1,5;  //aumenta il danno bonus del player. Questo sommato al danno arma è il danno totale.
@@ -45,17 +45,15 @@ void specialpowers::teleport(){                   //teletrasporta il giocatore i
 }
 
 void specialpowers::invincible(){                //Idea: salvo gli hp che ho al momento di invincible e l'id della stanza
-       int invinciblelhp=player.hp;              //Finchè l'id non cambia ossia finchè sono lì, gli hp rimangono quelli che erano al momento
-       int invincibleroomID=roomID;              //dell'attivazione del potere. Probabile errore su roomID. 
-	while(invincibleroomID==roomID){
-            player.hp=invinciblehp;
-	}
+              //dell'attivazione del potere. Probabile errore su roomID. 
+//	while(invincibleroomID==roomID){
+//            player.hp=invinciblehp;
+//	}
+	inv = true;
+	Logics::invPower();
 }
        
  
+bool inv = false;
 
-
- 
-
-    
-
+  

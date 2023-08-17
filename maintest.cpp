@@ -1,3 +1,4 @@
+
 #include "player.h"
 #include "room.h"
 #include "enemy.h"
@@ -23,8 +24,12 @@ void teleport(){
 
 void goNextRoom(pRL oldStage){
 pRL newStage = oldStage->next;
+//if(stanzanoncreata
+room::pRL pippo=room::generateRoomStruct(pRL oldStage);
 room::generateRoom(newStage);
 teleport();
+//cambio valori
+//inv = false;
 enemySpawn(newStage);	
 elementSpawn(newStage);
 }
