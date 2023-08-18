@@ -18,7 +18,7 @@ srand(time(NULL));
 
 void teleport(){
 	Player::xLoc = 1;
-	Player::yLoc = 1;
+	Player::yLoc = 30;
 	Player::display();
 }
 

@@ -12,25 +12,31 @@ room::pRL room::initRoomList(){
 	pRL head = new roomList;
 	head->roomID = 0;
 	head->roomType = 0;        //Codice 0 Starting Level
+	head->alreadyBuilt=true;
 	head->next = s;
 	head->prev = head;         //testa circolare
 	s->prev = head;
 	s->roomID = 1;
 	s->roomType = 1;           //Codice 1 Market
+	s->alreadyBuilt=true;
 	s->next = t;
 	t->prev = s;
 	t->roomID = 2;
 	t->roomType =((rand()%10)+2);
+	t->alreadyBuilt=true;
        	t->next = NULL;
 	return head;
 }
 room::pRL room::generateRoomStruct(pRL oldStage){
-	pRL p = new roomList;
-	stage->next = p;
-	p->prev = oldStage;
-	p->roomID = (oldStage->roomID)+1;
-	p->roomType = (rand()%10+1);
-	p->next = NULL;
+	if(alreadyBuilt==false){
+		pRL p = new roomList;
+		oldStage->next = p;
+		p->prev = oldStage;
+		p->roomID = (oldStage->roomID)+1;
+		p->roomType = (rand()%10+1);
+		p->next = NULL;
+	}
+	alreadyBuilt=true;
 	return p;
 }
 void room::generateRoom(pRL newStage ){
@@ -148,20 +154,26 @@ room::pRL room::spawnMarket(pRL marketPosition){
 }
 
 
-// void room::teleportpowerRoom(){
-// int p = 1;
-// 	for(int i=0;i<3;i++){
-//		if(isRoomCreated(roomID+p)){
-//                p++;}
-//		else{
-//              metodipercrearestruct*
-//              p++;}
-// 	}
-//	player display  (30,1)		
-//      
-//
-//
-//
+
+void room::teleportpowerRoom(pRL Stage){
+p=Stage;
+for(int i=0;i<3;i++){
+	if(Stage->next->alreadyBuilt){
+	p=Stage->next;
+	}
+	else{
+	p=generateRoomStruct(Stage);
+	Stage->next=p;
+	}
+}
+Player::xLoc = 1;
+Player::yLoc = 30;
+Player::display();
+}
+
+
+
+
 
 
 
