@@ -5,8 +5,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <cmath>
-#include "room.h"
-#include "specialpowers.h"
+// #include "room.h"
+// #include "specialpowers.h"
 Logics::Logics() {
     int yMax, xMax;
     getmaxyx(stdscr, yMax, xMax);
@@ -58,7 +58,7 @@ void Logics::start(){
 
 void Logics::check_damage(){
     if((p->getX() == e->getX()) && (p->getY() == e->getY())){
-	if (specialpowers::inv==false){
+	//if (specialpowers::inv==false){
 		p->minusHealth(e->getDamage());
 		wprintw(statwin, "\n%d Damage taken!", e->getDamage());
 		wrefresh(statwin);
@@ -67,9 +67,9 @@ void Logics::check_damage(){
 		if(p->health <= 0)
 		gameOver();
 	}
-    }else{
-		wprintw(statwin,"\n You are invicible!");
-	}
+    //}else{
+	//	wprintw(statwin,"\n You are invicible!");
+	//}
 }
 
 void Logics::check_melee(){
@@ -101,10 +101,12 @@ void Logics::gameOver(){
 void Logics::check_shoot(){
     // bullet(      WINDOW,  x, y, char, damage)
     sh = new Bullet(playwin, p->getX()+1, p->getY(), '-', 10);
-    sh->Fire(sh->getX(), sh->getY());
+    sh->Fire(sh->getY(), sh->getX());
+    delete(sh);
+    sh = nullptr;
 }
 
-
+/*
 void Logics:teleportpower(){
 	room::teleportpowerRoom();
 
@@ -119,3 +121,4 @@ void Logics::invPower(){
 
 
 }
+*/
