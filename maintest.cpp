@@ -24,12 +24,10 @@ void teleport(){
 
 void goNextRoom(pRL oldStage){
 pRL newStage = oldStage->next;
-//if(stanzanoncreata
 room::pRL pippo=room::generateRoomStruct(pRL oldStage);
 room::generateRoom(newStage);
 teleport();
-//cambio valori
-//inv = false;
+Logics::inv = false;
 enemySpawn(newStage);	
 elementSpawn(newStage);
 }
@@ -43,14 +41,6 @@ enemySpawn(newStage);
 elementSpawn(newStage);
    }
 }
-
-struct enemylist(enemy* ptrenemy){           //serve un check isenemydead e che riaggiorni lo schermo togliendoli
-enemylist* next;
-//enemy value;         c'e' modo per farne una unica tra tutti i tipi di nemico?
-	
-};
-
-
 
 char randomizeElementType(){
 	int i =rand()%3;
@@ -99,7 +89,6 @@ void enemySpawn(pRL stage){
 		for(int i=0, i<2,i++){
 			easyenemy::easyenemy(rand()%29+1,rand()%29+1);
 			easyenemy::display();
-			enemylist = new enemylist;
 		}	
 	}
 	if(stage->roomID>3 && stage->roomID<=5){
