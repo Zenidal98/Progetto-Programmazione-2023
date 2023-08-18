@@ -146,13 +146,13 @@ void room::gameOver(){
     mvprintw(16,25,"/ /_/ / | |/ // /___ / _, _/ ");
     mvprintw(17,25,"\\____/  |___//_____//_/ |_|  ");
 }
-   
+/*   
 room::pRL room::spawnMarket(pRL marketPosition){
-	//da capire come fare un tasto per interactare
+	//vecchia idea, potrebbe essere riusata
         
 
 }
-
+*/
 
 
 void room::teleportpowerRoom(pRL Stage){
