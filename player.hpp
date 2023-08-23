@@ -1,11 +1,11 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef player.hpp
+#define player.hpp
 
 // dove mettere gameover?
 #pragma once
 #include <ncurses.h>
 
-class Player{
+class player{
     private:
         int xLoc, yLoc, xMax, yMax;
         int score;
