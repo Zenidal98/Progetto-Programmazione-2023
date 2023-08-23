@@ -1,5 +1,5 @@
-#include "bullet.h"
-#include "enemy.h"
+#include "bullet.hpp"
+#include "enemy.hpp"
 
 Bullet::Bullet(WINDOW *win, int x, int y, char c, int d){
     curwin = win;
