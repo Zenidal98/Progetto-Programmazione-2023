@@ -1,4 +1,4 @@
-#include "elements.h"         
+#include "elements.hpp"         
 
 //i tipi sono d, c, r, g ossia drink, cherry, rock, gold
 elements::elements(WINDOW *win, int x, int y, char type){       
