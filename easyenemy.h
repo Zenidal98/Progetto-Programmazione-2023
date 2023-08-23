@@ -1,6 +1,6 @@
 
-#ifndef easyenemy.h
-#define easyenemy.h
+#ifndef easyenemy.hpp
+#define easyenemy.hpp
 
 class easyenemy: public enemy {
 private:
