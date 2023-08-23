@@ -1,13 +1,13 @@
 #include <ncurses.h>
 // includere tutto quello che serve
-#include "Logics.h"
+#include "logics.h"
 //srand
 #include <cstdlib>
 #include <ctime>
 #include <cmath>
 // #include "room.h"
 // #include "specialpowers.h"
-Logics::Logics() {
+logics::logics() {
     int yMax, xMax;
     getmaxyx(stdscr, yMax, xMax);
     playwin = newwin(20, 50, (yMax / 2) - 10, 10);
@@ -22,7 +22,7 @@ Logics::Logics() {
     srand(time(NULL));
 }
 
-void Logics::start(){
+void logics::start(){
     // mappa
     box(playwin, 0, 0);
     wrefresh(playwin);
@@ -56,7 +56,7 @@ void Logics::start(){
 }
 
 
-void Logics::check_damage(){
+void logics::check_damage(){
     if((p->getX() == e->getX()) && (p->getY() == e->getY())){
 	//if (specialpowers::inv==false){
 		p->minusHealth(e->getDamage());
@@ -72,7 +72,7 @@ void Logics::check_damage(){
 	//}
 }
 
-void Logics::check_melee(){
+void logics::check_melee(){
     int distance = abs(p->getX()-e->getX());
     if(distance <= 2){
         e->takeDamage(p->getDamage());
@@ -92,13 +92,13 @@ void Logics::check_melee(){
         return;
 }
 
-void Logics::gameOver(){
+void logics::gameOver(){
     mvaddch(p->getY(), p->getX(), ' ');
     wrefresh(playwin);
     end = true;
 }
 
-void Logics::check_shoot(){
+void logics::check_shoot(){
     // bullet(      WINDOW,  x, y, char, damage)
     sh = new Bullet(playwin, p->getX()+1, p->getY(), '-', 10);
     sh->Fire(sh->getY(), sh->getX());
@@ -107,7 +107,7 @@ void Logics::check_shoot(){
 }
 
 /*
-void Logics:teleportpower(){
+void logics:teleportpower(){
 	room::teleportpowerRoom();
 
 
