@@ -18,6 +18,24 @@ enemy::enemy(WINDOW *win, int x, int y, char c, int health, int damage, bool har
     }
 }
 
+easyenemy::enemy(int x, int y, char c) {
+        this->x = x;
+        this->y = y;
+        this->c = c
+    }
+
+mediumenemy::enemy(int x, int y, char c) {
+        this->x = x;
+        this->y = y;
+        this->c = c
+    }
+
+hardenemy::enemy(int x, int y, char c) {
+        this->x = x;
+        this->y = y;
+        this->c = c
+    }
+
 // inserire in Controller?
 /*
 void enemy::increasehealth(int plush){      //vuol dire plus health
