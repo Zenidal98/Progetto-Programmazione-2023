@@ -1,14 +1,14 @@
 
-#include "player.h"
-#include "room.h"
-#include "enemy.h"
-#include "bullet.h"
-#include "easyenemy.h"
-#include "mediumenemy.h"
-#include "hardenemy.h"
-#include "elements.h"
-#include "specialpowers.h"
-#include "weapons.h"
+#include "player.hpp"
+#include "room.hpp"
+#include "enemy.hpp"
+#include "bullet.hpp"
+#include "easyenemy.hpp"
+#include "mediumenemy.hpp"
+#include "hardenemy.hpp"
+#include "elements.hpp"
+#include "specialpowers.hpp"
+#include "weapons.hpp"
 #include <ncurses.h>
 #include <cmath>
 
