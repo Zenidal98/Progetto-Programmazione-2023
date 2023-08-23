@@ -1,4 +1,4 @@
-#include "gravity.h"
+#include "gravity.hpp"
 
 Gravity::Gravity(WINDOW *win, int x, int y, char c){
     curwin = win;
