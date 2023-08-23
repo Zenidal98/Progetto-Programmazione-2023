@@ -1,6 +1,6 @@
 #include <ncurses.h>
 // includere tutto quello che serve
-#include "logics.h"
+#include "logics.hpp"
 //srand
 #include <cstdlib>
 #include <ctime>
