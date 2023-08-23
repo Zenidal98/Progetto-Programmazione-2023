@@ -44,8 +44,7 @@ int health=10;
 int damage=3;
 
 public:
-easyenemy(int x, int y, char #)::easyenemy(x,y,#);  //dubbio sul come si strutturino le sottoclassi e i loro metodi im n .h e .cpp
-
+easyenemy(int x, int y, char c, WINDOW *win)::easyenemy(x,y,c,win);  //dubbio sul come si strutturino le sottoclassi e i loro metodi im n .h e .cpp
 };
 
 
@@ -55,8 +54,7 @@ int health=20;
 int damage=6;
 
 public:
-mediumenemy(int x, int y, char #)::enemy(x,y,#);
-
+mediumenemy(int x, int y, char c, WINDOW *win)::enemy(x,y,c,win);
 };
 
 
@@ -66,8 +64,7 @@ int health=30;
 int damage=15;
 
 public:
-hardenemy(int x, int y, char #)::enemy(x,y,#);
-
+hardenemy(int x, int y, char c, WINDOW *win)::enemy(x,y,c,win);
 };
 
 
