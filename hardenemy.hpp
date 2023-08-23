@@ -1,5 +1,5 @@
-#ifndef hardenemy.h
-#define hardenemy.h
+#ifndef hardenemy.hpp
+#define hardenemy.hpp
 
 class hardenemy: public enemy {
 private:
