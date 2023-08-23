@@ -1,6 +1,6 @@
-  #include "specialpowers.h"
-  #include "enemy.h"            //serve per takedamage
-  #include "Logics.h"
+  #include "specialpowers.hpp"
+  #include "enemy.hpp"            //serve per takedamage
+  #include "Logics.hpp"
 specialpowers::specialpowers(int cost, char type){       //i tipi sono d,t,i
     this->cost=cost
     this->type=type;
