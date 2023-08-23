@@ -1,6 +1,6 @@
 #include "player.hpp"
 
-Player::Player(WINDOW *win, int y, int x, char c, int h=100, int s=0, int jf=1, int jh=1, int d=1, int p=1, int bd=1, int pd=0, int m=0, char sp='\0'){
+player::player(WINDOW *win, int y, int x, char c, int h=100, int s=0, int jf=1, int jh=1, int d=1, int p=1, int bd=1, int pd=0, int m=0, char sp='\0'){
 // Player::Player(WINDOW *win, int y, int x, char c){
     curwin = win;
     yLoc = y;
@@ -20,39 +20,39 @@ Player::Player(WINDOW *win, int y, int x, char c, int h=100, int s=0, int jf=1, 
     specialpower = sp;
 }
 
-int Player::getX(){
+int player::getX(){
     return xLoc;
 }
 
-int Player::getY(){
+int player::getY(){
     return yLoc;
 }
 
-int Player::getDamage(){
+int player::getDamage(){
     return baseDamage + plusDamage;
 }
 
-int Player::getCoins(){
+int player::getCoins(){
     return coins;
 }
 
-void Player::plusScore(int points){
+void player::plusScore(int points){
     score += points;
 }
 
-void Player::plusHealth(int hp){
+void player::plusHealth(int hp){
     health += hp;
 }
 
 // Gestire gameOver prima di implementare
-void Player::minusHealth(int hp){
+void player::minusHealth(int hp){
     health -= hp;
 
     // if(health = 0)
     //    gameOver = true;
 }
 
-void Player::gravity(){
+void player::gravity(){
     // ChatGPT code
     while(mvwinch(curwin, yLoc + 1, xLoc) == ' ') {
         mvdown();
@@ -69,7 +69,7 @@ void Player::gravity(){
     }*/
 }
 
-void Player::jump(){
+void player::jump(){
     int i, direction;
     // evitare che wgetch blocchi il salto --> modo di saltare diverso?
     nodelay(curwin, true);
@@ -100,35 +100,35 @@ void Player::jump(){
     }*/
 }
 
-void Player::mvup(){
+void player::mvup(){
     mvwaddch(curwin, yLoc, xLoc, ' ');
     yLoc--;
     if(yLoc < 1)
         yLoc = 1;
 }
 
-void Player::mvdown(){
+void player::mvdown(){
     mvwaddch(curwin, yLoc, xLoc, ' ');
     yLoc++;
     if(yLoc > yMax-2)
         yLoc = yMax-2;
 }
 
-void Player::mvleft(){
+void player::mvleft(){
     mvwaddch(curwin, yLoc, xLoc, ' ');
     xLoc--;
     if(xLoc < 1)
         xLoc = 1;
 }
 
-void Player::mvright(){
+void player::mvright(){
     mvwaddch(curwin, yLoc, xLoc, ' ');
     xLoc++;
     if(xLoc > xMax-2)
         xLoc = xMax-2;
 }
 
-int Player::getinput(){
+int player::getinput(){
     gravity();
     int choice = wgetch(curwin);
     switch(choice){
@@ -152,29 +152,29 @@ int Player::getinput(){
     return choice;
 }
 
-void Player::display(){
+void player::display(){
     mvwaddch(curwin, yLoc, xLoc, character);
     wrefresh(curwin);
 }
 
-void Player::distanceUp(int plusD){
+void player::distanceUp(int plusD){
     distance += plusD;
 }
 
-void Player::powerUp(int plusP){
+void player::powerUp(int plusP){
     power += plusP;
 }
 
 /*
 // gestire insieme ad enemy
-void Player::hitEnemy(){
-    Enemy.registerHit(power);
+void player::hitEnemy(){
+    enemy.registerHit(power);
 }*/
 
-void Player::plusMoney(int plusM){
+void player::plusMoney(int plusM){
     coins += plusM;
 }    
 
-void Player::minusMoney(int minusM){
+void player::minusMoney(int minusM){
     coins -= minusM;
 }
