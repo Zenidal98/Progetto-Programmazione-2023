@@ -21,7 +21,9 @@ public:
 
    void teleport();                //teletrasporta in un'altra stanza
 
-   void invincible();              //invulnerabilità per una stanza, il più raro        
+   void invincible();              //invulnerabilità per una stanza, il più raro   
+
+   void buyspecialpowers(char type);
 }
 
 #endif specialpowers.h
