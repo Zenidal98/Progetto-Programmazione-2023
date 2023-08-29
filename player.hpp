@@ -1,5 +1,5 @@
-#ifndef player.hpp
-#define player.hpp
+#ifndef PLAYER_HPP
+#define PLAYER_HPP
 
 // dove mettere gameover?
 #pragma once
