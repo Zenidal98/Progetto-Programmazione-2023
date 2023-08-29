@@ -12,22 +12,25 @@ enemy::enemy(WINDOW *win, int x, int y, char c) {           //funzione di spawn 
     keypad(win, true);
 }
 
-easyenemy::enemy(int x, int y, char c) {
+easyenemy::enemy(int x, int y, char c, WINDOW *win) {
         this->x = x;
         this->y = y;
         this->c = c;
+        this->WINDOW=*win;
     }
 
 mediumenemy::enemy(int x, int y, char c) {
         this->x = x;
         this->y = y;
         this->c = c;
+        this->WINDOW=*win;
     }
 
 hardenemy::enemy(int x, int y, char c) {
         this->x = x;
         this->y = y;
         this->c = c;
+        this->WINDOW=*win;
     }
 
 // inserire in Controller?
