@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <ctime>
     
-enemy::enemy(WINDOW *win, int x, int y, char c, int health, int damage, bool hard) {           //funzione di spawn ?
+enemy::enemy(WINDOW *win, int x, int y, char c, int health, int damage) {           //funzione di spawn ?
     this->x = x;
     this->y = y;
     this->c = c;
@@ -12,10 +12,6 @@ enemy::enemy(WINDOW *win, int x, int y, char c, int health, int damage, bool har
     this->win = win;
     getmaxyx(win, yMax, xMax);
     keypad(win, true);
-    if(hard){
-        health += 100;
-        damage += 1;
-    }
 }
 
 easyenemy::enemy(int x, int y, char c) {
@@ -107,8 +103,7 @@ int enemy::getDamage(){
 
 void enemy::movement(){     
     srand(time(NULL));               //imposto il seed per la generazione di numeri casuali                
-    
-    // per ora Gravity in Enemy -> poi implementa class Gravity    
+       
     // gravity
     while(mvwinch(win, y+1, x) == ' '){
         //mvdown
@@ -147,15 +142,5 @@ void enemy::display_enemy(){
         mvwaddch(win, y, x, c);
         wrefresh(win);
 }
-    /*
-    // check collisioni                                                        
-    if (new_y >= 1 && new_y < map.y-1 && new_x >= 1 && new_x < map.x -1) {       //da cambiare
-        mvwaddch(win, enemy_y, enemy_x, ' '); // Cancello il nemico dalla vecchia posizione
-        enemy_y = new_y;
-        enemy_x = new_x;
-        mvwaddch(win, enemy_y, enemy_x, '@'); // Disegno il nemico nella nuova posizione
-        wrefresh(win);
-    }
-    // Attendo per un breve periodo di tempo prima di eseguire un nuovo ciclo
-    napms(100); */
+
 
