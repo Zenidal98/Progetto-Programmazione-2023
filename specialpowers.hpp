@@ -24,6 +24,6 @@ public:
    void invincible();              //invulnerabilità per una stanza, il più raro   
 
    void buyspecialpowers(char type);
-}
+};
 
 #endif 
