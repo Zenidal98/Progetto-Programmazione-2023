@@ -15,19 +15,19 @@ enemy::enemy(WINDOW *win, int x, int y, char c) {           //funzione di spawn 
 easyenemy::enemy(int x, int y, char c) {
         this->x = x;
         this->y = y;
-        this->c = c
+        this->c = c;
     }
 
 mediumenemy::enemy(int x, int y, char c) {
         this->x = x;
         this->y = y;
-        this->c = c
+        this->c = c;
     }
 
 hardenemy::enemy(int x, int y, char c) {
         this->x = x;
         this->y = y;
-        this->c = c
+        this->c = c;
     }
 
 // inserire in Controller?
