@@ -42,8 +42,7 @@ int health=10;
 int damage=3;
 
 public:
-easyenemy(int x, int y, char c, WINDOW *win):enemy(x,y,c,win);
-};
+easyenemy(int x, int y, char c, WINDOW *win):enemy(x,y,c,win); };
 
 
 class mediumenemy: public enemy {
