@@ -3,12 +3,10 @@
 #include <cstdlib>
 #include <ctime>
     
-enemy::enemy(WINDOW *win, int x, int y, char c, int health, int damage) {           //funzione di spawn ?
+enemy::enemy(WINDOW *win, int x, int y, char c) {           //funzione di spawn ?
     this->x = x;
     this->y = y;
     this->c = c;
-    this->health = health;
-    this->damage = damage;
     this->win = win;
     getmaxyx(win, yMax, xMax);
     keypad(win, true);
