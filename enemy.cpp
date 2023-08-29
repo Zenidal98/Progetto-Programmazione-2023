@@ -21,18 +21,22 @@ easyenemy:enemy(x, y, c, *win) {
         this->damage=3;
     }
 
-mediumenemy::enemy(int x, int y, char c) {
+mediumenemy::enemy(x, y, c, *win) {
         this->x = x;
         this->y = y;
         this->c = c;
         this->WINDOW=*win;
+        this->health=20;
+        this->damage=6;
     }
 
-hardenemy::enemy(int x, int y, char c) {
+hardenemy::enemy(x, y, c, *win) {
         this->x = x;
         this->y = y;
         this->c = c;
         this->WINDOW=*win;
+        this->health=30;
+        this->damage=15;
     }
 
 // inserire in Controller?
