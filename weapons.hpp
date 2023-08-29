@@ -1,5 +1,5 @@
-#ifndef weapons.hpp                               //sono le armi da inserire nel livello market
-#define weapons.hpp
+#ifndef WEAPONS_HPP                               //sono le armi da inserire nel livello market
+#define WEAPONS_HPP
 
 class weapons {
 private:
