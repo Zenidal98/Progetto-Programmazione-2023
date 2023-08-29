@@ -9,10 +9,10 @@ protected:
         int health;
         int damage;
         WINDOW *win;
-        bool hard;
+        
 
 public:
-    enemy(WINDOW *win, int x, int y, char c, int health, int damage, bool hard);
+    enemy(WINDOW *win, int x, int y, char c, int health, int damage);
 
     int getX();
 
