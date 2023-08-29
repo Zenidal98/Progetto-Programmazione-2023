@@ -6,13 +6,11 @@ protected:
         int x, y;
         int xMax, yMax;
         char c;
-        int health;
-        int damage;
         WINDOW *win;
         
 
 public:
-    enemy(int x, int y, char c, int health, int damage, WINDOW *win);
+    enemy(int x, int y, char c, WINDOW *win);
 
     int getX();
 
