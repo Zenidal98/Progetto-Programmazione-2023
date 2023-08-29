@@ -12,7 +12,7 @@ protected:
         
 
 public:
-    enemy(WINDOW *win, int x, int y, char c, int health, int damage);
+    enemy(int x, int y, char c, int health, int damage, WINDOW *win);
 
     int getX();
 
@@ -39,7 +39,7 @@ public:
 };
 
 class easyenemy: public enemy {
-private:
+protected:
 int health=10;
 int damage=3;
 
@@ -49,7 +49,7 @@ easyenemy(int x, int y, char c, WINDOW *win)::enemy(x,y,c,win);  //dubbio sul co
 
 
 class mediumenemy: public enemy {
-private:
+protected:
 int health=20;
 int damage=6;
 
@@ -59,7 +59,7 @@ mediumenemy(int x, int y, char c, WINDOW *win)::enemy(x,y,c,win);
 
 
 class hardenemy: public enemy {
-private:
+protected:
 int health=30;
 int damage=15;
 
