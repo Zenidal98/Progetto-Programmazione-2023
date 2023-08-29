@@ -4,12 +4,11 @@
 class specialpowers{                // classe usata per definire i poteri speciali del player, il quale può comprarne uno nel market, può
                                     // tenerne solo uno e può attivarlo con un tasto dedicato ossia 'x'.
 private:
-   int x;
-   int y;
+   int cost;
    char type;
 
 public:
-   specialpowers(int x, int y, char type);
+   specialpowers(int cost, char type);
 
    void touch();                   //funzione che si attiva sempre quando il player tocca un elemento.
 
