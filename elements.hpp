@@ -6,7 +6,7 @@
 
 // classe usata per definire 3 buff del gioco (ciliegia, bibita, oro) e un debuff (sasso)
 
-class elements{                     
+class Elements{                     
     private:
         WINDOW *win;
         int x, xMax;
@@ -19,7 +19,7 @@ class elements{
         int points;
 
     public:
-        elements(WINDOW *win, int x, int y, char type);
+        Elements(WINDOW *win, int x, int y, char type);
 
         int getX();
 
