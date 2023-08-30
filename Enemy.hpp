@@ -31,9 +31,7 @@ public:
 
     void movement();
      
-    void drop_gold();
-     
-    void drop_points();
+    void deathdrop();
         
     void display_enemy();
 
