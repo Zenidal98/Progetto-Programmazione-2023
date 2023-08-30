@@ -6,7 +6,7 @@
 
 #include "bullet.hpp"
 
-class logics {
+class Logics {
     private:
         bool isCollected;
         WINDOW* playwin;
@@ -18,7 +18,7 @@ class logics {
 
     public:
         // setta i vari parametri -> capire cosa fare con enemy e elements
-        logics();
+        Logics();
 
         // inizializza tutto
         void start();
