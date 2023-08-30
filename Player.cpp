@@ -20,39 +20,39 @@ Player::Player(WINDOW *win, int y, int x, char c, int h=100, int s=0, int jf=1, 
     specialpower = sp;
 }
 
-int player::getX(){
+int Player::getX(){
     return xLoc;
 }
 
-int player::getY(){
+int Player::getY(){
     return yLoc;
 }
 
-int player::getDamage(){
+int Player::getDamage(){
     return baseDamage + plusDamage;
 }
 
-int player::getCoins(){
+int Player::getCoins(){
     return coins;
 }
 
-void player::plusScore(int points){
+void Player::plusScore(int points){
     score += points;
 }
 
-void player::plusHealth(int hp){
+void Player::plusHealth(int hp){
     health += hp;
 }
 
 // Gestire gameOver prima di implementare
-void player::minusHealth(int hp){
+void Player::minusHealth(int hp){
     health -= hp;
 
     // if(health = 0)
     //    gameOver = true;
 }
 
-void player::gravity(){
+void Player::gravity(){
     // ChatGPT code
     while(mvwinch(curwin, yLoc + 1, xLoc) == ' ') {
         mvdown();
@@ -69,7 +69,7 @@ void player::gravity(){
     }*/
 }
 
-void player::jump(){
+void Player::jump(){
     int i, direction;
     // evitare che wgetch blocchi il salto --> modo di saltare diverso?
     nodelay(curwin, true);
@@ -100,35 +100,35 @@ void player::jump(){
     }*/
 }
 
-void player::mvup(){
+void Player::mvup(){
     mvwaddch(curwin, yLoc, xLoc, ' ');
     yLoc--;
     if(yLoc < 1)
         yLoc = 1;
 }
 
-void player::mvdown(){
+void Player::mvdown(){
     mvwaddch(curwin, yLoc, xLoc, ' ');
     yLoc++;
     if(yLoc > yMax-2)
         yLoc = yMax-2;
 }
 
-void player::mvleft(){
+void Player::mvleft(){
     mvwaddch(curwin, yLoc, xLoc, ' ');
     xLoc--;
     if(xLoc < 1)
         xLoc = 1;
 }
 
-void player::mvright(){
+void Player::mvright(){
     mvwaddch(curwin, yLoc, xLoc, ' ');
     xLoc++;
     if(xLoc > xMax-2)
         xLoc = xMax-2;
 }
 
-int player::getinput(){
+int Player::getinput(){
     gravity();
     int choice = wgetch(curwin);
     switch(choice){
@@ -152,16 +152,16 @@ int player::getinput(){
     return choice;
 }
 
-void player::display(){
+void Player::display(){
     mvwaddch(curwin, yLoc, xLoc, character);
     wrefresh(curwin);
 }
 
-void player::distanceUp(int plusD){
+void Player::distanceUp(int plusD){
     distance += plusD;
 }
 
-void player::powerUp(int plusP){
+void Player::powerUp(int plusP){
     power += plusP;
 }
 
@@ -171,10 +171,10 @@ void player::hitEnemy(){
     enemy.registerHit(power);
 }*/
 
-void player::plusMoney(int plusM){
+void Player::plusMoney(int plusM){
     coins += plusM;
 }    
 
-void player::minusMoney(int minusM){
+void Player::minusMoney(int minusM){
     coins -= minusM;
 }
