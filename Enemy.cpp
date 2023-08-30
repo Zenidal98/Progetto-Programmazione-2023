@@ -40,29 +40,20 @@ Hardenemy::Enemy(x, y, c, *win) {
     }
 
 void Enemy::drop_gold(){
-    int drop=0;                                      //crea un drop basato sulla vita del nemico
-    if(health==10){
-        drop=1;
-    } else if (health==20){
-        drop=2;
+    int droppedscore=0;                                      //crea un drop basato sulla vita del nemico in punti e monete
+    int droppedcoins=0;
+    if(damage==3){
+        droppedscore=2;
+        droppedcoins=3;
+    } else if (damage==6){
+        droppedscore=5;
+        droppecoins=6;
     } else {
-        drop=3;
+        droppedscore=8;
+        droppedcoins=9;
     }
-    // inserire in Controller?
-    // player.gold = player.gold + drop; 
-}
-
-void enemy::drop_points(){                      //da punti in base al nemico ucciso
-    int points=0;
-    if(health==1){                                      
-        points=1;
-    } else if (health==2){
-        points=2;
-    } else {
-        points=3;
-    }
-    // inserire in Controller?
-    // player.points = player.points + points; 
+    Player::plusMoney(droppedcoins);
+    Player::plusScore(droppedscore);
 }
 
 
