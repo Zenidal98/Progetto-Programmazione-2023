@@ -1,6 +1,6 @@
 #include "player.hpp"
 
-player::layer(WINDOW *win, int y, int x, char c, int h=100, int s=0, int jf=1, int jh=1, int d=1, int p=1, int bd=1, int pd=0, int m=0, char sp='\0'){
+Player::Player(WINDOW *win, int y, int x, char c, int h=100, int s=0, int jf=1, int jh=1, int d=1, int p=1, int bd=1, int pd=0, int m=0, char sp='\0'){
 // Player::Player(WINDOW *win, int y, int x, char c){
     curwin = win;
     yLoc = y;
