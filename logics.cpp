@@ -7,7 +7,7 @@
 #include <cmath>
 // #include "room.h"
 // #include "specialpowers.h"
-logics::logics() {
+Logics::Logics() {
     int yMax, xMax;
     getmaxyx(stdscr, yMax, xMax);
     playwin = newwin(20, 50, (yMax / 2) - 10, 10);
@@ -16,13 +16,13 @@ logics::logics() {
     statwin = newwin(50, 30, statY, statX);
 
     //            (WINDOW, x, y, ch,  hp, dam, hard);
-    e = new enemy(playwin, 1, 1, 'e', 100, 10, true);
+    e = new Enemy(playwin, 1, 1, 'e', 100, 10, true);
     // Player      (window, x, y, char,hp, sc,jf,jh,dst,pow,bd,pd,coin, sp)
     p = new Player(playwin, 1, 1, 'P', 100, 0, 1, 4, 1, 1, 50, 0, 0, '\0');
     srand(time(NULL));
 }
 
-void logics::start(){
+void Logics::start(){
     // mappa
     box(playwin, 0, 0);
     wrefresh(playwin);
@@ -56,7 +56,7 @@ void logics::start(){
 }
 
 
-void logics::check_damage(){
+void Logics::check_damage(){
     if((p->getX() == e->getX()) && (p->getY() == e->getY())){
 	//if (specialpowers::inv==false){
 		p->minusHealth(e->getDamage());
@@ -72,7 +72,7 @@ void logics::check_damage(){
 	//}
 }
 
-void logics::check_melee(){
+void Logics::check_melee(){
     int distance = abs(p->getX()-e->getX());
     if(distance <= 2){
         e->takeDamage(p->getDamage());
@@ -92,13 +92,13 @@ void logics::check_melee(){
         return;
 }
 
-void logics::gameOver(){
+void Logics::gameOver(){
     mvaddch(p->getY(), p->getX(), ' ');
     wrefresh(playwin);
     end = true;
 }
 
-void logics::check_shoot(){
+void Logics::check_shoot(){
     // bullet(      WINDOW,  x, y, char, damage)
     sh = new Bullet(playwin, p->getX()+1, p->getY(), '-', 10);
     sh->Fire(sh->getY(), sh->getX());
