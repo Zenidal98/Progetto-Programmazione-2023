@@ -4,7 +4,7 @@
 #pragma once
 #include <ncurses.h>
 
-class enemy {
+class Enemy {
 protected:
         int x, y;
         int xMax, yMax;
@@ -13,7 +13,7 @@ protected:
         
 
 public:
-    enemy(int x, int y, char c, WINDOW *win);
+    Enemy(int x, int y, char c, WINDOW *win);
 
     int getX();
 
@@ -39,33 +39,33 @@ public:
 
 };
 
-class easyenemy: public enemy {
+class Easyenemy: public Enemy {
 protected:
 int health;
 int damage;
 
 public:
-easyenemy(int x, int y, char c, WINDOW *win):enemy(x,y,c,win){}
+Easyenemy(int x, int y, char c, WINDOW *win):Enemy(x,y,c,win){}
 };
 
 
-class mediumenemy: public enemy {
+class Mediumenemy: public Enemy {
 protected:
 int health;
 int damage;
 
 public:
-mediumenemy(int x, int y, char c, WINDOW *win):enemy(x,y,c,win){}
+Mediumenemy(int x, int y, char c, WINDOW *win):Enemy(x,y,c,win){}
 };
 
 
-class hardenemy: public enemy {
+class Hardenemy: public Enemy {
 protected:
 int health;
 int damage;
 
 public:
-hardenemy(int x, int y, char c, WINDOW *win):enemy(x,y,c,win){}
+Hardenemy(int x, int y, char c, WINDOW *win):Enemy(x,y,c,win){}
 };
 
 #endif
