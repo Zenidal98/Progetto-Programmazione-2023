@@ -21,7 +21,7 @@ class room{
 		pRL generateRoomStruct(pRL oldStage);
 		void generateRoom();
 		pRL getRoomList();
-		void room::gameOver();
+		void gameOver();        //prima era room::gameover(); l'ho tolto da errore del make
 		pRL spawnMarket(pRL marketPosition);
 		void teleportpowerRoom();
 };
