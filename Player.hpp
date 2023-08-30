@@ -5,7 +5,7 @@
 #pragma once
 #include <ncurses.h>
 
-class player{
+class Player{
     private:
         int xLoc, yLoc, xMax, yMax;
         int score;
@@ -27,7 +27,7 @@ class player{
         // spostata in public per testing
         int health;
         char specialpower;
-        player(WINDOW *win, int x, int y, char c, int h, int s, int jf, int jh, int d, int p, int bd, int pd, int m, char sp);
+        Player(WINDOW *win, int x, int y, char c, int h, int s, int jf, int jh, int d, int p, int bd, int pd, int m, char sp);
         // Player(WINDOW *win, int x, int y, char c);
         //get x e y
         int getX();
