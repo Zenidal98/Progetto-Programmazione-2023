@@ -27,7 +27,7 @@ class player{
         // spostata in public per testing
         int health;
         char specialpower;
-        Player(WINDOW *win, int x, int y, char c, int h, int s, int jf, int jh, int d, int p, int bd, int pd, int m, char sp);
+        player(WINDOW *win, int x, int y, char c, int h, int s, int jf, int jh, int d, int p, int bd, int pd, int m, char sp);
         // Player(WINDOW *win, int x, int y, char c);
         //get x e y
         int getX();
