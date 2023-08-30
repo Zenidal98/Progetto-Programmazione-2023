@@ -1,3 +1,6 @@
+#ifndef BULLET_HPP
+#define BULLET_HPP
+
 #pragma once
 #include <ncurses.h>
 
@@ -14,3 +17,5 @@ class Bullet{
         int getX();
         int getY();
 };
+
+#endif
