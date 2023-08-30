@@ -39,7 +39,7 @@ Hardenemy::Enemy(x, y, c, *win) {
         this->damage=15;
     }
 
-void Enemy::drop_gold(){
+void Enemy::deathdrops(){
     int droppedscore=0;                                      //crea un drop basato sulla vita del nemico in punti e monete
     int droppedcoins=0;
     if(damage==3){
@@ -57,34 +57,34 @@ void Enemy::drop_gold(){
 }
 
 
-void enemy::takeDamage(int damage) {
+void Enemy::takeDamage(int damage) {
     health -= damage;
     if (this->health <= 0) {
         mvaddch(y, x, ' ');                     // cancella il nemico dalla posizione attuale quando viene sconfitto
-        drop_gold();
+        death();
     }
 }
 
-int enemy::getX(){
+int Enemy::getX(){
     return this->x;
 }
 
-int enemy::getY(){
+int Enemy::getY(){
     return this->y;
 }
 
-int enemy::getHealth(){
+int Enemy::getHealth(){
     return this->health;
 }
 
-int enemy::getDamage(){
+int Enemy::getDamage(){
     return this->damage;
 }
 
 // Ripensare movement -> togli ciclo, altrimenti problema con main
 // Farlo una sola volta, ed eseguire ciclo in main?
 
-void enemy::movement(){     
+void Enemy::movement(){     
     srand(time(NULL));               //imposto il seed per la generazione di numeri casuali                
        
     // gravity
@@ -121,7 +121,7 @@ void enemy::movement(){
     
 }
     
-void enemy::display_enemy(){
+void Enemy::display_enemy(){
         mvwaddch(win, y, x, c);
         wrefresh(win);
 }
