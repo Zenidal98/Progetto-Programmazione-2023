@@ -1,5 +1,5 @@
 #include weapons.hpp
-     weapons::weapons(int cost, int plus, char type){     //similmente agli elementi a schermo, o fatto 3 tipi di armi
+     eapons::weapons(int cost, int plus, char type){     //similmente agli elementi a schermo, o fatto 3 tipi di armi
         this->cost=cost;
         this->plus=plus;
         this->type=type;
