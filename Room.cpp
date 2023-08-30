@@ -1,12 +1,12 @@
 #include "room.hpp"
 #include <iostream>
 #include <cmath>
-srand(time(NULL));
+srand(time(NULL));     //questo si mette nel main di solito
 
-room::room(WINDOW *win){
+Room::Room(WINDOW *win){
 	currentWin = win;
 }
-room::pRL room::initRoomList(){
+Room::pRL Room::initRoomList(){
 	pRL s = new roomList;
 	pRL t = new roomListl;
 	pRL head = new roomList;
@@ -27,7 +27,7 @@ room::pRL room::initRoomList(){
        	t->next = NULL;
 	return head;
 }
-room::pRL room::generateRoomStruct(pRL oldStage){
+Room::pRL Room::generateRoomStruct(pRL oldStage){
 	if(alreadyBuilt==false){
 		pRL p = new roomList;
 		oldStage->next = p;
@@ -39,7 +39,7 @@ room::pRL room::generateRoomStruct(pRL oldStage){
 	alreadyBuilt=true;
 	return p;
 }
-void room::generateRoom(pRL newStage ){
+void Room::generateRoom(pRL newStage ){
 //10 stanze + 1 market + 1 starting level
 // qui devo capire come salvare e caricare le stanze
 	switch(stage->roomType){
@@ -129,11 +129,11 @@ void room::generateRoom(pRL newStage ){
 			
 }
 
-room::pRL room::getRoomList(){
+Room::pRL Room::getRoomList(){
 	return head;
 }
 
-void room::gameOver(){
+void Room::gameOver(){
     mvprintw(7,20,"   ______ ___     __  ___ ______");
     mvprintw(8,20,"  / ____//   |   /  |/  // ____/");
     mvprintw(9,20," / / __ / /| |  / /|_/ // __/   ");
@@ -155,7 +155,7 @@ room::pRL room::spawnMarket(pRL marketPosition){
 */
 
 
-void room::teleportpowerRoom(pRL Stage){
+void Room::teleportpowerRoom(pRL Stage){
 p=Stage;
 for(int i=0;i<3;i++){
 	if(Stage->next->alreadyBuilt){
