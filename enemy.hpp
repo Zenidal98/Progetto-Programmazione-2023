@@ -61,8 +61,8 @@ mediumenemy(int x, int y, char c, WINDOW *win):enemy(x,y,c,win){}
 
 class hardenemy: public enemy {
 protected:
-int health=30;
-int damage=15;
+int health;
+int damage;
 
 public:
 hardenemy(int x, int y, char c, WINDOW *win):enemy(x,y,c,win){}
