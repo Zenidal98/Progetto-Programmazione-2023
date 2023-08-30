@@ -1,3 +1,6 @@
+#ifndef ELEMENTS_HPP
+#define ELEMENTS_HPP
+
 #include <ncurses.h>
 #pragma once
 
@@ -40,3 +43,5 @@ class elements{
         void display();
 
 };   
+
+#endif
