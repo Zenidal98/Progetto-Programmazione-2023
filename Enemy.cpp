@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <ctime>
     
-enemy::enemy(WINDOW *win, int x, int y, char c) {           //funzione di spawn ?
+Enemy::Enemy(WINDOW *win, int x, int y, char c) {           //funzione di spawn ?
     this->x = x;
     this->y = y;
     this->c = c;
@@ -12,7 +12,7 @@ enemy::enemy(WINDOW *win, int x, int y, char c) {           //funzione di spawn 
     keypad(win, true);
 }
 
-easyenemy:enemy(x, y, c, *win) {
+Easyenemy:Enemy(x, y, c, *win) {
         this->x = x;
         this->y = y;
         this->c = c;
@@ -21,7 +21,7 @@ easyenemy:enemy(x, y, c, *win) {
         this->damage=3;
     }
 
-mediumenemy::enemy(x, y, c, *win) {
+Mediumenemy::Enemy(x, y, c, *win) {
         this->x = x;
         this->y = y;
         this->c = c;
@@ -30,7 +30,7 @@ mediumenemy::enemy(x, y, c, *win) {
         this->damage=6;
     }
 
-hardenemy::enemy(x, y, c, *win) {
+Hardenemy::Enemy(x, y, c, *win) {
         this->x = x;
         this->y = y;
         this->c = c;
@@ -39,11 +39,11 @@ hardenemy::enemy(x, y, c, *win) {
         this->damage=15;
     }
 
-void enemy::drop_gold(){
+void Enemy::drop_gold(){
     int drop=0;                                      //crea un drop basato sulla vita del nemico
-    if(health==1){
+    if(health==10){
         drop=1;
-    } else if (health==2){
+    } else if (health==20){
         drop=2;
     } else {
         drop=3;
