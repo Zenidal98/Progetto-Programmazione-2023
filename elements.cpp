@@ -1,7 +1,7 @@
-#include "elements.hpp"         
+#include "Elements.hpp"         
 
 //i tipi sono d, c, r, g ossia drink, cherry, rock, gold
-elements::elements(WINDOW *win, int x, int y, char type){       
+Elements::Elements(WINDOW *win, int x, int y, char type){       
     this->win = win;
     this->x=x;
     this->y=y;
@@ -10,16 +10,16 @@ elements::elements(WINDOW *win, int x, int y, char type){
     keypad(win, true);
 }
 
-int elements::getX(){
+int Elements::getX(){
     return x;
 }
 
-int elements::getY(){
+int Elements::getY(){
     return y;
 }
 
 // Spostare in Logics la parte di contatto (qui non vedo Player) --> Qui CONSIDERO GIA' TOCCATO
-void elements::touch(){
+void Elements::touch(){
     // non qua -> dentro Logics
     //if((player.x==elements.x)&&(player.y==elements.y)){
     
@@ -42,30 +42,30 @@ void elements::touch(){
 
 
 // NON SI PUO' FARE QUI per Player --> creare una variabile che ritorna vita da aggiungere?
-int elements::health_up(){   //drink. Questo va messo anche nel market.  Nel gioco è rappresentato con la lettera  D
+int Elements::health_up(){   //drink. Questo va messo anche nel market.  Nel gioco è rappresentato con la lettera  D
     return 50;
 }
 
 
 // uguale a health_up     
 //gold. Aumenta le monete di 1. Nel gioco è rappresentato con la lettera G.
-int elements::coins_up(){  
+int Elements::coins_up(){  
     return 1;
 }
 
 // uguale
 //cherry. Nel gioco è rappresentato con la lettera  C
-int elements::score_up(){           
+int Elements::score_up(){           
     return 200;
 }
 
 //  uguale --> DECIDERE SE DARE E TOGLIERE STESSI PUNTI
 //rock    R. Il punteggio può andare anche in negativo. Nel gioco è rappresentato con la lettera R
-int elements::score_down(){         
+int Elements::score_down(){         
     return 200;
 }
   
-void elements::display(){
+void Elements::display(){
     if(type=='c'){
         mvwaddch(win,y,x,'C');
     }
