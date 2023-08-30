@@ -39,21 +39,6 @@ hardenemy::enemy(x, y, c, *win) {
         this->damage=15;
     }
 
-// inserire in Controller?
-/*
-void enemy::increasehealth(int plush){      //vuol dire plus health
-    if(map.level%3==0){                   //da cambiare .........    //forse da togliere
-        this->health++;
-    }
-}
-
-void enemy::increasedamage(int plusd){      //plus damage
-    if(map.level%3==0){                     //da cambiare .........
-        this->damage++;
-    }
-}*/
-
-
 void enemy::drop_gold(){
     int drop=0;                                      //crea un drop basato sulla vita del nemico
     if(health==1){
