@@ -1,3 +1,6 @@
+#ifndef ENEMY_HPP
+#define ENEMY_HPP
+
 #pragma once
 #include <ncurses.h>
 
@@ -65,4 +68,4 @@ public:
 hardenemy(int x, int y, char c, WINDOW *win):enemy(x,y,c,win);
 };
 
-
+#endif
