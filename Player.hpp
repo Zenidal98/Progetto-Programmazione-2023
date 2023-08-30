@@ -6,7 +6,7 @@
 #include <ncurses.h>
 
 class Player{
-    private:
+    protected:
         int xLoc, yLoc, xMax, yMax;
         int score;
         char character;
