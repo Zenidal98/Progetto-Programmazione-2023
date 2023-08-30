@@ -3,7 +3,7 @@
 #include <fstream>
 #include <cmath>
 #define floor '='
-class room{
+class Room{
 
 	private:
 		struct roomList{
@@ -15,7 +15,7 @@ class room{
 		};	
 	WINDOW *currentWin;	
 	public:
-		room(WINDOW *win);
+		Room(WINDOW *win);
 		typedef roomList *pRL;
 		pRL initRoomList();
 		pRL generateRoomStruct(pRL oldStage);
