@@ -12,8 +12,6 @@
 
 using namespace std;
 
-srand(time(NULL));
-
 void teleport(){
 	Player::xLoc = 1;
 	Player::yLoc = 30;
@@ -141,6 +139,7 @@ void enemySpawn(pRL stage){
 }
 
 int main(){
+srand(time(NULL));
 initscr();
 noecho();
 refresh();
