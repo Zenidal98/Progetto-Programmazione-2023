@@ -41,8 +41,8 @@ public:
 
 class easyenemy: public enemy {
 protected:
-int health=10;
-int damage=3;
+int health;
+int damage;
 
 public:
 easyenemy(int x, int y, char c, WINDOW *win):enemy(x,y,c,win){}
@@ -51,8 +51,8 @@ easyenemy(int x, int y, char c, WINDOW *win):enemy(x,y,c,win){}
 
 class mediumenemy: public enemy {
 protected:
-int health=20;
-int damage=6;
+int health;
+int damage;
 
 public:
 mediumenemy(int x, int y, char c, WINDOW *win):enemy(x,y,c,win){}
