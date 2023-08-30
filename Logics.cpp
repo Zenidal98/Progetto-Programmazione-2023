@@ -92,11 +92,6 @@ void Logics::check_melee(){
         return;
 }
 
-void Logics::gameOver(){
-    mvaddch(p->getY(), p->getX(), ' ');
-    wrefresh(playwin);
-    end = true;
-}
 
 void Logics::check_shoot(){
     // bullet(      WINDOW,  x, y, char, damage)
