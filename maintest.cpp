@@ -1,11 +1,11 @@
 
-#include "player.hpp"
-#include "room.hpp"
-#include "enemy.hpp"
-#include "bullet.hpp"
-#include "elements.hpp"
-#include "specialpowers.hpp"
-#include "weapons.hpp"
+#include "Player.hpp"
+#include "Room.hpp"
+#include "Enemy.hpp"
+#include "Bullet.hpp"
+#include "Elements.hpp"
+#include "Specialpowers.hpp"
+#include "Weapons.hpp"
 #include <ncurses.h>
 #include <cmath>
 #include <ctime>
