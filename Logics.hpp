@@ -29,9 +29,6 @@ class Logics {
         // controlla se player ha fatto danno
         void check_melee();
 
-        void gameOver();
-
-
         // se premo tasto sparo
         void check_shoot();
 };
