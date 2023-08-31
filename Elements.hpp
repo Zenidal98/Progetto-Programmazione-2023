@@ -40,7 +40,7 @@ class Elements{
         // g - oro
         int coins_up();           
                             
-        void display();
+        void display_element();
 
 };   
 
