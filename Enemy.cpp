@@ -13,28 +13,16 @@ Enemy::Enemy(WINDOW *win, int x, int y, char c) {           //funzione di spawn 
 }
 
 Easyenemy:Enemy(x, y, c, *win) {
-        this->x = x;
-        this->y = y;
-        this->c = c;
-        this->WINDOW=*win;
         this->health=10;
         this->damage=3;
     }
 
 Mediumenemy::Enemy(x, y, c, *win) {
-        this->x = x;
-        this->y = y;
-        this->c = c;
-        this->WINDOW=*win;
         this->health=20;
         this->damage=6;
     }
 
 Hardenemy::Enemy(x, y, c, *win) {
-        this->x = x;
-        this->y = y;
-        this->c = c;
-        this->WINDOW=*win;
         this->health=30;
         this->damage=15;
     }
