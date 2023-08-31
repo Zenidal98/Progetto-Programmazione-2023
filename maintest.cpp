@@ -22,6 +22,26 @@ void teleport(){
 	P->display();
 }
 
+char randomizeElementType(){
+	int i =rand()%3;
+	char a;
+	switch(i){
+	case 0:
+		a = 'd';
+		break;
+	case 1:
+		a = 'c';
+		break;		
+	case 2:
+		a = 'r';
+		break;
+	case 3:
+	        a = 'g';
+		break;
+	}
+    return a; 
+}
+
 void ElementsSpawn(pRL stage){
 	if(rand()%2==1){                             // probabilità del 33% che spawni qualcosa in un livello
 		char a = randomizeElementType;
@@ -108,25 +128,6 @@ ElementsSpawn(newStage);
    }
 }
 
-char randomizeElementType(){
-	int i =rand()%3;
-	char a;
-	switch(i){
-	case 0:
-		a = 'd';
-		break;
-	case 1:
-		a = 'c';
-		break;		
-	case 2:
-		a = 'r';
-		break;
-	case 3:
-	        a = 'g';
-		break;
-	}
-    return a; 
-}
 
 void gameOver(){
     wclear(win);
