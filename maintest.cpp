@@ -24,7 +24,7 @@ Room::pRL newStage = oldStage->next;
 Room::pRL pippo=Room::generateRoomStruct(pRL oldStage);
 Room::generateRoom(newStage);
 teleport();
-Logics::inv = false;
+Specialpowers::inv = false;
 enemySpawn(newStage);	
 elementSpawn(newStage);
 }
