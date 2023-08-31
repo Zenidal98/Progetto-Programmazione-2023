@@ -14,9 +14,9 @@
 using namespace std;
 
 void teleport(){
-	Player::xLoc = 1;
-	Player::yLoc = 30;
-	Player::display();
+	P->yLoc = 30;
+	P->xLoc = 1;
+	P->display();
 }
 
 void goNextRoom(pRL oldStage){
@@ -147,17 +147,17 @@ refresh();
 WINDOW *win = new WINDOW;
 room(win);
 pippo = initRoomList();
-Player::Player(win,1,1,'P',100,0,1,3,1,1,1,0,0);
-Player::display();
+Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
+P->display();
 
 do{
-	p->display();
+	P->display();
 	wrefresh(win);
-}while(p->getmv()!='x');
+}while(P->getinput()!='x');
 room::generateRoom(pippo);
 do{
-	Player::getmv();
-}while(Player::xLoc!=30 && Player::yLoc!=1);
+	P->getinput();
+}while(P->xLoc!=30 && P->yLoc!=1);
 goNextRoom(pippo);
 
 	
