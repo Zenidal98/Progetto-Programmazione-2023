@@ -1,5 +1,6 @@
 
 #include "Player.hpp"
+#include "Logics.hpp"
 #include "Room.hpp"
 #include "Enemy.hpp"
 #include "Bullet.hpp"

@@ -1,10 +1,10 @@
 #include <ncurses.h>
 // includere tutto quello che serve
-#include "player.hpp"
-#include "enemy.hpp"
-#include "elements.hpp"
+#include "Player.hpp"
+#include "Enemy.hpp"
+#include "Elements.hpp"
 
-#include "bullet.hpp"
+#include "Bullet.hpp"
 
 class Logics {
     private:
