@@ -156,7 +156,7 @@ do{
 room::generateRoom(pippo);
 do{
 	Player::getmv();
-}while(Player::xLoc!=30 && Player::yLoc!=1)
+}while(Player::xLoc!=30 && Player::yLoc!=1);
 goNextRoom(pippo);
 
 	
