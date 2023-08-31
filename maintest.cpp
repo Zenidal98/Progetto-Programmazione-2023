@@ -13,6 +13,9 @@
 
 using namespace std;
 
+WINDOW *win = new WINDOW;
+Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
+
 void teleport(){
 	P->yLoc = 30;
 	P->xLoc = 1;
@@ -145,10 +148,10 @@ srand(time(NULL));
 initscr();
 noecho();
 refresh();
-WINDOW *win = new WINDOW;
+//WINDOW *win = new WINDOW;
 room(win);
 pippo = initRoomList();
-Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
+//Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 P->display();
 
 do{
