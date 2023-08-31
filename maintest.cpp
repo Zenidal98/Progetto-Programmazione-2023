@@ -19,20 +19,20 @@ void teleport(){
 	Player::display();
 }
 
-void goNextRoom(pRL oldStage){
-pRL newStage = oldStage->next;
-room::pRL pippo=room::generateRoomStruct(pRL oldStage);
-room::generateRoom(newStage);
+void goNextRoom(Room::pRL oldStage){
+Room::pRL newStage = oldStage->next;
+Room::pRL pippo=Room::generateRoomStruct(pRL oldStage);
+Room::generateRoom(newStage);
 teleport();
 Logics::inv = false;
 enemySpawn(newStage);	
 elementSpawn(newStage);
 }
 
-void goPreviousRoom(pRL oldStage){
+void goPreviousRoom(Room::pRL oldStage){
 if(oldStage->roomID!=0){              // non il primo livello
-pRL newStage = oldStage->prev;
-room::generateRoom(newStage);
+Room::pRL newStage = oldStage->prev;
+Room::generateRoom(newStage);
 teleport();
 enemySpawn(newStage);
 elementSpawn(newStage);

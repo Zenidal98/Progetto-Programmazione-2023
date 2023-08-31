@@ -11,7 +11,7 @@ class Logics {
         bool isCollected;
         WINDOW* playwin;
         WINDOW* statwin;
-        enemy* e;
+        Enemy* e;
         Player* p;
         Bullet* sh;
         bool end = false;
