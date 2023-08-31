@@ -42,7 +42,7 @@ char randomizeElementType(){
     return a; 
 }
 
-void ElementsSpawn(pRL stage){
+void ElementsSpawn(Room::pRL stage){
 	if(rand()%2==1){                             // probabilità del 33% che spawni qualcosa in un livello
 		char a = randomizeElementType;
 		Elements::Elements(rand()%29+1,rand()%29+1,a);
@@ -50,7 +50,7 @@ void ElementsSpawn(pRL stage){
 	}	
 }
 
-void EnemySpawn(pRL stage){
+void EnemySpawn(Room::pRL stage){
 	if(stage->roomID>=2 && stage->roomID<=3){
 		for(int i=0; i<2; i++){
 			Easyenemy::Easyenemy(rand()%29+1,rand()%29+1);
