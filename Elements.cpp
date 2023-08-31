@@ -65,7 +65,7 @@ int Elements::score_down(){
     return 200;
 }
   
-void Elements::display(){
+void Elements::display_element(){
     if(type=='c'){
         mvwaddch(win,y,x,'C');
     }
