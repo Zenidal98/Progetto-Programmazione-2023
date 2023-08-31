@@ -110,7 +110,7 @@ void EnemySpawn(Room::pRL stage){
 
 void goNextRoom(Room::pRL oldStage){
 Room::pRL newStage = oldStage->next;
-Room::pRL pippo=Room::generateRoomStruct(pRL oldStage);
+Room::pRL pippo=Room::generateRoomStruct(Room:pRL oldStage);
 Room::generateRoom(newStage);
 teleport();
 Specialpowers::inv = false;
@@ -151,7 +151,7 @@ initscr();
 noecho();
 refresh();
 //WINDOW *win = new WINDOW;
-room(win);
+Room(win);
 pippo = initRoomList();
 //Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 P->display();
@@ -160,7 +160,7 @@ do{
 	P->display();
 	wrefresh(win);
 }while(P->getinput()!='x');
-room::generateRoom(pippo);
+Room::generateRoom(pippo);
 do{
 	P->getinput();
 }while(P->xLoc!=30 && P->yLoc!=1);
