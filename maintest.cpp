@@ -146,7 +146,7 @@ refresh();
 WINDOW *win = new WINDOW;
 room(win);
 pippo = initRoomList();
-Player player1(win,1,1,'P',100,0,1,3,1,1,1,0,0);
+Player *p = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0);
 Player::display();
 
 do{
