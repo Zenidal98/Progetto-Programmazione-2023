@@ -25,8 +25,8 @@ Room::pRL pippo=Room::generateRoomStruct(pRL oldStage);
 Room::generateRoom(newStage);
 teleport();
 Specialpowers::inv = false;
-enemySpawn(newStage);	
-elementSpawn(newStage);
+EnemySpawn(newStage);	
+ElementSpawn(newStage);
 }
 
 void goPreviousRoom(Room::pRL oldStage){
@@ -34,8 +34,8 @@ if(oldStage->roomID!=0){              // non il primo livello
 Room::pRL newStage = oldStage->prev;
 Room::generateRoom(newStage);
 teleport();
-enemySpawn(newStage);
-elementSpawn(newStage);
+EnemySpawn(newStage);
+ElementSpawn(newStage);
    }
 }
 
@@ -56,6 +56,7 @@ char randomizeElementType(){
 	        a = 'g';
 		break;
 	}
+    return a; 
 }
 
 void gameOver(){
@@ -73,68 +74,68 @@ void gameOver(){
     mvprintw(17,25,"\\____/  |___//_____//_/ |_|  ");
 }
 
-void elementSpawn(pRL stage){
+void ElementSpawn(pRL stage){
 	if(rand()%2==1){                             // probabilità del 33% che spawni qualcosa in un livello
 		char a = randomizeElementType;
-		elements::elements(rand()%29+1,rand()%29+1,a);
-		elements::display();
+		Elements::Elements(rand()%29+1,rand()%29+1,a);
+		Elements::display();
 	}	
 }
 
-void enemySpawn(pRL stage){
+void EnemySpawn(pRL stage){
 	if(stage->roomID>=2 && stage->roomID<=3){
 		for(int i=0; i<2; i++){
-			easyenemy::easyenemy(rand()%29+1,rand()%29+1);
-			easyenemy::display();
+			Easyenemy::Easyenemy(rand()%29+1,rand()%29+1);
+			Easyenemy::display();
 		}	
 	}
 	if(stage->roomID>3 && stage->roomID<=5){
 		for(int i=0; i<4; i++){
-			easyenemy::easyenemy(rand()%29+1,rand()%29+1);
-			easyenemy::display();
+			Easyenemy::Easyenemy(rand()%29+1,rand()%29+1);
+			Easyenemy::display();
 		}	
 	}
 	if(stage->roomID>5 && stage->roomID<=10){
 		for(int i=0; i<2; i++){
-			easyenemy::easyenemy(rand()%29+1,rand()%29+1);
-			easyenemy::display();
+			Easyenemy::Easyenemy(rand()%29+1,rand()%29+1);
+			Easyenemy::display();
 		}
 		for(int j=0; j<2; j++){
-			mediumenemy::mediumenemy(rand()%29+1,rand()%29+1);
-			mediumenemy::display();
+			Mediumenemy::Mediumenemy(rand()%29+1,rand()%29+1);
+			Mediumenemy::display();
 		}	
 	}
 	if(stage->roomID>10 && stage->roomID<=15){
 		for(int i=0; i<4; i++){
-			mediumenemy::mediumenemy(rand()%29+1, rand()%29+1);
-			mediumenemy::display();
+			Mediumenemy::Mediumenemy(rand()%29+1, rand()%29+1);
+			Mediumenemy::display();
 		}
 	}
 	if(stage->roomID>15 && stage->roomID<=20){
 		for(int i=0; i<2; i++){
-			mediumenemy::mediumenemy(rand()%29+1,rand()%29+1);
-			mediumenemy::display();
+			Mediumenemy::Mediumenemy(rand()%29+1,rand()%29+1);
+			Mediumenemy::display();
 		}
-		hardenemy::hardenemy(rand()%29+1,rand()%29+1);
-		hardenemy::hardenemy(rand()%29+1,rand()%29+1);
+		Hardenemy::Hardenemy(rand()%29+1,rand()%29+1);
+		Hardenemy::Hardenemy(rand()%29+1,rand()%29+1);
 	}
 	if(stage->roomID>20 && stage->roomID<=25){
 		for(int i=0; i<2; i++){
-			hardenemy::hardenemy(rand()%29+1,rand()%29+1);
-			hardenemy::display();
+			Hardenemy::Hardenemy(rand()%29+1,rand()%29+1);
+			Hardenemy::display();
 		}
 	}
 	if(stage->roomID>25 && stage->roomID<=30){
 		for(int i=0; i<4; i++){
-			hardenemy::hardenemy(rand()%29+1,rand()%29+1);
-			hardenemy::display();			
+			Hardenemy::Hardenemy(rand()%29+1,rand()%29+1);
+			Hardenemy::display();			
 		}	
 	}
 	if(stage->roomID>30){
 		int m = (stage->roomId/10)*2;
 		for(int i=0; i<m; i++){   
-			hardenemy::hardenemy(rand()%29+1,rand()%29+1);
-			hardenemy::display();
+			Hardenemy::Hardenemy(rand()%29+1,rand()%29+1);
+			Hardenemy::display();
 		}
 	}
 }
