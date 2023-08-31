@@ -100,7 +100,7 @@ void EnemySpawn(Room::pRL stage){
 		}	
 	}
 	if(stage->roomID>30){
-		int m = (stage->roomId/10)*2;
+		int m = (stage->roomID/10)*2;
 		for(int i=0; i<m; i++){   
 			Hardenemy hardenemy(rand()%29+1,rand()%29+1,'H',win);
 			hardenemy.display_enemy();
