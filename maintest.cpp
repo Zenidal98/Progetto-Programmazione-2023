@@ -22,62 +22,7 @@ void teleport(){
 	P->display();
 }
 
-void goNextRoom(Room::pRL oldStage){
-Room::pRL newStage = oldStage->next;
-Room::pRL pippo=Room::generateRoomStruct(pRL oldStage);
-Room::generateRoom(newStage);
-teleport();
-Specialpowers::inv = false;
-EnemySpawn(newStage);	
-ElementSpawn(newStage);
-}
-
-void goPreviousRoom(Room::pRL oldStage){
-if(oldStage->roomID!=0){              // non il primo livello
-Room::pRL newStage = oldStage->prev;
-Room::generateRoom(newStage);
-teleport();
-EnemySpawn(newStage);
-ElementSpawn(newStage);
-   }
-}
-
-char randomizeElementType(){
-	int i =rand()%3;
-	char a;
-	switch(i){
-	case 0:
-		a = 'd';
-		break;
-	case 1:
-		a = 'c';
-		break;		
-	case 2:
-		a = 'r';
-		break;
-	case 3:
-	        a = 'g';
-		break;
-	}
-    return a; 
-}
-
-void gameOver(){
-    wclear(win);
-    mvprintw(7,20,"   ______ ___     __  ___ ______");
-    mvprintw(8,20,"  / ____//   |   /  |/  // ____/");
-    mvprintw(9,20," / / __ / /| |  / /|_/ // __/   ");
-    mvprintw(10,20,"/ /_/ // ___ | / /  / // /___   ");
-    mvprintw(11,20,"\\____//_/  |_|/_/  /_//_____/   ");
-    mvprintw(12,20,"                                ");
-    mvprintw(13,25,"   ____  _    __ ______ ____ ");
-    mvprintw(14,25,"  / __ \\| |  / // ____// __ \\");
-    mvprintw(15,25," / / / /| | / // __/  / /_/ /");
-    mvprintw(16,25,"/ /_/ / | |/ // /___ / _, _/ ");
-    mvprintw(17,25,"\\____/  |___//_____//_/ |_|  ");
-}
-
-void ElementSpawn(pRL stage){
+void ElementsSpawn(pRL stage){
 	if(rand()%2==1){                             // probabilità del 33% che spawni qualcosa in un livello
 		char a = randomizeElementType;
 		Elements::Elements(rand()%29+1,rand()%29+1,a);
@@ -142,6 +87,62 @@ void EnemySpawn(pRL stage){
 		}
 	}
 }
+
+void goNextRoom(Room::pRL oldStage){
+Room::pRL newStage = oldStage->next;
+Room::pRL pippo=Room::generateRoomStruct(pRL oldStage);
+Room::generateRoom(newStage);
+teleport();
+Specialpowers::inv = false;
+EnemySpawn(newStage);	
+ElementsSpawn(newStage);
+}
+
+void goPreviousRoom(Room::pRL oldStage){
+if(oldStage->roomID!=0){              // non il primo livello
+Room::pRL newStage = oldStage->prev;
+Room::generateRoom(newStage);
+teleport();
+EnemySpawn(newStage);
+ElementsSpawn(newStage);
+   }
+}
+
+char randomizeElementType(){
+	int i =rand()%3;
+	char a;
+	switch(i){
+	case 0:
+		a = 'd';
+		break;
+	case 1:
+		a = 'c';
+		break;		
+	case 2:
+		a = 'r';
+		break;
+	case 3:
+	        a = 'g';
+		break;
+	}
+    return a; 
+}
+
+void gameOver(){
+    wclear(win);
+    mvprintw(7,20,"   ______ ___     __  ___ ______");
+    mvprintw(8,20,"  / ____//   |   /  |/  // ____/");
+    mvprintw(9,20," / / __ / /| |  / /|_/ // __/   ");
+    mvprintw(10,20,"/ /_/ // ___ | / /  / // /___   ");
+    mvprintw(11,20,"\\____//_/  |_|/_/  /_//_____/   ");
+    mvprintw(12,20,"                                ");
+    mvprintw(13,25,"   ____  _    __ ______ ____ ");
+    mvprintw(14,25,"  / __ \\| |  / // ____// __ \\");
+    mvprintw(15,25," / / / /| | / // __/  / /_/ /");
+    mvprintw(16,25,"/ /_/ / | |/ // /___ / _, _/ ");
+    mvprintw(17,25,"\\____/  |___//_____//_/ |_|  ");
+}
+
 
 int main(){
 srand(time(NULL));
