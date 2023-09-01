@@ -18,7 +18,8 @@ int Elements::getY(){
     return y;
 }
 
-void Elements::touch(){    
+void Elements::touch(){
+    /* Non saprei come far funzionare di qua touch    
     //check sul tipo di collezionabile raccolto
     if(type=='d'){                               
         hp = health_up(); 
@@ -29,7 +30,7 @@ void Elements::touch(){
     } else if(type=='g'){
         coins = coins_up();
     }
-
+    */
     //libero quel pezzetto. Forse non basta o crea problemi, da tenere in considerazione
     // mvaddch(WINDOW*map,y,x,' ');            
     

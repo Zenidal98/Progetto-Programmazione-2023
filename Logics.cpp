@@ -50,7 +50,8 @@ void Logics::start(){
         if(key == 's'){
             check_shoot();
         }
-
+	
+	check_upgrades();
         p->display();
 	    
         check_damage();
@@ -110,6 +111,14 @@ void Logics::check_upgrades(){
 		el->touch();
 		//Erase element
 		mvwaddch(playwin, el->getY(), el->getX(), ' ');
+		if(el->type == 'd')
+			p->plusHealth(el->health_up());
+		else if(el->type == 'c')
+			p->plusScore(el->score_up());
+		else if(el->type == 'r')
+			p->minusScore(el->score_down());
+		else
+			p->plusMoney(el->coins_up());
 		wrefresh(playwin);
 		delete(el);
 		el = nullptr;

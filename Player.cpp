@@ -40,6 +40,10 @@ void Player::plusScore(int points){
     score += points;
 }
 
+void Player::minusScore(int points){
+    score -= points;
+}
+
 void Player::plusHealth(int hp){
     health += hp;
 }

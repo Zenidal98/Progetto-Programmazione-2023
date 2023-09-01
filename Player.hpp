@@ -39,6 +39,7 @@ class Player{
         // colpo subito
         void registerHit();
         void plusScore(int points);
+	void minusScore(int points);
         void plusHealth(int hp);
         void minusHealth(int hp);
         void jump();
