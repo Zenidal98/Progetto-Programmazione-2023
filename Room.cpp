@@ -6,7 +6,7 @@ srand(time(NULL));     //questo si mette nel main di solito
 Room::Room(WINDOW *win){
 	currentWin = win;
 }
-Room::pRL Room::initRoomList(){
+static Room::pRL Room::initRoomList(){
 	pRL s = new roomList;
 	pRL t = new roomListl;
 	pRL head = new roomList;

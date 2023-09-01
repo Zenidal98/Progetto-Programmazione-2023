@@ -59,7 +59,7 @@ class Room{
 	public:
 		Room(WINDOW *win);
 		typedef roomList *pRL;
-		pRL initRoomList();
+		static pRL initRoomList();
 		static pRL generateRoomStruct(pRL oldStage);
 		static void generateRoom();
 		pRL getRoomList();

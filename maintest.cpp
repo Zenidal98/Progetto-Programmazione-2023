@@ -121,7 +121,7 @@ ElementsSpawn(newStage);
 void goPreviousRoom(Room::pRL oldStage){
 if(oldStage->roomID!=0){              // non il primo livello
 Room::pRL newStage = oldStage->prev;
-Room::generateRoom(newStage);
+Room::generateRoom();
 teleport();
 EnemySpawn(newStage);
 ElementsSpawn(newStage);
@@ -152,7 +152,7 @@ noecho();
 refresh();
 //WINDOW *win = new WINDOW;
 Room(win);
-pippo = initRoomList();
+Room::pRL pippo = Room::initRoomList();
 //Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 P->display();
 
@@ -160,7 +160,7 @@ do{
 	P->display();
 	wrefresh(win);
 }while(P->getinput()!='x');
-Room::generateRoom(pippo);
+Room::generateRoom();
 do{
 	P->getinput();
 }while(P->xLoc!=30 && P->yLoc!=1);
