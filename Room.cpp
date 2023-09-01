@@ -27,7 +27,7 @@ Room::pRL Room::initRoomList(){
        	t->next = NULL;
 	return head;
 }
-Room::pRL Room::generateRoomStruct(pRL oldStage){
+static Room::pRL Room::generateRoomStruct(pRL oldStage){
 	if(alreadyBuilt==false){
 		pRL p = new roomList;
 		oldStage->next = p;
@@ -39,7 +39,7 @@ Room::pRL Room::generateRoomStruct(pRL oldStage){
 	alreadyBuilt=true;
 	return p;
 }
-void Room::generateRoom(pRL newStage ){
+static void Room::generateRoom(pRL newStage ){
 //10 stanze + 1 market + 1 starting level
 // qui devo capire come salvare e caricare le stanze
 	switch(stage->roomType){
@@ -172,7 +172,37 @@ Player::display();
 }
 
 
+/*
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 
 
 
