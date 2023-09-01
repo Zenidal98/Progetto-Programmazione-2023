@@ -1,43 +1,44 @@
   #include "specialpowers.hpp"
   #include "enemy.hpp"            //serve per takedamage
-  #include "Logics.hpp"
+  #include "logics.hpp"
+  #include "player.hpp"
 Specialpowers::Specialpowers(int cost, char type){       //i tipi sono d,t,i
     this->cost=cost
     this->type=type;
 }
 
 void Specialpowers::buyspecialpowers(char type){
-    if(player.gold >= this->cost){                    //se si ha abbastanza gold si può comprare
+    if(Player::coins >= this->cost){                    //se si ha abbastanza gold si può comprare
         if(this->type=='d'){                          //comprare la pistola
-          player.sp='d';
+          Player::specialpower='d';
         } else if(this->type=='t'){                   //comprare il fucile
-          player.sp='t';
+          Player::specialpower='t';
         } else if(this->type=='i'){                   //comprare il lanciarazzi
-          player.sp='i';
+          Player::specialpower='i';
         }                  
     }
 }
 
 void Specialpowers::poweractivation(){                          //funzione che attiva gli specialpowers. Forse va messa nel main e basta.
 	if (wgetch(curwin)=='x'){
-		if (player.sp='d'){
-        	specialpowers::damageup();
+		if (Player::specialpower='d'){
+        	Specialpowers::damageup();
 		}
-        	if (player.sp='t'){ 
-        	specialpowers::teleport();
+        	if (Player::sp='t'){ 
+        	Specialpowers::teleport();
 		}
-        	if (player.sp='i'){
-        	specialpowers::invincible();
+        	if (Player::sp='i'){
+        	Specialpowers::invincible();
 		}
 	}
 }
 
 void Specialpowers::damageup(){
-    player.bonusdamage=player.bonusdamage*1,5;  //aumenta il danno bonus del player. Questo sommato al danno arma è il danno totale.
+    Player::plusDamage=Player::plusDamage*1,5;  //aumenta il danno bonus del player. Questo sommato al danno arma è il danno totale.
       }
 
 void Specialpowers::damagedown(){                //legata a damagedown
-    player.bonusdamage=player.bonusdamage/1,5;
+    Player::plusDamage=Player::plusDamage/1,5;
       }
 
 void Specialpowers::teleport(){                   //teletrasporta il giocatore in una nuova stanza
