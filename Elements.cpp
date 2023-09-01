@@ -18,11 +18,7 @@ int Elements::getY(){
     return y;
 }
 
-// Spostare in Logics la parte di contatto (qui non vedo Player) --> Qui CONSIDERO GIA' TOCCATO
-void Elements::touch(){
-    // non qua -> dentro Logics
-    //if((player.x==elements.x)&&(player.y==elements.y)){
-    
+void Elements::touch(){    
     //check sul tipo di collezionabile raccolto
     if(type=='d'){                               
         hp = health_up(); 

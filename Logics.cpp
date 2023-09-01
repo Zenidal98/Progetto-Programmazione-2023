@@ -8,6 +8,7 @@
 // #include "room.h"
 // #include "specialpowers.h"
 Logics::Logics() {
+    bool isCollected = false;
     int yMax, xMax;
     getmaxyx(stdscr, yMax, xMax);
     playwin = newwin(20, 50, (yMax / 2) - 10, 10);
@@ -20,6 +21,9 @@ Logics::Logics() {
     // Player      (window, x, y, char,hp, sc,jf,jh,dst,pow,bd,pd,coin, sp)
     p = new Player(playwin, 1, 1, 'P', 100, 0, 1, 4, 1, 1, 50, 0, 0, '\0');
     srand(time(NULL));
+    char letters[]="dcrg";
+    char x = letters[rand()%4];
+    el = new Elements(playwin, rand()%49+1, rand()%19+1, x);
 }
 
 void Logics::start(){
@@ -99,6 +103,18 @@ void Logics::check_shoot(){
     sh->Fire(sh->getY(), sh->getX());
     delete(sh);
     sh = nullptr;
+}
+
+void Logics::check_upgrades(){
+	if(!isCollected && p->getX() == el->getX() && p->getY() == el->getY()){
+		el->touch();
+		//Erase element
+		mvwaddch(playwin, el->getY(), el->getX(), ' ');
+		wrefresh(playwin);
+		delete(el);
+		el = nullptr;
+		isCollected = true;
+}
 }
 
 /*
