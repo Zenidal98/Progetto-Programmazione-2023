@@ -29,33 +29,25 @@ void Elements::touch(){
     } else if(type=='g'){
         coins = coins_up();
     }
-
-    //libero quel pezzetto. Forse non basta o crea problemi, da tenere in considerazione
-    // mvaddch(WINDOW*map,y,x,' ');            
-    
-    //}
+    mvaddch(WINDOW*map,y,x,' ');            
 }
 
 
 // NON SI PUO' FARE QUI per Player --> creare una variabile che ritorna vita da aggiungere?
-int Elements::health_up(){   //drink. Questo va messo anche nel market.  Nel gioco è rappresentato con la lettera  D
+int Elements::health_up(){   //drink. Nel gioco è rappresentato con la lettera  D
     return 50;
 }
-
-
-// uguale a health_up     
+   
 //gold. Aumenta le monete di 1. Nel gioco è rappresentato con la lettera G.
 int Elements::coins_up(){  
     return 1;
 }
 
-// uguale
 //cherry. Nel gioco è rappresentato con la lettera  C
 int Elements::score_up(){           
     return 200;
 }
 
-//  uguale --> DECIDERE SE DARE E TOGLIERE STESSI PUNTI
 //rock    R. Il punteggio può andare anche in negativo. Nel gioco è rappresentato con la lettera R
 int Elements::score_down(){         
     return 200;
