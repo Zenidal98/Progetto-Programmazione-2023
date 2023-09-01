@@ -3,6 +3,46 @@
 #include <fstream>
 #include <cmath>
 #define floor '='
+/**
+struct RoomList{
+	int RoomID;
+	int RoomType;
+	bool alreadyBuit = false;
+	RoomList(int RoomID, int Roomtype);
+};
+
+class RoomListClass{
+private:
+	struct Node{
+		RoomList data;
+		Node* prev;
+		Node* next;
+		
+		Node(const RoomList& roomData);
+	};
+	
+	Node* head;
+	Node* tail;
+public:
+	//Constructor to initialize an empty list
+	RoomListClass();
+	
+	//Function to add a new node at the end of the list
+	void append(const RoomList& roomData);
+	
+
+
+	//Destructor to clean up memory
+	~RoomListClass();
+
+
+
+
+
+
+
+
+**/
 class Room{
 
 	private:
