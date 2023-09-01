@@ -111,7 +111,7 @@ void EnemySpawn(Room::pRL stage){
 void goNextRoom(Room::pRL oldStage){
 Room::pRL newStage = oldStage->next;
 Room::pRL pippo=Room::generateRoomStruct(oldStage);
-Room::generateRoom(newStage);
+Room::generateRoom();
 teleport();
 Specialpowers::inv = false;
 EnemySpawn(newStage);	

@@ -34,6 +34,8 @@ public:
 
 	//Destructor to clean up memory
 	~RoomListClass();
+};
+
 
 
 
@@ -58,8 +60,8 @@ class Room{
 		Room(WINDOW *win);
 		typedef roomList *pRL;
 		pRL initRoomList();
-		pRL generateRoomStruct(pRL oldStage);
-		void generateRoom();
+		static pRL generateRoomStruct(pRL oldStage);
+		static void generateRoom();
 		pRL getRoomList();
 		void gameOver();        //prima era room::gameover(); l'ho tolto da errore del make
 		pRL spawnMarket(pRL marketPosition);
