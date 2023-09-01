@@ -31,4 +31,7 @@ class Logics {
 
         // se premo tasto sparo
         void check_shoot();
+
+	// controlla se Player raccoglie Elements
+	void check_upgrades();
 };
