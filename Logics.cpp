@@ -9,6 +9,7 @@
 // #include "specialpowers.h"
 Logics::Logics() {
     bool isCollected = false;
+    bool isInvincible = false;
     int yMax, xMax;
     getmaxyx(stdscr, yMax, xMax);
     playwin = newwin(20, 50, (yMax / 2) - 10, 10);
@@ -63,7 +64,7 @@ void Logics::start(){
 
 void Logics::check_damage(){
     if((p->getX() == e->getX()) && (p->getY() == e->getY())){
-	//if (specialpowers::inv==false){
+	if (isInvincible==false){
 		p->minusHealth(e->getDamage());
 		wprintw(statwin, "\n%d Damage taken!", e->getDamage());
 		wrefresh(statwin);
@@ -71,10 +72,9 @@ void Logics::check_damage(){
 		wrefresh(statwin);
 		if(p->health <= 0)
 		gameOver();
+	}else{
+		wprintw(statwin,"\n You are invicible!");
 	}
-    //}else{
-	//	wprintw(statwin,"\n You are invicible!");
-	//}
 }
 
 void Logics::check_melee(){
@@ -126,19 +126,4 @@ void Logics::check_upgrades(){
 }
 }
 
-/*
-void logics:teleportpower(){
-	room::teleportpowerRoom();
 
-
-
-}
-
-int invRID ;
-void Logics::invPower(){
-	invRID = room::roomID;
-	
-
-
-}
-*/

@@ -50,11 +50,11 @@ void Specialpowers::invincible(){                //Idea: salvo gli hp che ho al 
 //	while(invincibleroomID==roomID){
 //            player.hp=invinciblehp;
 //	}
-	inv = true;
-	Logics::invPower();
+	
+	Logics::isInvincible = true;
 }
        
  
-bool inv = false;
+
 
   

@@ -113,7 +113,7 @@ Room::pRL newStage = oldStage->next;
 Room::pRL pippo=Room::generateRoomStruct(oldStage);
 Room::generateRoom();
 teleport();
-Specialpowers::inv = false;
+Logics::isInvincible = false;
 EnemySpawn(newStage);	
 ElementsSpawn(newStage);
 }
@@ -151,7 +151,6 @@ initscr();
 noecho();
 refresh();
 //WINDOW *win = new WINDOW;
-Room(win);
 Room::pRL pippo = Room::initRoomList();
 //Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 P->display();
