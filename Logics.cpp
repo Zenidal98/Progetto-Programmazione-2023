@@ -17,14 +17,16 @@ Logics::Logics() {
     int statX = 60;
     statwin = newwin(50, 30, statY, statX);
 
-    //            (WINDOW, x, y, ch,  hp, dam, hard);
-    e = new Enemy(playwin, 1, 1, 'e', 100, 10, true);
+    //   
+    char letters1[]="EMH";
+    char x = letters1[rand()%4];
+    e = new Enemy(1, 1, x, playwin);
     // Player      (window, x, y, char,hp, sc,jf,jh,dst,pow,bd,pd,coin, sp)
     p = new Player(playwin, 1, 1, 'P', 100, 0, 1, 4, 1, 1, 50, 0, 0, '\0');
     srand(time(NULL));
-    char letters[]="dcrg";
-    char x = letters[rand()%4];
-    el = new Elements(playwin, rand()%49+1, rand()%19+1, x);
+    char letters2[]="dcrg";
+    char y = letters2[rand()%4];
+    el = new Elements(playwin, rand()%49+1, rand()%19+1, y);
 }
 
 void Logics::start(){
@@ -123,7 +125,7 @@ void Logics::check_upgrades(){
 		delete(el);
 		el = nullptr;
 		isCollected = true;
+     }
+   }
 }
-}
-
 
