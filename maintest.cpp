@@ -155,14 +155,14 @@ srand(time(NULL));
 initscr();
 noecho();
 refresh();
-WINDOW *win = new WINDOW;
-Room::pRL pippo = Room::initRoomList(win);
+WINDOW *Roomwin = new WINDOW;
+Room::pRL pippo = Room::initRoomList(Roomwin);
 //Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 P->display();
 
 do{
 	P->display();
-	wrefresh(win);
+	wrefresh(Roomwin);
 }while(P->getinput()!='x');
 Room::generateRoom();
 do{
@@ -205,3 +205,4 @@ goNextRoom(pippo);
 
 return 0;
 }
+
