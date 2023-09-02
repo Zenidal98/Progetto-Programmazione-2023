@@ -15,6 +15,7 @@ using namespace std;
 
 WINDOW *win = new WINDOW;
 Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
+Logics L;
 
 void teleport(){
 	P->yLoc = 30;
@@ -49,7 +50,7 @@ void ElementsSpawn(Room::pRL stage){
 		int var2 = rand()%29+1;
 		Elements element(win,var1,var2,a);
 		element.display_element();
-		Logics::RecognizeElementLocation(var1,var2);
+		L.RecognizeElementLocation(var1,var2);
 	}	
 }
 
