@@ -77,7 +77,9 @@ void Logics::check_damage(){
 	}else{
 		wprintw(statwin,"\n You are invicible!");
 	}
+    }
 }
+	
 
 void Logics::check_melee(){
     int distance = abs(p->getX()-e->getX());
@@ -93,10 +95,8 @@ void Logics::check_melee(){
             // Erase pointer
             delete(e);
             e = nullptr;
-        }
+        } 
     }
-    else
-        return;
 }
 
 
@@ -127,5 +127,4 @@ void Logics::check_upgrades(){
 		isCollected = true;
      }
    }
-}
 
