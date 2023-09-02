@@ -166,6 +166,10 @@ do{
 Room::generateRoom();
 do{
 	P->getinput();
+	if(P->getinput() == 's'){
+		Bullet sh = Bullet(pippo, P->getX()+1, P->getY(), '-', 10);
+		sh.Fire(sh.getX(), sh.getY());
+	}
 }while(P->xLoc!=30 && P->yLoc!=1);
 goNextRoom(pippo);
 
