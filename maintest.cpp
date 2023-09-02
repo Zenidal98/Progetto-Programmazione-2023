@@ -50,7 +50,7 @@ void ElementsSpawn(Room::pRL stage){
 		int var2 = rand()%29+1;
 		Elements element(win,var1,var2,a);
 		element.display_element();
-		L.RecognizeElementLocation(var1,var2);
+		// L.RecognizeElementLocation(var1,var2);
 	}	
 }
 

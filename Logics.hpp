@@ -7,35 +7,27 @@
 #include "Bullet.hpp"
 
 class Logics {
-    private:
-        bool isCollected;
-        WINDOW* playwin;
-        WINDOW* statwin;
-        Enemy* e;
-        Player* p;
-        Bullet* sh;
-        bool end = false;
 
     public:
         // setta i vari parametri -> capire cosa fare con enemy e elements
-        Logics();
-	
+        // Logics();
+
         static bool isInvincible;
         // inizializza tutto
-        void start();
+//        void start();
 
         // controlla se player ha preso danno
-        void check_damage();
+        void check_damage(Player *p, Enemy *e);
 
         // controlla se player ha fatto danno
-        void check_melee();
+        void check_melee(Player *p, Enemy *e);
 
         // se premo tasto sparo
-        void check_shoot();
+        // void check_shoot();
 
 	// controlla se Player raccoglie Elements
-	void check_upgrades();
+	void check_upgrades(Player *p, Elements e);
 
        // prende le x e le y dell'element singolo e le passa a logics
-       void RecognizeElementLocation(int var1,int var2);
+//       void RecognizeElementLocation(int var1,int var2);
 };
