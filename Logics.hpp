@@ -20,6 +20,7 @@ class Logics {
         // setta i vari parametri -> capire cosa fare con enemy e elements
         Logics();
 	
+        static bool isInvincible;
         // inizializza tutto
         void start();
 

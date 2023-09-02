@@ -1,6 +1,6 @@
 #include <ncurses.h>
 // includere tutto quello che serve
-#include "Logics.hpp"
+#include "logics.hpp"
 //srand
 #include <cstdlib>
 #include <ctime>
@@ -9,7 +9,6 @@
 // #include "specialpowers.h"
 Logics::Logics() {
     bool isCollected = false;
-    bool isInvincible = false;
     int yMax, xMax;
     getmaxyx(stdscr, yMax, xMax);
     playwin = newwin(20, 50, (yMax / 2) - 10, 10);
