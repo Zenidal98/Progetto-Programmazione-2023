@@ -123,6 +123,7 @@ if(oldStage->roomID!=0){              // non il primo livello
 Room::pRL newStage = oldStage->prev;
 Room::generateRoom();
 teleport();
+Logics::isInvincible = false;
 EnemySpawn(newStage);
 ElementsSpawn(newStage);
    }
