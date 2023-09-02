@@ -35,4 +35,7 @@ class Logics {
 
 	// controlla se Player raccoglie Elements
 	void check_upgrades();
+
+       // prende le x e le y dell'element singolo e le passa a logics
+       void RecognizeElementLocation(int var1,int var2);
 };
