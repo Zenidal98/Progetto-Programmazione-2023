@@ -16,6 +16,7 @@ Logics::Logics() {
     int statY = (yMax/2) - 10;
     int statX = 60;
     statwin = newwin(50, 30, statY, statX);
+	
 
     //   
     char letters1[]="EMH";
@@ -28,6 +29,9 @@ Logics::Logics() {
     char y = letters2[rand()%4];
     el = new Elements(playwin, rand()%49+1, rand()%19+1, y);
 }
+
+int elementx = -1;                //serve per passare a logics le coordinate dal main dell'element singolo e per attivare le funzioni di logics
+int elementy = -1;
 
 void Logics::start(){
     // mappa
@@ -108,8 +112,13 @@ void Logics::check_shoot(){
     sh = nullptr;
 }
 
+void Logics::RecognizeElementLocation(int var1, int var2){    // funzione per usare i valori dell'elements singolo dal main
+	elementx=var1;
+	elementy=var2;
+}
+
 void Logics::check_upgrades(){
-	if(!isCollected && p->getX() == el->getX() && p->getY() == el->getY()){
+	if(!isCollected && p->getX() == var1 && p->getY() == var2){
 		el->touch();
 		//Erase element
 		mvwaddch(playwin, el->getY(), el->getX(), ' ');
