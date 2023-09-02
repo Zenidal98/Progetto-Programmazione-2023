@@ -11,7 +11,6 @@ class Elements{
         WINDOW *win;
         int x, xMax;
         int y, yMax;
-        char type;
 
         // variabili per aggiornamento player
         int hp;
@@ -19,6 +18,8 @@ class Elements{
         int points;
 
     public:
+	char type;
+
         Elements(WINDOW *win, int x, int y, char type);
 
         int getX();
