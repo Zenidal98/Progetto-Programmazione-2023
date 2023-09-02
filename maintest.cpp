@@ -155,8 +155,8 @@ srand(time(NULL));
 initscr();
 noecho();
 refresh();
-//WINDOW *win = new WINDOW;
-Room::pRL pippo = Room::initRoomList();
+WINDOW *win = new WINDOW;
+Room::pRL pippo = Room::initRoomList(win);
 //Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 P->display();
 
