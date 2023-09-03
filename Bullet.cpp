@@ -1,7 +1,8 @@
 #include "Bullet.hpp"
 #include "Enemy.hpp"
+#include "Room.hpp"
 
-Bullet::Bullet(WINDOW *win, int x, int y, char c, int d){
+Bullet::Bullet(Room *win, int x, int y, char c, int d){
     curwin = win;
     yLoc = y;
     xLoc = x;
