@@ -122,9 +122,9 @@ void EnemySpawn(Room::pRL stage){
 		}
 	}
 	     for(int i =0; i<6; i++){
-	        enemyarray[i]='\n';           // cercare come si svuota
+	        enemyarray[i]='\n';           // cercare come si svuota 
+  }
 }
-
 void goNextRoom(Room::pRL oldStage){
 Room::pRL newStage = oldStage->next;
 Room::pRL pippo=Room::generateRoomStruct(oldStage);
@@ -217,4 +217,5 @@ goNextRoom(pippo);
 
 
 return 0;
-}
+ }
+
