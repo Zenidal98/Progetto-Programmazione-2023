@@ -4,8 +4,6 @@
 #include "Enemy.hpp"
 #include "Elements.hpp"
 
-#include "Bullet.hpp"
-
 class Logics {
 
     public:

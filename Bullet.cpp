@@ -1,5 +1,5 @@
-#include "bullet.hpp"
-#include "enemy.hpp"
+#include "Bullet.hpp"
+#include "Enemy.hpp"
 
 Bullet::Bullet(WINDOW *win, int x, int y, char c, int d){
     curwin = win;
@@ -21,8 +21,8 @@ void Bullet::Fire(int yLoc, int xLoc){
             wrefresh(curwin);
             napms(50);
         }
-        else if(xLoc+1 == enemy::getX() && yLoc == enemy::getY()){
-        	enemy::takeDamage(damage);
+        else if(xLoc+1 == Enemy::getX() && yLoc == Enemy::getY()){
+        	Enemy::takeDamage(damage);
             mvwaddch(curwin, yLoc, xLoc, ' ');
 	    }
         else
