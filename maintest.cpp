@@ -18,7 +18,7 @@ Room *R =new Room(RoomWin);
 Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 Logics L;
 
-Enemy enemyarray[6];
+Enemy *enemyarray[6];
 
 void teleport(){
 	P->yLoc = 30;
@@ -61,66 +61,66 @@ void EnemySpawn(Room::pRL stage){
    int i = 0;
 	if(stage->roomID>=2 && stage->roomID<=3){
 		for(i=0; i<2; i++){
-			Easyenemy easyenemy(rand()%29+1,rand()%29+1,'E',win);
-			easyenemy.display_enemy();
+			Easyenemy *easyenemy = new Easyenemy(rand()%29+1,rand()%29+1,'E',win);
+			easyenemy->display_enemy();
 			enemyarray[i]=easyenemy;
 		}	
 	}
 	if(stage->roomID>3 && stage->roomID<=5){
 		for(int i=0; i<4; i++){
-			Easyenemy easyenemy(rand()%29+1,rand()%29+1,'E',win);
-		        easyenemy.display_enemy();
+			Easyenemy *easyenemy = new Easyenemy(rand()%29+1,rand()%29+1,'E',win);
+		        easyenemy->display_enemy();
 			enemyarray[i]=easyenemy;
 		}	
 	}
 	if(stage->roomID>5 && stage->roomID<=10){
 		for(int i=0; i<2; i++){
-			Easyenemy easyenemy(rand()%29+1,rand()%29+1,'E',win);
-			easyenemy.display_enemy();
+			Easyenemy *easyenemy = new Easyenemy(rand()%29+1,rand()%29+1,'E',win);
+			easyenemy->display_enemy();
 			enemyarray[i]=easyenemy;
 		}
 		for(int j=0; j<2; j++){
-			Mediumenemy mediumenemy(rand()%29+1,rand()%29+1,'M',win);
-			mediumenemy.display_enemy();
+			Mediumenemy *mediumenemy = new Mediumenemy(rand()%29+1,rand()%29+1,'M',win);
+			mediumenemy->display_enemy();
 			enemyarray[i]=mediumenemy;
 		}	
 	}
 	if(stage->roomID>10 && stage->roomID<=15){
 		for(int i=0; i<4; i++){
-			Mediumenemy mediumenemy(rand()%29+1, rand()%29+1,'M',win);
-			mediumenemy.display_enemy();
+			Mediumenemy *mediumenemy = new Mediumenemy(rand()%29+1, rand()%29+1,'M',win);
+			mediumenemy->display_enemy();
 			enemyarray[i]=mediumenemy;
 		}
 	}
 	if(stage->roomID>15 && stage->roomID<=20){
 		for(int i=0; i<2; i++){
-			Mediumenemy mediumenemy(rand()%29+1,rand()%29+1,'M',win);
-			mediumenemy.display_enemy();
+			Mediumenemy *mediumenemy = new Mediumenemy(rand()%29+1,rand()%29+1,'M',win);
+			mediumenemy->display_enemy();
 			enemyarray[i]=mediumenemy;
 		}
-		        Hardenemy hardenemy(rand()%29+1,rand()%29+1,'H',win);
-		        hardenemy.display_enemy();
+		        Hardenemy *hardenemy = new Hardenemy(rand()%29+1,rand()%29+1,'H',win);
+		        hardenemy->display_enemy();
 		        enemyarray[i]=hardenemy;
 	}
 	if(stage->roomID>20 && stage->roomID<=25){
 		for(int i=0; i<2; i++){
-			Hardenemy hardenemy(rand()%29+1,rand()%29+1,'H',win);
-			hardenemy.display_enemy();
+			Hardenemy *hardenemy = new Hardenemy(rand()%29+1,rand()%29+1,'H',win);
+			hardenemy->display_enemy();
 			enemyarray[i]=hardenemy;
 		}
 	}
 	if(stage->roomID>25 && stage->roomID<=30){
 		for(int i=0; i<4; i++){
-			Hardenemy hardenemy(rand()%29+1,rand()%29+1,'H',win);
-			hardenemy.display_enemy();
+			Hardenemy *hardenemy = new Hardenemy(rand()%29+1,rand()%29+1,'H',win);
+			hardenemy->display_enemy();
 			enemyarray[i]=hardenemy;
 		}	
 	}
 	if(stage->roomID>30){
 		                               //int m = (stage->roomID/10)*2;
 		for(int i=0; i<6; i++){   
-			Hardenemy hardenemy(rand()%29+1,rand()%29+1,'H',win);
-			hardenemy.display_enemy();
+			Hardenemy *hardenemy = new Hardenemy(rand()%29+1,rand()%29+1,'H',win);
+			hardenemy->display_enemy();
 			enemyarray[i]=hardenemy;
 		}
 	}
