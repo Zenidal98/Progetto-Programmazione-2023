@@ -1,4 +1,3 @@
-
 #include "Player.hpp"
 #include "Logics.hpp"
 #include "Room.hpp"
@@ -14,10 +13,11 @@
 using namespace std;
 
 WINDOW *win = new WINDOW;
-WINDOW *RoomWin = new WINDOW;
 Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 Logics L;
-Room *R =new Room(RoomWin);
+
+Enemy enemyarray[6];
+
 void teleport(){
 	P->yLoc = 30;
 	P->xLoc = 1;
@@ -60,63 +60,75 @@ void EnemySpawn(Room::pRL stage){
 		for(int i=0; i<2; i++){
 			Easyenemy easyenemy(rand()%29+1,rand()%29+1,'E',win);
 			easyenemy.display_enemy();
+			enemyarray[i]=easyenemy;
 		}	
 	}
 	if(stage->roomID>3 && stage->roomID<=5){
 		for(int i=0; i<4; i++){
 			Easyenemy easyenemy(rand()%29+1,rand()%29+1,'E',win);
 		        easyenemy.display_enemy();
+			enemyarray[i]=easyenemy;
 		}	
 	}
 	if(stage->roomID>5 && stage->roomID<=10){
 		for(int i=0; i<2; i++){
 			Easyenemy easyenemy(rand()%29+1,rand()%29+1,'E',win);
 			easyenemy.display_enemy();
+			enemyarray[i]=easyenemy;
 		}
 		for(int j=0; j<2; j++){
 			Mediumenemy mediumenemy(rand()%29+1,rand()%29+1,'M',win);
 			mediumenemy.display_enemy();
+			enemyarray[i]=mediumenemy;
 		}	
 	}
 	if(stage->roomID>10 && stage->roomID<=15){
 		for(int i=0; i<4; i++){
 			Mediumenemy mediumenemy(rand()%29+1, rand()%29+1,'M',win);
 			mediumenemy.display_enemy();
+			enemyarray[i]=mediumenemy;
 		}
 	}
 	if(stage->roomID>15 && stage->roomID<=20){
 		for(int i=0; i<2; i++){
 			Mediumenemy mediumenemy(rand()%29+1,rand()%29+1,'M',win);
 			mediumenemy.display_enemy();
+			enemyarray[i]=mediumenemy;
 		}
 		        Hardenemy hardenemy(rand()%29+1,rand()%29+1,'H',win);
 		        hardenemy.display_enemy();
+		        enemyarray[i]=hardenemy;
 	}
 	if(stage->roomID>20 && stage->roomID<=25){
 		for(int i=0; i<2; i++){
 			Hardenemy hardenemy(rand()%29+1,rand()%29+1,'H',win);
 			hardenemy.display_enemy();
+			enemyarray[i]=hardenemy;
 		}
 	}
 	if(stage->roomID>25 && stage->roomID<=30){
 		for(int i=0; i<4; i++){
 			Hardenemy hardenemy(rand()%29+1,rand()%29+1,'H',win);
-			hardenemy.display_enemy();			
+			hardenemy.display_enemy();
+			enemyarray[i]=hardenemy;
 		}	
 	}
 	if(stage->roomID>30){
-		int m = (stage->roomID/10)*2;
-		for(int i=0; i<m; i++){   
+		                               //int m = (stage->roomID/10)*2;
+		for(int i=0; i<6; i++){   
 			Hardenemy hardenemy(rand()%29+1,rand()%29+1,'H',win);
 			hardenemy.display_enemy();
+			enemyarray[i]=hardenemy;
 		}
 	}
+	     for(int i =0; i<6; i++){
+	        enemyarray[i]='\n';           // cercare come si svuota
 }
 
 void goNextRoom(Room::pRL oldStage){
 Room::pRL newStage = oldStage->next;
-Room::pRL pippo = R->generateRoomStruct(oldStage);
-R->generateRoom();
+Room::pRL pippo=Room::generateRoomStruct(oldStage);
+Room::generateRoom();
 teleport();
 Logics::isInvincible = false;
 EnemySpawn(newStage);	
@@ -126,7 +138,7 @@ ElementsSpawn(newStage);
 void goPreviousRoom(Room::pRL oldStage){
 if(oldStage->roomID!=0){              // non il primo livello
 Room::pRL newStage = oldStage->prev;
-R->generateRoom();
+Room::generateRoom();
 teleport();
 Logics::isInvincible = false;
 EnemySpawn(newStage);
@@ -156,16 +168,16 @@ srand(time(NULL));
 initscr();
 noecho();
 refresh();
-
-Room::pRL pippo = R->initRoomList();
+WINDOW *Roomwin = new WINDOW;
+Room::pRL pippo = Room::initRoomList(Roomwin);
 //Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 P->display();
 
 do{
 	P->display();
-	wrefresh(RoomWin);
+	wrefresh(Roomwin);
 }while(P->getinput()!='x');
-R->generateRoom();
+Room::generateRoom();
 do{
 	P->getinput();
 	if(P->getinput() == 's'){
@@ -206,4 +218,3 @@ goNextRoom(pippo);
 
 return 0;
 }
-
