@@ -14,12 +14,11 @@ using namespace std;
 
 WINDOW *win = new WINDOW;
 WINDOW *RoomWin = new WINDOW;
+Room *R =new Room(RoomWin);
 Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 Logics L;
 
 Enemy enemyarray[6];
-
-Room *R =new Room(RoomWin);
 
 void teleport(){
 	P->yLoc = 30;
@@ -59,8 +58,9 @@ void ElementsSpawn(Room::pRL stage){
 }
 
 void EnemySpawn(Room::pRL stage){
+   int i = 0;
 	if(stage->roomID>=2 && stage->roomID<=3){
-		for(int i=0; i<2; i++){
+		for(i=0; i<2; i++){
 			Easyenemy easyenemy(rand()%29+1,rand()%29+1,'E',win);
 			easyenemy.display_enemy();
 			enemyarray[i]=easyenemy;
@@ -125,7 +125,7 @@ void EnemySpawn(Room::pRL stage){
 		}
 	}
 	     for(int i =0; i<6; i++){
-	        enemyarray[i]='\n';           // cercare come si svuota 
+	        delete enemyarray[i];          // cercare come si svuota 
   }
 }
 void goNextRoom(Room::pRL oldStage){
