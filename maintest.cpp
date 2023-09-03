@@ -14,9 +14,10 @@
 using namespace std;
 
 WINDOW *win = new WINDOW;
+WINDOW *RoomWin = new WINDOW;
 Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 Logics L;
-
+Room *R =new Room(RoomWin);
 void teleport(){
 	P->yLoc = 30;
 	P->xLoc = 1;
@@ -114,8 +115,8 @@ void EnemySpawn(Room::pRL stage){
 
 void goNextRoom(Room::pRL oldStage){
 Room::pRL newStage = oldStage->next;
-Room::pRL pippo=Room::generateRoomStruct(oldStage);
-Room::generateRoom();
+Room::pRL pippo = R->generateRoomStruct(oldStage);
+R->generateRoom();
 teleport();
 Logics::isInvincible = false;
 EnemySpawn(newStage);	
@@ -125,7 +126,7 @@ ElementsSpawn(newStage);
 void goPreviousRoom(Room::pRL oldStage){
 if(oldStage->roomID!=0){              // non il primo livello
 Room::pRL newStage = oldStage->prev;
-Room::generateRoom();
+R->generateRoom();
 teleport();
 Logics::isInvincible = false;
 EnemySpawn(newStage);
@@ -155,16 +156,16 @@ srand(time(NULL));
 initscr();
 noecho();
 refresh();
-WINDOW *Roomwin = new WINDOW;
-Room::pRL pippo = Room::initRoomList(Roomwin);
+
+Room::pRL pippo = R->initRoomList();
 //Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 P->display();
 
 do{
 	P->display();
-	wrefresh(Roomwin);
+	wrefresh(RoomWin);
 }while(P->getinput()!='x');
-Room::generateRoom();
+R->generateRoom();
 do{
 	P->getinput();
 	if(P->getinput() == 's'){

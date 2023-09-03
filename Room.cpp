@@ -6,8 +6,8 @@ srand(time(NULL));     //questo si mette nel main di solito
 Room::Room(WINDOW *win){
 	currentWin = win;
 }
-static Room::pRL Room::initRoomList(WINDOW *win){
-	Room(win);	
+Room::pRL Room::initRoomList(){
+		
 	pRL s = new roomList;
 	pRL t = new roomListl;
 	pRL head = new roomList;
@@ -28,7 +28,7 @@ static Room::pRL Room::initRoomList(WINDOW *win){
        	t->next = NULL;
 	return head;
 }
-static Room::pRL Room::generateRoomStruct(pRL oldStage){
+Room::pRL Room::generateRoomStruct(pRL oldStage){
 	if(alreadyBuilt==false){
 		pRL p = new roomList;
 		oldStage->next = p;
@@ -40,7 +40,7 @@ static Room::pRL Room::generateRoomStruct(pRL oldStage){
 	alreadyBuilt=true;
 	return p;
 }
-static void Room::generateRoom(pRL newStage ){
+void Room::generateRoom(pRL newStage ){
 //10 stanze + 1 market + 1 starting level
 // qui devo capire come salvare e caricare le stanze
 	switch(stage->roomType){

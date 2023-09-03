@@ -59,9 +59,9 @@ class Room{
 	public:
 		Room(WINDOW *win);
 		typedef roomList *pRL;
-		static pRL initRoomList(WINDOW *win);
-		static pRL generateRoomStruct(pRL oldStage);
-		static void generateRoom();
+	  	pRL initRoomList();
+		pRL generateRoomStruct(pRL oldStage);
+		void generateRoom();
 		pRL getRoomList();
 		void gameOver();        //prima era room::gameover(); l'ho tolto da errore del make
 		pRL spawnMarket(pRL marketPosition);
