@@ -3,6 +3,7 @@
 
 #pragma once
 #include <ncurses.h>
+#include "Enemy.hpp"
 
 class Bullet{
     private:
