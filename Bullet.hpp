@@ -13,8 +13,8 @@ class Bullet{
         char character; 
         
     public:
-	Enemy *enemyArray;
-        Bullet(WINDOW *win, int x, int y, char c='-', int d=1, Enemy *enemies[]={});
+	Enemy enemy[];
+        Bullet(WINDOW *win, int x, int y, char c='-', int d=1, Enemy enemies[]={});
         void Fire(int xLoc, int yLoc);
         int getX();
         int getY();

@@ -2,19 +2,20 @@
 #include "Enemy.hpp"
 #include "Room.hpp"
 
-Bullet::Bullet(WINDOW *win, int x, int y, char c, int d, Enemy *enemies[]){
+Bullet::Bullet(WINDOW *win, int x, int y, char c, int d, Enemy enemies[]){
     curwin = win;
     yLoc = y;
     xLoc = x;
     character = c;
     damage = d;
     getmaxyx(curwin, yMax, xMax);
-    enemyArray = enemies;
+    enemy = enemies[];
 }
 
 // problema con vedere come interagire con enemy
 //if tasto sparo is premuto
-void Bullet::Fire(int yLoc, int xLoc, ){
+void Bullet::Fire(int yLoc, int xLoc){
+    int enemySize = enemy.size();
     for(int i=0; i<xMax; i++){
         if(xLoc+1 != xMax){
 	    for(int j=0; j<enemySize; j++){
