@@ -183,7 +183,7 @@ R->generateRoom();
 do{
 	P->getinput();
 	if(P->getinput() == 's'){
-		Bullet sh = Bullet(R, P->getX()+1, P->getY(), '-', 10);
+		Bullet sh = Bullet(RoomWin, P->getX()+1, P->getY(), '-', 10);
 		sh.Fire(sh.getX(), sh.getY());
 	}
 }while(P->xLoc!=30 && P->yLoc!=1);

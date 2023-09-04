@@ -2,7 +2,7 @@
 #include "Enemy.hpp"
 #include "Room.hpp"
 
-Bullet::Bullet(Room *win, int x, int y, char c, int d){
+Bullet::Bullet(WINDOW *win, int x, int y, char c, int d){
     curwin = win;
     yLoc = y;
     xLoc = x;
@@ -11,7 +11,7 @@ Bullet::Bullet(Room *win, int x, int y, char c, int d){
     getmaxyx(curwin, yMax, xMax);
 }
 
-// problema con dove parte il proiettile e poi vedere come interagire con enemy
+// problema con vedere come interagire con enemy
 //if tasto sparo is premuto
 void Bullet::Fire(int yLoc, int xLoc){
     for(int i=0; i<xMax; i++){
