@@ -11,10 +11,11 @@ class Bullet{
         int xLoc, yLoc, xMax, yMax;
         int damage;
         char character; 
+	int size;
         
     public:
-	Enemy enemy[];
-        Bullet(WINDOW *win, int x, int y, char c='-', int d=1, Enemy enemies[]={});
+	Enemy  *enemy[];
+        Bullet(WINDOW *win, int x, int y, char c='-', int d=1, Enemy enemies[]={}, int enemySize=6);
         void Fire(int xLoc, int yLoc);
         int getX();
         int getY();
