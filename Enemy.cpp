@@ -12,7 +12,7 @@ Enemy::Enemy(WINDOW *win, int x, int y, char c) {           //funzione di spawn 
     keypad(win, true);
 }
 
-Easyenemy:Enemy(x, y, c, *win) {
+Easyenemy::Enemy(x, y, c, *win) {
         this->health=10;
         this->damage=3;
     }
