@@ -9,7 +9,9 @@ Bullet::Bullet(WINDOW *win, int x, int y, char c, int d, Enemy enemies[], int en
     character = c;
     damage = d;
     getmaxyx(curwin, yMax, xMax);
-    enemy = enemies;
+    for(int i=0;i<enemySize;i++){
+	enemy[i] = enemies[i];
+    }
     size = enemySize;
 }
 
