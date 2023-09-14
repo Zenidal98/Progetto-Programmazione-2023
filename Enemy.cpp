@@ -1,4 +1,4 @@
-#include "enemy.hpp"
+#include "Enemy.hpp"
 // per srand()
 #include <cstdlib>
 #include <ctime>
