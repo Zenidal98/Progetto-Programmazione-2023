@@ -31,7 +31,7 @@ public:
 
     void movement();
      
-    void deathdrop();
+    void deathdrops();
         
     void display_enemy();
 
