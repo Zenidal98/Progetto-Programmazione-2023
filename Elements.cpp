@@ -18,31 +18,12 @@ int Elements::getY(){
     return y;
 }
 
+// Logics controlla se ho raccolto -> touch elimina l'elemento a schermo
 void Elements::touch(){
-    /* Non saprei come far funzionare di qua touch    
-    //check sul tipo di collezionabile raccolto
-    if(type=='d'){                               
-        hp = health_up(); 
-    } else if(type=='c'){
-        points = score_up();
-    } else if(type=='r'){
-        points = score_down();
-    } else if(type=='g'){
-        coins = coins_up();
-    }
-<<<<<<< HEAD
-    */
-    //libero quel pezzetto. Forse non basta o crea problemi, da tenere in considerazione
-    // mvaddch(WINDOW*map,y,x,' ');            
-    
-    //}
-=======
-    mvaddch(WINDOW*map,y,x,' ');            
->>>>>>> 228f6f1823ad99af3e28ded9a8f4e5c9875e057c
+    mvwaddch(win,y,x,' ');            
 }
 
 
-// NON SI PUO' FARE QUI per Player --> creare una variabile che ritorna vita da aggiungere?
 int Elements::health_up(){   //drink. Nel gioco è rappresentato con la lettera  D
     return 50;
 }
