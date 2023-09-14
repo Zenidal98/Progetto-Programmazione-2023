@@ -49,7 +49,7 @@ void Enemy::takeDamage(int damage) {
     health -= damage;
     if (this->health <= 0) {
         mvaddch(y, x, ' ');                     // cancella il nemico dalla posizione attuale quando viene sconfitto
-        death();
+        deathdrops();
     }
 }
 
