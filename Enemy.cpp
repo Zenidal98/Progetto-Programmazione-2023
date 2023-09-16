@@ -9,8 +9,6 @@ Enemy::Enemy(int x, int y, char c, WINDOW *win) {           //funzione di spawn 
     this->y = y;
     this->c = c;
     this->win = win;
-    char enemyType;
-    int takenDamage;
     getmaxyx(win, yMax, xMax);
     keypad(win, true);
 }
@@ -33,13 +31,13 @@ Hardenemy::Enemy(x, y, c, *win) {
         this->damage=15;
     }
 
-void Enemy::deathdrops(char enemyType){
+void Enemy::deathdrops(){
     int droppedscore=0;                                      //crea un drop basato sulla vita del nemico in punti e monete
     int droppedcoins=0;
-    if(enemyType=='E'){
+    if(this->enemyType=='E'){
         droppedscore=2;
         droppedcoins=3;
-    } else if (enemyType=='M'){
+    } else if (this->enemyType=='M'){
         droppedscore=5;
         droppedcoins=6;
     } else {
