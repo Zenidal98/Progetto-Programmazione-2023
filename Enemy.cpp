@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <ctime>
     
-Enemy::Enemy(WINDOW *win, int x, int y, char c) {           //funzione di spawn ?
+Enemy::Enemy(int x, int y, char c, WINDOW *win) {           //funzione di spawn ?
     this->x = x;
     this->y = y;
     this->c = c;
