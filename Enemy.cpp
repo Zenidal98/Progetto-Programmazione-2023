@@ -1,4 +1,5 @@
 #include "Enemy.hpp"
+#include "Player.hpp"
 // per srand()
 #include <cstdlib>
 #include <ctime>
