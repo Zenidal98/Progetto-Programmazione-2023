@@ -10,7 +10,8 @@ protected:
         int xMax, yMax;
         char c;
         WINDOW *win;
-        
+        char enemyType;
+        int takenDamage;
 
 public:
     Enemy(int x, int y, char c, WINDOW *win);
@@ -23,7 +24,7 @@ public:
 
     int getDamage();
 
-    void takeDamage(int damage);
+    void takeDamage(int takenDamage);
 
     void increasehealth(int plush);
 
@@ -31,7 +32,7 @@ public:
 
     void movement();
      
-    void deathdrops();
+    void deathdrops(char enemyType);
         
     void display_enemy();
 
