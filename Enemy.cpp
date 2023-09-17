@@ -13,19 +13,19 @@ Enemy::Enemy(int x, int y, char c, WINDOW *win) {           //funzione di spawn 
     keypad(win, true);
 }
 
-Easyenemy::Enemy(x, y, c, *win) {
+Easyenemy::Easyenemy(x, y, c, *win):Enemy(x, y, c, *win){
         this->enemyType='E';
         this->health=10;
         this->damage=3;
     }
 
-Mediumenemy::Enemy(x, y, c, *win) {
+Mediumenemy::Mediumenemy(x, y, c, *win):Enemy(x, y, c, *win) {
         this->enemyType='M';
         this->health=20;
         this->damage=6;
     }
 
-Hardenemy::Enemy(x, y, c, *win) {
+Hardenemy::Hardenemy(x, y, c, *win):Enemy(x, y, c, *win){
         this->enemyType='H';
         this->health=30;
         this->damage=15;
@@ -56,12 +56,13 @@ int Enemy::getDroppedCoins(char enemyType) {
     return droppedcoins;
 }
 /*
-void Enemy::takeDamage(int takenDamage) {
-    
+void Enemy::takeDamage(int takenDamage) {             // FORSE QUESTO VA MESSO NEL MAIN POICHE I DROP VANNO ATTRIBUITI AL PLAYER (player::plusmoney....
+char cr = 'E';
+
     health -= damage;
     if (this->health <= 0) {
         mvaddch(y, x, ' ');                     // cancella il nemico dalla posizione attuale quando viene sconfitto
-        getDroppedScore(cr);                    // FORSE QUESTO VA MESSO NEL MAIN POICHE I DROP VANNO ATTRIBUITI AL PLAYER (player::plusmoney....
+        getDroppedScore(cr);
         getDroppedCoins(cr);
     }
 }
