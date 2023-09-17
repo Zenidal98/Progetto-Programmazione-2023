@@ -31,32 +31,41 @@ Hardenemy::Enemy(x, y, c, *win) {
         this->damage=15;
     }
 
-void Enemy::deathdrops(){
-    int droppedscore=0;                                      //crea un drop basato sulla vita del nemico in punti e monete
-    int droppedcoins=0;
-    if(this->enemyType=='E'){
-        droppedscore=2;
-        droppedcoins=3;
-    } else if (this->enemyType=='M'){
-        droppedscore=5;
-        droppedcoins=6;
+int Enemy::getDroppedScore(char enemyType) {
+    int droppedscore = 0;                                      // crea un drop basato sul tipo di nemico in punti
+    if(this->enemyType == 'E'){
+        droppedscore = 2;
+    } else if (this->enemyType == 'M'){
+        droppedscore = 5;
     } else {
-        droppedscore=8;
-        droppedcoins=9;
+        droppedscore = 8;
     }
-    Player::plusMoney(droppedcoins);
-    Player::plusScore(droppedscore);
+    return droppedscore;
 }
 
 
+int Enemy::getDroppedCoins(char enemyType) {
+    int droppedcoins = 0;                                    // crea un drop basato sul tipo di nemico in monete
+    if(this->enemyType == 'E'){
+        droppedcoins = 3;
+    } else if (this->enemyType == 'M'){
+        droppedcoins = 6;
+    } else {
+        droppedcoins = 9;
+    }
+    return droppedcoins;
+}
+/*
 void Enemy::takeDamage(int takenDamage) {
+    
     health -= damage;
     if (this->health <= 0) {
         mvaddch(y, x, ' ');                     // cancella il nemico dalla posizione attuale quando viene sconfitto
-        deathdrops();
+        getDroppedScore(cr);                    // FORSE QUESTO VA MESSO NEL MAIN POICHE I DROP VANNO ATTRIBUITI AL PLAYER (player::plusmoney....
+        getDroppedCoins(cr);
     }
 }
-
+*/
 int Enemy::getX(){
     return this->x;
 }

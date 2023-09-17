@@ -32,7 +32,9 @@ public:
 
     void movement();
      
-    void deathdrops(char enemyType);
+    int getDroppedScore(char enemyType);
+
+    int getDroppedCoins(char enemyType);
         
     void display_enemy();
 
