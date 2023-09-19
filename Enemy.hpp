@@ -46,7 +46,7 @@ int health;
 int damage;
 
 public:
-Easyenemy(int x, int y, char c, WINDOW *win):Enemy(x,y,c,win){}
+Easyenemy(int x, int y, char c, WINDOW *win);
 };
 
 
@@ -56,7 +56,7 @@ int health;
 int damage;
 
 public:
-Mediumenemy(int x, int y, char c, WINDOW *win):Enemy(x,y,c,win){}
+Mediumenemy(int x, int y, char c, WINDOW *win);
 };
 
 
@@ -66,7 +66,7 @@ int health;
 int damage;
 
 public:
-Hardenemy(int x, int y, char c, WINDOW *win):Enemy(x,y,c,win){}
+Hardenemy(int x, int y, char c, WINDOW *win);
 };
 
 #endif

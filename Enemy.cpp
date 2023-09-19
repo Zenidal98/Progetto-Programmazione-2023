@@ -13,19 +13,19 @@ Enemy::Enemy(int x, int y, char c, WINDOW *win) {           //funzione di spawn 
     keypad(win, true);
 }
 
-Easyenemy::Easyenemy(x, y, c, *win):Enemy(x, y, c, *win){
+Easyenemy::Easyenemy(int x ,int y ,char c ,WINDOW *win):Enemy(x, y, c, win){
         this->enemyType='E';
         this->health=10;
         this->damage=3;
     }
 
-Mediumenemy::Mediumenemy(x, y, c, *win):Enemy(x, y, c, *win) {
+Mediumenemy::Mediumenemy(int x ,int y ,char c ,WINDOW *win):Enemy(x, y, c, win){
         this->enemyType='M';
         this->health=20;
         this->damage=6;
     }
 
-Hardenemy::Hardenemy(x, y, c, *win):Enemy(x, y, c, *win){
+Hardenemy::Hardenemy(int x ,int y ,char c,WINDOW *win):Enemy(x, y, c, win){
         this->enemyType='H';
         this->health=30;
         this->damage=15;
