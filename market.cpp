@@ -2,9 +2,9 @@ Note: -Bisogna capire dove va visto che usa un sacco di attributi di classi dive
       -Testare se il mvprintw cosi funziona
       - Manca andare avanti dopo che si esegue azione associata a tasto
       - Ho messo dei prezzi iniziali. In futuro se vogliamo, se possiamo, ci metteremo un moltiplicatore di velocità.
-#include<elements.hpp>
-#include<weapons.hpp>
-#include<player.hpp>
+#include "Elements.hpp"
+#include "Weapons.hpp"
+#include "Player.hpp"
 #define floor '='
 void showmarket(int roomID) {
     clear();  // Cancella lo schermo
