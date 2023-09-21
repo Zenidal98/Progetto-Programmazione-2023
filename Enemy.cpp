@@ -55,18 +55,7 @@ int Enemy::getDroppedCoins(char enemyType) {
     }
     return droppedcoins;
 }
-/*
-void Enemy::takeDamage(int takenDamage) {             // FORSE QUESTO VA MESSO NEL MAIN POICHE I DROP VANNO ATTRIBUITI AL PLAYER (player::plusmoney....
-char cr = 'E';
 
-    health -= damage;
-    if (this->health <= 0) {
-        mvaddch(y, x, ' ');                     // cancella il nemico dalla posizione attuale quando viene sconfitto
-        getDroppedScore(cr);
-        getDroppedCoins(cr);
-    }
-}
-*/
 int Enemy::getX(){
     return this->x;
 }

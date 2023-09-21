@@ -23,9 +23,17 @@ void Logics::check_melee(Player *p, Enemy *e){
 	int distance = abs(p->getX()-e->getX());
 	if(distance <= 2){
 		e->takeDamage(p->getDamage());
-		//print...
 		if(e->getHealth() <= 0){
-			//gestire morte o passare bool true?
+                        char cr = 'E';
+                        if(e->getDamage()==6){
+                        cr = 'M';
+                           }
+                        else if ( e->getDamage()==15){
+                        cr = 'H' ;
+                          }
+			mvaddch(y, x, ' ');
+                        Player::plusScore(getDroppedScore(cr));
+                        Player::plusCoins(getDroppedCoins(cr));
 		}
 	}
 }

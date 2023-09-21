@@ -24,8 +24,6 @@ public:
 
     int getDamage();
 
-    void takeDamage(int takenDamage);
-
     void increasehealth(int plush);
 
     void increasedamage(int plusd);
