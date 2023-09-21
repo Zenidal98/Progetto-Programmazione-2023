@@ -34,10 +34,10 @@ void Logics::check_melee(Player *p, Enemy *e){
                         cr = 'H' ;
                           }
 			mvaddch(e->getY(),e->getX(), ' ');
-                        s = getDroppedScore(cr);
-                        c = getDroppedCoins(cr);
-                        Player::plusScore(s);
-                        Player::plusCoins(c);
+                        s = e->getDroppedScore(cr);
+                        c = e->getDroppedCoins(cr);
+                        p->plusScore(s);
+                        p->plusCoins(c);
 		}
 	}
 }
