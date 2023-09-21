@@ -11,7 +11,7 @@ protected:
         char c;
         WINDOW *win;
         char enemyType;
-        int takenDamage;
+        
 
 public:
     Enemy(int x, int y, char c, WINDOW *win);

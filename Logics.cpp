@@ -22,8 +22,10 @@ void Logics::check_damage(Player *p, Enemy *e){
 void Logics::check_melee(Player *p, Enemy *e){
 	int distance = abs(p->getX()-e->getX());
 	if(distance <= 2){
-		e->takeDamage(p->getDamage());
+		//ridurre la vita del nemico singolo del valore del danno del player cioe p->getDamage.
 		if(e->getHealth() <= 0){
+                        int s = 0;
+                        int c = 0;
                         char cr = 'E';
                         if(e->getDamage()==6){
                         cr = 'M';
@@ -31,9 +33,11 @@ void Logics::check_melee(Player *p, Enemy *e){
                         else if ( e->getDamage()==15){
                         cr = 'H' ;
                           }
-			mvaddch(y, x, ' ');
-                        Player::plusScore(getDroppedScore(cr));
-                        Player::plusCoins(getDroppedCoins(cr));
+			mvaddch(e->getY(),e->getX(), ' ');
+                        s = getDroppedScore(cr);
+                        c = getDroppedCoins(cr);
+                        Player::plusScore(s);
+                        Player::plusCoins(c);
 		}
 	}
 }
