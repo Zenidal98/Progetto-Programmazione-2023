@@ -25,7 +25,7 @@ void Logics::check_melee(Player *p, Enemy *e){
 		//ridurre la vita del nemico singolo del valore del danno del player cioe p->getDamage.
 		if(e->getHealth() <= 0){
                         int s = 0;
-                        int c = 0;
+                        int m = 0;
                         char cr = 'E';
                         if(e->getDamage()==6){
                         cr = 'M';
@@ -35,9 +35,9 @@ void Logics::check_melee(Player *p, Enemy *e){
                           }
 			mvaddch(e->getY(),e->getX(), ' ');
                         s = e->getDroppedScore(cr);
-                        c = e->getDroppedCoins(cr);
+                        m = e->getDroppedCoins(cr);
                         p->plusScore(s);
-                        p->plusCoins(c);
+                        p->plusMoney(m);
 		}
 	}
 }
