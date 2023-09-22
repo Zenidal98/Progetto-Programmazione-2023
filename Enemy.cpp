@@ -4,56 +4,42 @@
 #include <cstdlib>
 #include <ctime>
     
-Enemy::Enemy(int x, int y, char c, WINDOW *win) {           //funzione di spawn ?
+Enemy::Enemy(int x, int y, char c, WINDOW *win, char enemyType) {           //funzione spawn nel main
     this->x = x;
     this->y = y;
     this->c = c;
     this->win = win;
     getmaxyx(win, yMax, xMax);
     keypad(win, true);
+    switch(enemyType){
+       case 'E':
+            this->health = 10;
+            this->damage = 3;
+            this->scoreDropped=2;
+            this->coinsDropped=3
+            break;
+        case 'M':
+            this->health = 20;
+            this->damage = 6;
+            this->scoreDropped=5;
+            this->coinsDropped=6
+            break;
+        case 'H':
+            this->health = 30;
+            this->damage = 15;
+            this->scoreDropped=8;
+            this->coinsDropped=9
+            break;
+    }
 }
 
-Easyenemy::Easyenemy(int x ,int y ,char c ,WINDOW *win):Enemy(x, y, c, win){
-        this->enemyType='E';
-        this->health=10;
-        this->damage=3;
-    }
-
-Mediumenemy::Mediumenemy(int x ,int y ,char c ,WINDOW *win):Enemy(x, y, c, win){
-        this->enemyType='M';
-        this->health=20;
-        this->damage=6;
-    }
-
-Hardenemy::Hardenemy(int x ,int y ,char c,WINDOW *win):Enemy(x, y, c, win){
-        this->enemyType='H';
-        this->health=30;
-        this->damage=15;
-    }
-
-int Enemy::getDroppedScore(char enemyType) {
-    int droppedscore = 0;                                      // crea un drop basato sul tipo di nemico in punti
-    if(this->enemyType == 'E'){
-        droppedscore = 2;
-    } else if (this->enemyType == 'M'){
-        droppedscore = 5;
-    } else {
-        droppedscore = 8;
-    }
-    return droppedscore;
+int Enemy::getDroppedScore() {
+         return this->scoreDropped;                               // punti che ottieni sconfiggendo quel tipo di nemico
 }
 
 
 int Enemy::getDroppedCoins(char enemyType) {
-    int droppedcoins = 0;                                    // crea un drop basato sul tipo di nemico in monete
-    if(this->enemyType == 'E'){
-        droppedcoins = 3;
-    } else if (this->enemyType == 'M'){
-        droppedcoins = 6;
-    } else {
-        droppedcoins = 9;
-    }
-    return droppedcoins;
+         return this->coinsDropped;                               //monete che ottieni sconfiggendo il nemico
 }
 
 int Enemy::getX(){
@@ -65,27 +51,11 @@ int Enemy::getY(){
 }
 
 int Enemy::getHealth(){
-int healthgive=0;
-    if(this->enemyType=='E'){
-          healthgive=10;
-}   else if (this->enemyType=='M'){
-          healthgive=20;
-}   else {
-          healthgive=30;
-}
-            return healthgive;
+    return this->health;
 }
 
 int Enemy::getDamage(){
-int givedamage=0;
-    if(this->enemyType=='E'){
-           givedamage=3;
-}   else if(this->enemyType=='M'){
-           givedamage=6;
-}   else {
-           givedamage=15;
-}
-    return givedamage;
+    return this->damage;
 }
 
 // Ripensare movement -> togli ciclo, altrimenti problema con main

@@ -11,10 +11,13 @@ protected:
         char c;
         WINDOW *win;
         char enemyType;
-        
+        int health;
+        int damage;
+        int scoreDropped;
+        int coinsDropped;
 
 public:
-    Enemy(int x, int y, char c, WINDOW *win);
+    Enemy(int x, int y, char c, WINDOW *win, char enemyType);
 
     int getX();
 
@@ -24,47 +27,13 @@ public:
 
     int getDamage();
 
-    void increasehealth(int plush);
-
-    void increasedamage(int plusd);
-
     void movement();
      
-    int getDroppedScore(char enemyType);
+    int getDroppedScore();
 
-    int getDroppedCoins(char enemyType);
+    int getDroppedCoins();
         
     void display_enemy();
 
 };
-
-class Easyenemy: public Enemy {
-protected:
-int health;
-int damage;
-
-public:
-Easyenemy(int x, int y, char c, WINDOW *win);
-};
-
-
-class Mediumenemy: public Enemy {
-protected:
-int health;
-int damage;
-
-public:
-Mediumenemy(int x, int y, char c, WINDOW *win);
-};
-
-
-class Hardenemy: public Enemy {
-protected:
-int health;
-int damage;
-
-public:
-Hardenemy(int x, int y, char c, WINDOW *win);
-};
-
 #endif
