@@ -16,19 +16,19 @@ Enemy::Enemy(int x, int y, char c, WINDOW *win, char enemyType) {           //fu
             this->health = 10;
             this->damage = 3;
             this->scoreDropped=2;
-            this->coinsDropped=3
+            this->coinsDropped=3;
             break;
         case 'M':
             this->health = 20;
             this->damage = 6;
             this->scoreDropped=5;
-            this->coinsDropped=6
+            this->coinsDropped=6;
             break;
         case 'H':
             this->health = 30;
             this->damage = 15;
             this->scoreDropped=8;
-            this->coinsDropped=9
+            this->coinsDropped=9;
             break;
     }
 }
@@ -38,7 +38,7 @@ int Enemy::getDroppedScore() {
 }
 
 
-int Enemy::getDroppedCoins(char enemyType) {
+int Enemy::getDroppedCoins() {
          return this->coinsDropped;                               //monete che ottieni sconfiggendo il nemico
 }
 

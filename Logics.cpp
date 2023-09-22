@@ -22,8 +22,10 @@ void Logics::check_damage(Player *p, Enemy *e){
 void Logics::check_melee(Player *p, Enemy *e){
 	int distance = abs(p->getX()-e->getX());
 	if(distance <= 2){                             //colpito
-		e->getHealth() -= p->getDamage();
-		if(e->getHealth() <= 0){
+                int energy=0;
+                energy=e->getHealth();
+                energy=energy-p->getDamage();
+		if(energy <= 0){
                         int s = 0;
                         int m = 0;
 			mvaddch(e->getY(),e->getX(), ' ');
