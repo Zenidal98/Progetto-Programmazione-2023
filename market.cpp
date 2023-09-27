@@ -3,12 +3,14 @@ Note: -Bisogna capire dove va visto che usa un sacco di attributi di classi dive
       -Testare se il mvprintw cosi funziona
       - Manca andare avanti dopo che si esegue azione associata a tasto
       - Ho messo dei prezzi iniziali. In futuro se vogliamo, se possiamo, ci metteremo un moltiplicatore di velocità.
-*/
+
 #include "Elements.hpp"
 #include "Weapons.hpp"
 #include "Player.hpp"
 #include<cstdlib>
+#include<string>
 #define floor '='
+using namespace std;
 void showmarket(int roomID) {
     clear();  // Cancella lo schermo
 
@@ -32,7 +34,7 @@ void showmarket(int roomID) {
 
      // Per i poteri la probabilità che appaia come nome è equivalente 
     int casualIndex=rand()%(3);
-    char powerName='.';      // Qui metto due variabili per un motivo; la prima serve a far apparire il nome a schermo. La seconda a chiamare
+    std::string powerName;      // Qui metto due variabili per un motivo; la prima serve a far apparire il nome a schermo. La seconda a chiamare
     char powerName2='.';     // la variabile nelle funzioni dedicate nello switch finale, per questo sono solo lettere singole in power2.
     if(casualIndex==0){
         powerName="DamageUp";
@@ -50,17 +52,17 @@ void showmarket(int roomID) {
 
     // La pistola appare nel 50% dei casi, il fucile nel 40% ed il lanciarazzi nel 10% dei casi.
     int casualIndex2=rand()%(10)
-    char weaponName='.';
+    std::string weaponName;
     char weaponName2='.';
-    if((casualindex2>=0)&&(casualindex2<=4)){
+    if((casualIndex2>=0)&&(casualIndex2<=4)){
         weaponName="Pistol";
         weaponName2='p';
         weaponPrice=10*roomID;
-    } else if ((casualindex2>=5)&&(casualindex2<=8)){
+    } else if ((casualIndex2>=5)&&(casualIndex2<=8)){
         weaponName="Firelock";
         weaponName2='f';
         weaponPrice=100*roomID;
-    } else if (casualindex2==9){
+    } else if (casualIndex2==9){
         weaponName="Rocket_Launcher";
         weaponName2='l';
         weaponPrice=200*roomID;
@@ -107,4 +109,5 @@ void showmarket(int roomID) {
         default:
             break;
     }
+*/
 

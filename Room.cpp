@@ -1,4 +1,4 @@
-#include "room.hpp"
+#include "Room.hpp"
 #include <iostream>
 #include <cmath>
 srand(time(NULL));     //questo si mette nel main di solito
