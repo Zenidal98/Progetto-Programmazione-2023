@@ -88,7 +88,7 @@ void Logics::showmarket(int roomID, Player *p) {
 
      // Per i poteri la probabilità che appaia come nome è equivalente
     int casualIndex=rand()%(3);
-    std::string powerName;      // Qui metto due variabili per un motivo; la prima serve a far apparire il nome a schermo. La seconda a chiamare
+    std::string *powerName;      // Qui metto due variabili per un motivo; la prima serve a far apparire il nome a schermo. La seconda a chiamare
     char powerName2='.';     // la variabile nelle funzioni dedicate nello switch finale, per questo sono solo lettere singole in power2.
     if(casualIndex==0){
         powerName="DamageUp";
@@ -105,8 +105,8 @@ void Logics::showmarket(int roomID, Player *p) {
     }
 
     // La pistola appare nel 50% dei casi, il fucile nel 40% ed il lanciarazzi nel 10% dei casi.
-    int casualIndex2=rand()%(10)
-    std::string weaponName;
+    int casualIndex2=rand()%(10);
+    std::string *weaponName;
     char weaponName2='.';
     if((casualIndex2>=0)&&(casualIndex2<=4)){
         weaponName="Pistol";
