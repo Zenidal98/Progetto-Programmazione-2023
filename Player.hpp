@@ -17,8 +17,6 @@ class Player{
         int distance;
         // potenza di attacco
         int power; // da togliere?
-        // soldi
-        int coins;
         // aggiunta
         int baseDamage;
         int plusDamage;
@@ -26,6 +24,7 @@ class Player{
         // spostata in public per testing
         int xLoc, yLoc, xMax, yMax;
         int health;
+        int coins;
         char specialpower;
         Player(WINDOW *win, int x, int y, char c, int h, int s, int jf, int jh, int d, int p, int bd, int pd, int m, char sp);
         // Player(WINDOW *win, int x, int y, char c);
