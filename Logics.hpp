@@ -12,7 +12,7 @@ class Logics {
 
         static bool isInvincible;
         // inizializza tutto
-//        void start();
+        // void start();
 
         // controlla se player ha preso danno
         void check_damage(Player *p, Enemy *e);

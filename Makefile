@@ -4,8 +4,8 @@ CFLAGS = -std=c++11 -g -Wall -Wextra
 
 LIBS = -lncurses
 
-NOMEGIOCO: maintest.o Logics.o Bullet.o Elements.o Enemy.o market.o Player.o Room.o Specialpowers.o Weapons.o
-	g++ maintest.o Logics.o Bullet.o Elements.o Enemy.o market.o Player.o Room.o Specialpowers.o Weapons.o -o NOMEGIOCO
+NOMEGIOCO: maintest.o Logics.o Bullet.o Elements.o Enemy.o Player.o Room.o Specialpowers.o Weapons.o
+	g++ maintest.o Logics.o Bullet.o Elements.o Enemy.o Player.o Room.o Specialpowers.o Weapons.o -o NOMEGIOCO
 
 maintest.o: maintest.cpp
 	g++ -c maintest.cpp
@@ -21,9 +21,6 @@ Elements.o: Elements.cpp
 
 Enemy.o: Enemy.cpp
 	g++ -c Enemy.cpp
-
-market.o: market.cpp
-	g++ -c market.cpp
 
 Player.o: Player.cpp
 	g++ -c Player.cpp
