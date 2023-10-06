@@ -3,7 +3,7 @@
 #include "Player.hpp"
 #include "Enemy.hpp"
 #include "Elements.hpp"
-
+#include <string>
 class Logics {
 
     public:
