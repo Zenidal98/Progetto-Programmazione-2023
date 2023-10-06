@@ -3,6 +3,8 @@
 #include "Player.hpp"
 #include "Enemy.hpp"
 #include "Elements.hpp"
+#include "Weapons.hpp"
+#include "Specialpowers.hpp"
 #include <string>
 class Logics {
 

@@ -5,7 +5,6 @@
 #include <cmath>
 #include <string>
 using namespace std;
-//include "Specialpowers.hpp"?
 
 bool isCollected = false;
 bool gameOver = false;
@@ -38,10 +37,6 @@ void Logics::check_melee(Player *p, Enemy *e){
 		}
 	}
 }
-/*
-void Logics::check_shoot(){
-	sh = new Bullet(
-}*/
 
 void Logics::check_upgrades(Player *p, Elements e){
 	if(!isCollected && p->getX() == e.getX() && p->getY() == e.getY()){
@@ -121,7 +116,7 @@ void Logics::showmarket(int roomID, Player *p) {
         weaponName2='l';
         weaponPrice=200*roomID;
     }
-
+    Weapons w = Weapons(weaponPrice, weaponName2);
 
     // Mostra il relativo pulsante da premere per acquistare qualcosa che corrisponde alla iniziale in inglese
     // std::to string trasforma gli interi in stringhe compatibili. c_str crea la stringa finale.
@@ -158,7 +153,7 @@ void Logics::showmarket(int roomID, Player *p) {
         case 'w':                       // Compra l'arma che va a sostituire il potere base del player
         if(p->coins>=weaponPrice){
         p->coins=p->coins-weaponPrice;
-        p->buyweapons(weaponName2);
+        w.buyweapons(p, weaponName2);
             break;
         }
         default:
