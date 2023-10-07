@@ -98,6 +98,7 @@ void Logics::showmarket(int roomID, Player *p) {
         powerName2='i';
         powerPrice=50*roomID;
     }
+    Specialpowers s = Specialpowers(powerPrice, powerName2);
 
     // La pistola appare nel 50% dei casi, il fucile nel 40% ed il lanciarazzi nel 10% dei casi.
     int casualIndex2=rand()%(10);
@@ -147,7 +148,7 @@ void Logics::showmarket(int roomID, Player *p) {
         case 'p':                       // Compra il potere se non ne ha già uno
         if(p->coins>=powerPrice){
         p->coins=p->coins-powerPrice;
-        p->buyspecialpowers(powerName2);
+        s.buyspecialpowers(p, powerName2);
         }
             break;
         case 'w':                       // Compra l'arma che va a sostituire il potere base del player
