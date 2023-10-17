@@ -13,11 +13,11 @@ public:
 
    void touch();                   //funzione che si attiva sempre quando il player tocca un elemento.
 
-   void poweractivation();         //serve a dare l'effetto desiderato quando si preme 'x'. Si potrebbe togliere e mettere nel main ?
+   void poweractivation(WINDOW *curwin, Player *p);         //serve a dare l'effetto desiderato quando si preme 'x'. Si potrebbe togliere e mettere nel main ?
 
-   void damageup();                //aumenta il danno bonus
+   void damageup(Player *p);                //aumenta il danno bonus
 
-   void damagedown();              //funzione che riporta il danno a prima di damageup. Serve per riportare le cose alla normalità dopo il bonus
+   void damagedown(Player *p);              //funzione che riporta il danno a prima di damageup. Serve per riportare le cose alla normalità dopo il bonus
 
    void teleport();                //teletrasporta in un'altra stanza
 

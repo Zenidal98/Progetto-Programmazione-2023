@@ -18,27 +18,27 @@ void Specialpowers::buyspecialpowers(Player *p, char type){
     }
 }
 
-void Specialpowers::poweractivation(WINDOW *curwin, Player *p){                          //funzione che attiva gli specialpowers. Forse va messa nel main e basta.
+void Specialpowers::poweractivation(WINDOW *curwin){                          //funzione che attiva gli specialpowers. Forse va messa nel main e basta.
 	if (wgetch(curwin)=='x'){
-		if (p->specialpower='d'){
-        		damageup(p);
+		if (Player::specialpower='d'){
+        	Specialpowers::damageup();
 		}
-        	if (p->specialpower='t'){ 
-        		teleport();
+        	if (Player::sp='t'){ 
+        	Specialpowers::teleport();
 		}
-        	if (p->specialpower='i'){
-        		invincible();
+        	if (Player::sp='i'){
+        	Specialpowers::invincible();
 		}
 	}
 }
 
-void Specialpowers::damageup(Player *p){
-    p->plusDamage=p->plusDamage*1,5;  //aumenta il danno bonus del player. Questo sommato al danno arma è il danno totale.
-}
+void Specialpowers::damageup(){
+    Player::plusDamage=Player::plusDamage*1,5;  //aumenta il danno bonus del player. Questo sommato al danno arma è il danno totale.
+      }
 
-void Specialpowers::damagedown(Player *p){                //legata a damagedown
-    p->plusDamage=p->plusDamage/1,5;
-}
+void Specialpowers::damagedown(){                //legata a damagedown
+    Player::plusDamage=Player::plusDamage/1,5;
+      }
 
 void Specialpowers::teleport(){                   //teletrasporta il giocatore in una nuova stanza
 	Logics::teleportpower();
