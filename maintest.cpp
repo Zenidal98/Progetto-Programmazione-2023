@@ -129,24 +129,24 @@ void EnemySpawn(Room::pRL stage){
   }
 }
 void goNextRoom(Room::pRL oldStage){
-Room::pRL newStage = oldStage->next;
-Room::pRL pippo = R->generateRoomStruct(oldStage);
-R->generateRoom();
-teleport();
-Logics::isInvincible = false;
-EnemySpawn(newStage);	
-ElementsSpawn(newStage);
+	Room::pRL newStage = oldStage->next;
+	Room::pRL pippo = R->generateRoomStruct(oldStage);
+	R->generateRoom(newStage);
+	teleport();
+	Logics::isInvincible = false;
+	EnemySpawn(newStage);	
+	ElementsSpawn(newStage);
 }
 
 void goPreviousRoom(Room::pRL oldStage){
-if(oldStage->roomID!=0){              // non il primo livello
-Room::pRL newStage = oldStage->prev;
-R->generateRoom();
-teleport();
-Logics::isInvincible = false;
-EnemySpawn(newStage);
-ElementsSpawn(newStage);
-   }
+	if(oldStage->roomID!=0){              // non il primo livello
+		Room::pRL newStage = oldStage->prev;
+		R->generateRoom(newStage);
+		teleport();
+		Logics::isInvincible = false;
+		EnemySpawn(newStage);
+		ElementsSpawn(newStage);
+	}
 }
 
 
@@ -179,7 +179,7 @@ do{
 	P->display();
 	wrefresh(RoomWin);
 }while(P->getinput()!='x');
-R->generateRoom();
+//R->generateRoom();
 do{
 	P->getinput();
 	if(P->getinput() == 's'){

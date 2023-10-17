@@ -25,7 +25,7 @@ Room::pRL Room::initRoomList(){
 	t->roomID = 2;
 	t->roomType =((rand()%10)+2);
 	t->alreadyBuilt=true;
-       	t->next = NULL;
+    t->next = NULL;
 	return head;
 }
 Room::pRL Room::generateRoomStruct(pRL oldStage){
@@ -69,7 +69,7 @@ void Room::generateRoom(pRL newStage ){
 		case 4:
 		{
 			mvwhline(currentWin, 5, 9, floor, 3);
-		        mvwhline(currentWin, 2, 19, floor, 7);		
+		    mvwhline(currentWin, 2, 19, floor, 7);		
 		}
 		break;
 		case 5:
@@ -96,7 +96,7 @@ void Room::generateRoom(pRL newStage ){
 		case 8:
 		{
 			mvwhline(currentWin, 5, 8, floor, 5);
-		       	mvwhline(currentWin, 3, 15, floor, 9);
+		    mvwhline(currentWin, 3, 15, floor, 9);
 			mvwhline(currentWin, 7, 20, floor, 2);
 		}
 		break;
@@ -167,9 +167,9 @@ for(int i=0;i<3;i++){
 	Stage->next=p;
 	}
 }
-Player::xLoc = 1;
-Player::yLoc = 30;
-Player::display();
+//Player::xLoc = 1;
+//Player::yLoc = 30;
+//Player::display();
 }
 
 
