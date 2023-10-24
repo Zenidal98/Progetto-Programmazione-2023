@@ -18,13 +18,13 @@ class Player{
         // potenza di attacco
         int power; // da togliere?
         // aggiunta
-        int baseDamage;
     public:
         // spostata in public per testing
         int xLoc, yLoc, xMax, yMax;
         int health;
         int coins;
 	int plusDamage;
+        int basedamage;
         char specialpower;
         Player(WINDOW *win, int x, int y, char c, int h, int s, int jf, int jh, int d, int p, int bd, int pd, int m, char sp);
         // Player(WINDOW *win, int x, int y, char c);

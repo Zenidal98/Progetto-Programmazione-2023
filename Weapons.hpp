@@ -5,7 +5,6 @@
 class Weapons {
 private:
        int cost;
-       int plus;
        char type;
 
 public:
