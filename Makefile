@@ -5,7 +5,7 @@ CFLAGS = -std=c++11 -g -Wall -Wextra
 LIBS = -lncurses
 
 NOMEGIOCO: maintest.o Logics.o Bullet.o Elements.o Enemy.o Player.o Room.o Specialpowers.o Weapons.o
-	g++ maintest.o Logics.o Bullet.o Elements.o Enemy.o Player.o Room.o Specialpowers.o Weapons.o -o NOMEGIOCO
+	g++ maintest.o Logics.o Bullet.o Elements.o Enemy.o Player.o Room.o Specialpowers.o Weapons.o -o NOMEGIOCO $(LIBS)
 
 maintest.o: maintest.cpp
 	g++ -c maintest.cpp
