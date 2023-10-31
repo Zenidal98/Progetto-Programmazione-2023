@@ -128,20 +128,20 @@ void EnemySpawn(Room::pRL stage){
 	        delete enemyarray[i];          // cercare come si svuota 
   }
 }
-void goNextRoom(Room::pRL oldStage){
+void goNextRoom(Room::pRL oldStage,Player *p){
 	Room::pRL newStage = oldStage->next;
 	Room::pRL pippo = R->generateRoomStruct(oldStage);
-	R->generateRoom(newStage);
+	R->generateRoom(newStage,p);
 	teleport();
 	Logics::isInvincible = false;
 	EnemySpawn(newStage);	
 	ElementsSpawn(newStage);
 }
 
-void goPreviousRoom(Room::pRL oldStage){
+void goPreviousRoom(Room::pRL oldStage,Player *p){
 	if(oldStage->roomID!=0){              // non il primo livello
 		Room::pRL newStage = oldStage->prev;
-		R->generateRoom(newStage);
+		R->generateRoom(newStage,p);
 		teleport();
 		Logics::isInvincible = false;
 		EnemySpawn(newStage);
@@ -187,7 +187,7 @@ do{
 		sh.Fire(sh.getX(), sh.getY());
 	}
 }while(P->xLoc!=30 && P->yLoc!=1);
-goNextRoom(pippo);
+goNextRoom(pippo, P);
 
 	
 	
