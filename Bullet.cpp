@@ -24,7 +24,7 @@ void Bullet::Fire(int yLoc, int xLoc){
 		//enemy hit
 		if(xLoc+1 == enemy[j].getX() && yLoc+1 == enemy[j].getY())
 		{
-			enemy[j].takeDamage(damage);
+			enemy[j].health -= damage;	//sarebbe meglio creare una funzione takeDamage in Enemy
 			return;
 		}
 	    }

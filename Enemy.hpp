@@ -11,13 +11,15 @@ protected:
         char c;
         WINDOW *win;
         char enemyType;
-        int health;
+//        int health;
         int damage;
         int scoreDropped;
         int coinsDropped;
 
 public:
     Enemy(int x, int y, char c, WINDOW *win, char enemyType);
+
+    int health;
 
     int getX();
 

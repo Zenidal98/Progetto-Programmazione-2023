@@ -11,7 +11,7 @@ bool gameOver = false;
 
 void Logics::check_damage(Player *p, Enemy *e){
 	if(p->getX() == e->getX() && p->getY()==e->getY()){
-		if(isInvincible == false){
+		if(isInvincible == false){		// risolvere isInvincible
 			p->minusHealth(e->getDamage());
 			if(p->health<=0)
 				gameOver = true;
