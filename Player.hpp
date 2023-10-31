@@ -24,7 +24,7 @@ class Player{
         int health;
         int coins;
 	int plusDamage;
-        int basedamage;
+        int baseDamage;
         char specialpower;
         Player(WINDOW *win, int x, int y, char c, int h, int s, int jf, int jh, int d, int p, int bd, int pd, int m, char sp);
         // Player(WINDOW *win, int x, int y, char c);
