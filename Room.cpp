@@ -130,9 +130,7 @@ void Room::generateRoom(pRL newStage, Player *p ){
 			
 }
 
-/** Room::pRL Room::getRoomList(){
-	return head;
-}**/
+
 
 void Room::gameOver(){
     mvprintw(7,20,"   ______ ___     __  ___ ______");
@@ -148,11 +146,6 @@ void Room::gameOver(){
     mvprintw(17,25,"\\____/  |___//_____//_/ |_|  ");
 }
    
-room::pRL room::spawnMarket(pRL marketPosition){
-	//vecchia idea, potrebbe essere riusata
-        
-
-}
 
 
 
