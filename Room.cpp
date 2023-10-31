@@ -1,8 +1,8 @@
 #include "Room.hpp"
 #include <iostream>
 #include <cmath>
-
-
+#include "Logics.hpp"
+#include "Player.hpp"
 Room::Room(WINDOW *win){
 	currentWin = win;
 }
@@ -40,7 +40,7 @@ Room::pRL Room::generateRoomStruct(pRL oldStage){
 	oldStage->alreadyBuilt=true;
 	return p;
 }
-void Room::generateRoom(pRL newStage ){
+void Room::generateRoom(pRL newStage, Player *p ){
 //10 stanze + 1 market + 1 starting level
 // qui devo capire come salvare e caricare le stanze
 	switch(newStage->roomType){
@@ -49,7 +49,7 @@ void Room::generateRoom(pRL newStage ){
 		}
 		break;
 		case 1:      //Market (uso funzione esterna per espandere
-		{Room::spawnMarket(newStage);
+		{Logics::showmarket(newStage->roomID, p);
 		}
 		break;
 		case 2:
@@ -147,13 +147,13 @@ void Room::gameOver(){
     mvprintw(16,25,"/ /_/ / | |/ // /___ / _, _/ ");
     mvprintw(17,25,"\\____/  |___//_____//_/ |_|  ");
 }
-/*   
+   
 room::pRL room::spawnMarket(pRL marketPosition){
 	//vecchia idea, potrebbe essere riusata
         
 
 }
-*/
+
 
 
 void Room::teleportpowerRoom(pRL Stage){
