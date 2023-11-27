@@ -7,11 +7,11 @@
 void Weapons::buyweapons(Player *p, char type){
     if(p->coins >= this->cost){                    //se si ha abbastanza gold si può comprare
         if(this->type=='p'){                          //comprare la pistola
-          p->basedamage=5;
+          p->baseDamage=5;
         } else if(this->type=='f'){                   //comprare il fucile
-          p->basedamage=10;
+          p->baseDamage=10;
         } else if(this->type=='l'){                   //comprare il lanciarazzi
-          p->basedamage=20;
+          p->baseDamage=20;
         }                  
     }
 }
