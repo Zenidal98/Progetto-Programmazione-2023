@@ -11,12 +11,10 @@ bool gameOver = false;
 
 void Logics::check_damage(Player *p, Enemy *e){
 	if(p->getX() == e->getX() && p->getY()==e->getY()){
-		if(isInvincible == false){		// risolvere isInvincible
 			p->minusHealth(e->getDamage());
-			if(p->health<=0)
+			if(p->health<=0){
 				gameOver = true;
 		}
-		
 	}
 }
 
@@ -94,8 +92,8 @@ void Logics::showmarket(int roomID, Player *p) {
         powerName2='t';
         powerPrice=30*roomID;
     } else if (casualIndex==2){
-        powerName="Invincibility";
-        powerName2='i';
+        powerName="FullHealth";
+        powerName2='z';
         powerPrice=50*roomID;
     }
     Specialpowers s = Specialpowers(powerPrice, powerName2);

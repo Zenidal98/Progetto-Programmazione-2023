@@ -39,21 +39,16 @@ void Specialpowers::damageup(Player *p){
 void Specialpowers::damagedown(Player *p){                //legata a damagedown
     p->plusDamage=p->plusDamage/1,5;
 }
+
+void Specialpowers::fullhealth(Player *p){
+    p->health=100;
+}
+
 /*
 void Specialpowers::teleport(){                   //teletrasporta il giocatore in una nuova stanza
 	Logics::teleportpower();
 }
 */
-void Specialpowers::invincible(){                //Idea: salvo gli hp che ho al momento di invincible e l'id della stanza
-              //dell'attivazione del potere. Probabile errore su roomID. 
-//	while(invincibleroomID==roomID){
-//            player.hp=invinciblehp;
-//	}
-	
-	Logics::isInvincible = true;
+
 }
-       
- 
 
-
-  

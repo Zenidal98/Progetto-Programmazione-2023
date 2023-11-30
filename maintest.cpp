@@ -133,7 +133,6 @@ void goNextRoom(Room::pRL oldStage,Player *p){
 	Room::pRL pippo = R->generateRoomStruct(oldStage);
 	R->generateRoom(newStage,p);
 	teleport();
-	Logics::isInvincible = false;
 	EnemySpawn(newStage);	
 	ElementsSpawn(newStage);
 }
@@ -143,7 +142,6 @@ void goPreviousRoom(Room::pRL oldStage,Player *p){
 		Room::pRL newStage = oldStage->prev;
 		R->generateRoom(newStage,p);
 		teleport();
-		Logics::isInvincible = false;
 		EnemySpawn(newStage);
 		ElementsSpawn(newStage);
 	}
