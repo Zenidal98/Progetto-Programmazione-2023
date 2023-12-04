@@ -23,8 +23,6 @@ public:
 
    void teleport();                //teletrasporta in un'altra stanza
 
-   void invincible();              //invulnerabilità per una stanza, il più raro   
-
    void buyspecialpowers(Player *p, char type);
 };
 

@@ -26,8 +26,8 @@ void Specialpowers::poweractivation(WINDOW *curwin, Player *p){                 
         	if (p->specialpower='t'){ 
         		teleport();
 		}
-        	if (p->specialpower='i'){
-        		invincible();
+        	if (p->specialpower='z'){
+        		fullhealth(p);
 		}
 	}
 }
@@ -50,5 +50,4 @@ void Specialpowers::teleport(){                   //teletrasporta il giocatore i
 }
 */
 
-}
 
