@@ -17,6 +17,7 @@ WINDOW *RoomWin = new WINDOW;
 Room *R =new Room(RoomWin);
 Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 Logics L;
+Logics *PL = &L;
 
 Enemy *enemyarray[6];
 
@@ -128,19 +129,19 @@ void EnemySpawn(Room::pRL stage){
 	        delete enemyarray[i];          // cercare come si svuota 
   }
 }
-void goNextRoom(Room::pRL oldStage,Player *p){
+void goNextRoom(Room::pRL oldStage,Player *p, Logics *LP){
 	Room::pRL newStage = oldStage->next;
 	Room::pRL pippo = R->generateRoomStruct(oldStage);
-	R->generateRoom(newStage,p);
+	R->generateRoom(newStage,p,LP);
 	teleport();
 	EnemySpawn(newStage);	
 	ElementsSpawn(newStage);
 }
 
-void goPreviousRoom(Room::pRL oldStage,Player *p){
+void goPreviousRoom(Room::pRL oldStage,Player *p, Logics *LP){
 	if(oldStage->roomID!=0){              // non il primo livello
 		Room::pRL newStage = oldStage->prev;
-		R->generateRoom(newStage,p);
+		R->generateRoom(newStage,p,LP);
 		teleport();
 		EnemySpawn(newStage);
 		ElementsSpawn(newStage);
@@ -172,7 +173,6 @@ refresh();
 Room::pRL pippo = R->initRoomList();
 //Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 P->display();
-
 do{
 	P->display();
 	wrefresh(RoomWin);
@@ -185,7 +185,7 @@ do{
 		sh.Fire(sh.getX(), sh.getY());
 	}
 }while(P->xLoc!=30 && P->yLoc!=1);
-goNextRoom(pippo, P);
+goNextRoom(pippo, P,PL);
 
 	
 	
