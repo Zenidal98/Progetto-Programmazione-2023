@@ -160,4 +160,139 @@ void Logics::showmarket(int roomID, Player *p) {
     }
 }
 
+void Logics::teleportpower(){
+    int index = rand()%5;
+    for(int i=0;i<index;i++){
+        goNextRoom();
+    }
+}
 
+void Logics::teleport(Player *P){
+	P->yLoc = 30;
+	P->xLoc = 1;
+	P->display();
+}
+
+char Logics::randomizeElementType(){
+	int i =rand()%3;
+	char a;
+	switch(i){
+	case 0:
+		a = 'd';
+		break;
+	case 1:
+		a = 'c';
+		break;		
+	case 2:
+		a = 'r';
+		break;
+	case 3:
+	        a = 'g';
+		break;
+	}
+    return a; 
+}
+
+void Logics::ElementsSpawn(Room::pRL stage){
+	if(rand()%2==1){                             // probabilità del 33% che spawni qualcosa in un livello
+		char a = randomizeElementType();
+		int var1 = rand()%29+1;
+		int var2 = rand()%29+1;
+		Elements element(win,var1,var2,a);
+		element.display_element();
+		// L.RecognizeElementLocation(var1,var2);
+	}	
+}
+
+Enemy *enemyarray[6];
+
+void Logics::EnemySpawn(Room::pRL stage){
+   int i = 0;
+	if(stage->roomID>=2 && stage->roomID<=3){
+		for(i=0; i<2; i++){
+			Enemy *easyenemy = new Enemy(rand()%29+1,rand()%29+1,'#',win,'E');
+			easyenemy->display_enemy();
+			enemyarray[i]=easyenemy;
+		}	
+	}
+	if(stage->roomID>3 && stage->roomID<=5){
+		for(int i=0; i<4; i++){
+			Enemy *easyenemy = new Enemy(rand()%29+1,rand()%29+1,'#',win,'E');
+		        easyenemy->display_enemy();
+			enemyarray[i]=easyenemy;
+		}	
+	}
+	if(stage->roomID>5 && stage->roomID<=10){
+		for(int i=0; i<2; i++){
+			Enemy *easyenemy = new Enemy(rand()%29+1,rand()%29+1,'#',win,'E');
+			easyenemy->display_enemy();
+			enemyarray[i]=easyenemy;
+		}
+		for(int j=0; j<2; j++){
+			Enemy *mediumenemy = new Enemy(rand()%29+1,rand()%29+1,'#',win,'M');
+			mediumenemy->display_enemy();
+			enemyarray[i]=mediumenemy;
+		}	
+	}
+	if(stage->roomID>10 && stage->roomID<=15){
+		for(int i=0; i<4; i++){
+			Enemy *mediumenemy = new Enemy(rand()%29+1, rand()%29+1,'#',win,'M');
+			mediumenemy->display_enemy();
+			enemyarray[i]=mediumenemy;
+		}
+	}
+	if(stage->roomID>15 && stage->roomID<=20){
+		for(int i=0; i<2; i++){
+			Enemy *mediumenemy = new Enemy(rand()%29+1,rand()%29+1,'#',win,'M');
+			mediumenemy->display_enemy();
+			enemyarray[i]=mediumenemy;
+		}
+		        Enemy *hardenemy = new Enemy(rand()%29+1,rand()%29+1,'#',win,'H');
+		        hardenemy->display_enemy();
+		        enemyarray[i]=hardenemy;
+	}
+	if(stage->roomID>20 && stage->roomID<=25){
+		for(int i=0; i<2; i++){
+			Enemy *hardenemy = new Enemy(rand()%29+1,rand()%29+1,'#',win,'H');
+			hardenemy->display_enemy();
+			enemyarray[i]=hardenemy;
+		}
+	}
+	if(stage->roomID>25 && stage->roomID<=30){
+		for(int i=0; i<4; i++){
+		        Enemy *hardenemy = new Enemy(rand()%29+1,rand()%29+1,'#',win,'H');
+			hardenemy->display_enemy();
+			enemyarray[i]=hardenemy;
+		}	
+	}
+	if(stage->roomID>30){
+		                               //int m = (stage->roomID/10)*2;
+		for(int i=0; i<6; i++){   
+			Enemy *hardenemy = new Enemy(rand()%29+1,rand()%29+1,'#',win,'H');
+			hardenemy->display_enemy();
+			enemyarray[i]=hardenemy;
+		}
+	}
+	     for(int i =0; i<6; i++){
+	        delete enemyarray[i];          // cercare come si svuota 
+  }
+}
+
+void Logics::goNextRoom(Room::pRL oldStage,Player *p){
+	Room::pRL newStage = oldStage->next;
+	Room::pRL pippo = R->generateRoomStruct(oldStage);
+	R->generateRoom(newStage,p);
+	teleport();
+	EnemySpawn(newStage);	
+	ElementsSpawn(newStage);
+}
+
+void Logics::goPreviousRoom(Room::pRL oldStage,Player *p){
+	if(oldStage->roomID!=0){              // non il primo livello
+		Room::pRL newStage = oldStage->prev;
+		R->generateRoom(newStage,p,LP);
+		teleport();
+		EnemySpawn(newStage);
+		ElementsSpawn(newStage);
+	}
+}

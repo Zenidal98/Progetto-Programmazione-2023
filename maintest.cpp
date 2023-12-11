@@ -18,7 +18,9 @@ Room *R =new Room(RoomWin);
 Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 Logics L;
 Logics *PL = &L;
+Enemy *E;
 
+/*
 Enemy *enemyarray[6];
 
 void teleport(){
@@ -147,7 +149,7 @@ void goPreviousRoom(Room::pRL oldStage,Player *p, Logics *LP){
 		ElementsSpawn(newStage);
 	}
 }
-
+*/
 
 void gameOver(){
     wclear(win);
@@ -181,11 +183,11 @@ do{
 do{
 	P->getinput();
 	if(P->getinput() == 's'){
-		Bullet sh = Bullet(RoomWin, P->getX()+1, P->getY(), '-', 10, *enemyarray, 6);
+		Bullet sh = Bullet(RoomWin, P->getX()+1, P->getY(), '-', 10, L->*enemyarray, 6);
 		sh.Fire(sh.getX(), sh.getY());
 	}
 }while(P->xLoc!=30 && P->yLoc!=1);
-goNextRoom(pippo, P,PL);
+PL->goNextRoom(pippo, P);
 
 	
 	

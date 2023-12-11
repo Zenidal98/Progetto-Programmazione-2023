@@ -6,6 +6,9 @@
 #include "Weapons.hpp"
 #include "Specialpowers.hpp"
 #include <string>
+
+#include "Room.hpp"
+
 class Logics {
 
     public:
@@ -24,11 +27,21 @@ class Logics {
         // se premo tasto sparo
         // void check_shoot();
 
-	// controlla se Player raccoglie Elements
-	void check_upgrades(Player *p, Elements e);
+    	// controlla se Player raccoglie Elements
+	    void check_upgrades(Player *p, Elements e);
 
         void showmarket(int roomID, Player *p);
 
        // prende le x e le y dell'element singolo e le passa a logics
 //       void RecognizeElementLocation(int var1,int var2);
+
+        void teleportpower();
+
+        //da maintest:
+        void teleport(Player *P);
+        char randomizeElementType();
+        void ElementsSpawn(Room::pRL stage);
+        void EnemySpawn(Room::pRL stage);
+        void goNextRoom(Room::pRL oldStage,Player *p);
+        void goPreviousRoom(Room::pRL oldStage,Player *p);
 };
