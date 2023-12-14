@@ -1,3 +1,7 @@
+#ifndef ROOM_HPP
+#define ROOM_HPP
+ 
+
 #include <ncurses.h>
 #include <iostream>
 #include <fstream>
@@ -30,6 +34,6 @@ class Room{
 };
 
 
-
+#endif
 
 
