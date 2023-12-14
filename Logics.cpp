@@ -88,8 +88,8 @@ void Logics::showmarket(int roomID, Player *p) {
         powerName2='d';
         powerPrice=20*roomID;
     } else if (casualIndex==1){
-        powerName="Teleport";
-        powerName2='t';
+        powerName="Highjump";
+        powerName2='j';
         powerPrice=30*roomID;
     } else if (casualIndex==2){
         powerName="FullHealth";
@@ -157,13 +157,6 @@ void Logics::showmarket(int roomID, Player *p) {
         }
         default:
             break;
-    }
-}
-
-void Logics::teleportpower(){
-    int index = rand()%5;
-    for(int i=0;i<index;i++){
-        goNextRoom();
     }
 }
 
