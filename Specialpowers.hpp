@@ -19,9 +19,11 @@ public:
 
    void damagedown(Player *p);              //funzione che riporta il danno a prima di damageup. Serve per riportare le cose alla normalità dopo il bonus
 
-   void fullhealth(Player *p);           //riporta la vita al massimo
+   void fullhealth(Player *p);             //riporta la vita al massimo
 
-   void teleport();                //teletrasporta in un'altra stanza
+   void highjump(Player *p);               //aumenta il salto per una stanza
+
+   void highjumpoff(Player *p);           //riporta il salto alla normalità
 
    void buyspecialpowers(Player *p, char type);
 };

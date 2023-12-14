@@ -12,7 +12,6 @@ Player::Player(WINDOW *win, int y, int x, char c, int h=100, int s=0, int jf=1, 
     keypad(curwin, true);               //cattura input da tastiera
     health = h;
     score = s;
-    jumpForce = jf;
     jumpHeight = jh;
     baseDamage = bd;
     plusDamage = pd;

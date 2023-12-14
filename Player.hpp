@@ -10,9 +10,6 @@ class Player{
         int score;
         char character;
         WINDOW *curwin;
-        // opzioni per salto
-        int jumpForce;
-        int jumpHeight;
         // distanza di attacco
         int distance;
         // potenza di attacco
@@ -23,6 +20,7 @@ class Player{
         int xLoc, yLoc, xMax, yMax;
         int health;
         int coins;
+        int jumpHeight;
 	int plusDamage;
         int baseDamage;
         char specialpower;

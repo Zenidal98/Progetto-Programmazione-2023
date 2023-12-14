@@ -23,8 +23,8 @@ void Specialpowers::poweractivation(WINDOW *curwin, Player *p){                 
 		if (p->specialpower='d'){
         		damageup(p);
 		}
-        	if (p->specialpower='t'){ 
-        		teleport();
+        	if (p->specialpower='j'){ 
+        		highjump(p);
 		}
         	if (p->specialpower='z'){
         		fullhealth(p);
@@ -44,10 +44,12 @@ void Specialpowers::fullhealth(Player *p){
     p->health=100;
 }
 
-/*
-void Specialpowers::teleport(){                   //teletrasporta il giocatore in una nuova stanza
-	Logics::teleportpower();
+void Specialpowers::highjump(Player *p){
+    p->jumpHeight=p->jumpHeight*1,5;
 }
-*/
 
+
+void Specialpowers::highjumpoff(Player *p){
+    p->jumpHeight=5;
+}
 
