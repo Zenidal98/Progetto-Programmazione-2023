@@ -26,4 +26,4 @@ public:
    void buyspecialpowers(Player *p, char type);
 };
 
-#endif 
+#endif

@@ -14,16 +14,16 @@ void Specialpowers::buyspecialpowers(Player *p, char type){
           p->specialpower='t';
         } else if(this->type=='i'){                   //comprare il lanciarazzi
           p->specialpower='i';
-        }                  
+        }
     }
 }
 
-void Specialpowers::poweractivation(WINDOW *curwin, Player *p){                          //funzione che attiva gli specialpowers. Forse va messa nel main e basta.
+void Specialpowers::poweractivation(WINDOW *curwin, Player *p){         //funzione che attiva gli specialpowers. Forse va messa nel main e basta.
 	if (wgetch(curwin)=='x'){
 		if (p->specialpower='d'){
         		damageup(p);
 		}
-        	if (p->specialpower='t'){ 
+        	if (p->specialpower='t'){
         		teleport();
 		}
         	if (p->specialpower='z'){
@@ -43,11 +43,5 @@ void Specialpowers::damagedown(Player *p){                //legata a damagedown
 void Specialpowers::fullhealth(Player *p){
     p->health=100;
 }
-
-/*
-void Specialpowers::teleport(){                   //teletrasporta il giocatore in una nuova stanza
-	Logics::teleportpower();
-}
-*/
 
 
