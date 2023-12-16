@@ -275,7 +275,7 @@ void Logics::goNextRoom(Room::pRL oldStage,Player *p){
 	Room::pRL newStage = oldStage->next;
 	Room::pRL pippo = R->generateRoomStruct(oldStage);
 	R->generateRoom(newStage,p);
-	teleport();
+	teleport(p);
 	EnemySpawn(newStage);	
 	ElementsSpawn(newStage);
 }
@@ -284,7 +284,7 @@ void Logics::goPreviousRoom(Room::pRL oldStage,Player *p){
 	if(oldStage->roomID!=0){              // non il primo livello
 		Room::pRL newStage = oldStage->prev;
 		R->generateRoom(newStage,p,LP);
-		teleport();
+		teleport(p);
 		EnemySpawn(newStage);
 		ElementsSpawn(newStage);
 	}

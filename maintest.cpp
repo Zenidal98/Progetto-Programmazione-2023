@@ -12,9 +12,9 @@
 
 using namespace std;
 
-WINDOW *win = new WINDOW;
-WINDOW *RoomWin = new WINDOW;
-Room *R =new Room(RoomWin);
+extern WINDOW *win = new WINDOW;
+extern WINDOW *RoomWin = new WINDOW;
+extern Room *R =new Room(RoomWin);
 Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 Logics L;
 Logics *PL = &L;
