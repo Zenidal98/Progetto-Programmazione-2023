@@ -45,3 +45,4 @@ class Logics {
         void goNextRoom(Room::pRL oldStage,Player *p);
         void goPreviousRoom(Room::pRL oldStage,Player *p);
 };
+        extern Enemy *enemyarray[6];  // Dichiarazione esterna della variabile
