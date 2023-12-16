@@ -183,7 +183,7 @@ do{
 do{
 	P->getinput();
 	if(P->getinput() == 's'){
-		Bullet sh = Bullet(RoomWin, P->getX()+1, P->getY(), '-', 10, L->*enemyarray, 6);
+		Bullet sh = Bullet(RoomWin, P->getX()+1, P->getY(), '-', 10, *enemyarray, 6);
 		sh.Fire(sh.getX(), sh.getY());
 	}
 }while(P->xLoc!=30 && P->yLoc!=1);
