@@ -5,6 +5,7 @@
 #include "Elements.hpp"
 #include "Weapons.hpp"
 #include "Specialpowers.hpp"
+#include "Bullet.hpp"
 #include <string>
 
 #include "Room.hpp"
@@ -15,8 +16,12 @@ class Logics {
         // setta i vari parametri -> capire cosa fare con enemy e elements
         // Logics();
 
-        // inizializza tutto
-        // void start();
+        //void init();
+
+        // main di maintest
+        void start();
+
+        void gameOver();
 
         // controlla se player ha preso danno
         void check_damage(Player *p, Enemy *e);

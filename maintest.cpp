@@ -12,6 +12,7 @@
 
 using namespace std;
 
+/*
 WINDOW *win = new WINDOW;
 WINDOW *RoomWin = new WINDOW;
 Room *R =new Room(RoomWin);
@@ -19,6 +20,7 @@ Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
 Logics L;
 Logics *PL = &L;
 Enemy *E;
+*/
 
 /*
 Enemy *enemyarray[6];
@@ -149,7 +151,7 @@ void goPreviousRoom(Room::pRL oldStage,Player *p, Logics *LP){
 		ElementsSpawn(newStage);
 	}
 }
-*/
+
 
 void gameOver(){
     wclear(win);
@@ -166,58 +168,63 @@ void gameOver(){
     mvprintw(17,25,"\\____/  |___//_____//_/ |_|  ");
 }
 
-
-int main(){
-srand(time(NULL));
-initscr();
-noecho();
-refresh();
-Room::pRL pippo = R->initRoomList();
-//Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
-P->display();
-do{
-	P->display();
-	wrefresh(RoomWin);
-}while(P->getinput()!='x');
-//R->generateRoom();
-do{
-	P->getinput();
-	if(P->getinput() == 's'){
-		Bullet sh = Bullet(RoomWin, P->getX()+1, P->getY(), '-', 10, *enemyarray, 6);
-		sh.Fire(sh.getX(), sh.getY());
-	}
-}while(P->xLoc!=30 && P->yLoc!=1);
-PL->goNextRoom(pippo, P);
-
-	
-	
-	
-	
-	
-/*	
-//bool rightDoor = Player::xLoc!=30 && Player::yLoc!=1;	
-//bool leftDoor = Player::xLoc!=1 && Player::yLoc!=1;
-//bool escape = p->getmv()=='x'
-//bool gameOver = Player::health<=0
-
-//do{
-//	p->display();
-//	wrefresh(win);
-	if(rightDoor==true){
-		goNextRoom(pRL oldstage);
-	 } else if(leftDoor==true){
-		goPreviousRoom(pRL oldstage);
-	}
-	Player::getmv();
-//}while(rightDoor==true && leftDoor==true && escape==false && gameOver==false);
-//if(escape==true || gameOver==true){
-//	gameOver();
-//}
-//------------------qui andra' messo il salvataggio su file----------------------------------------
 */
 
+int main(){
+	srand(time(NULL));
+	initscr();
+	noecho();
+	refresh();
+	Logics *L;
+	//L->init();
+	L->start();
+	/*
+	Room::pRL pippo = R->initRoomList();
+	//Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
+	P->display();
+	do{
+		P->display();
+		wrefresh(RoomWin);
+	}while(P->getinput()!='x');
+	//R->generateRoom();
+	do{
+		P->getinput();
+		if(P->getinput() == 's'){
+			Bullet sh = Bullet(RoomWin, P->getX()+1, P->getY(), '-', 10, *enemyarray, 6);
+			sh.Fire(sh.getX(), sh.getY());
+		}
+	}while(P->xLoc!=30 && P->yLoc!=1);
+	PL->goNextRoom(pippo, P);
+	*/
+		
+		
+		
+		
+		
+	/*	
+	//bool rightDoor = Player::xLoc!=30 && Player::yLoc!=1;	
+	//bool leftDoor = Player::xLoc!=1 && Player::yLoc!=1;
+	//bool escape = p->getmv()=='x'
+	//bool gameOver = Player::health<=0
+
+	//do{
+	//	p->display();
+	//	wrefresh(win);
+		if(rightDoor==true){
+			goNextRoom(pRL oldstage);
+		} else if(leftDoor==true){
+			goPreviousRoom(pRL oldstage);
+		}
+		Player::getmv();
+	//}while(rightDoor==true && leftDoor==true && escape==false && gameOver==false);
+	//if(escape==true || gameOver==true){
+	//	gameOver();
+	//}
+	//------------------qui andra' messo il salvataggio su file----------------------------------------
+	*/
 
 
-return 0;
+
+	return 0;
  }
 

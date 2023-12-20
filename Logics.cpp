@@ -7,13 +7,18 @@
 using namespace std;
 
 bool isCollected = false;
-bool gameOver = false;
+bool gameover = false;
+WINDOW *win = new WINDOW;
+WINDOW *RoomWin = new WINDOW;
+Room *R =new Room(RoomWin);
+Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
+Enemy *E;
 
 void Logics::check_damage(Player *p, Enemy *e){
 	if(p->getX() == e->getX() && p->getY()==e->getY()){
 			p->minusHealth(e->getDamage());
 			if(p->health<=0){
-				gameOver = true;
+				gameover = true;
 		}
 	}
 }
@@ -283,9 +288,52 @@ void Logics::goNextRoom(Room::pRL oldStage,Player *p){
 void Logics::goPreviousRoom(Room::pRL oldStage,Player *p){
 	if(oldStage->roomID!=0){              // non il primo livello
 		Room::pRL newStage = oldStage->prev;
-		R->generateRoom(newStage,p,LP);
+		R->generateRoom(newStage,p);
 		teleport(p);
 		EnemySpawn(newStage);
 		ElementsSpawn(newStage);
 	}
+}
+
+void Logics::start(){
+	Room::pRL pippo = R->initRoomList();
+	P->display();
+	do{
+		P->display();
+		wrefresh(RoomWin);
+	}while(P->getinput()!='x');
+	//R->generateRoom();
+	do{
+		P->getinput();
+		if(P->getinput() == 's'){
+			Bullet sh = Bullet(RoomWin, P->getX()+1, P->getY(), '-', 10, *enemyarray, 6);
+			sh.Fire(sh.getX(), sh.getY());
+		}
+	}while(P->xLoc!=30 && P->yLoc!=1);
+	goNextRoom(pippo, P);
+}
+
+/*
+void Logics::init(){
+	WINDOW *win = new WINDOW;
+	WINDOW *RoomWin = new WINDOW;
+	Room *R =new Room(RoomWin);
+	Player *P = new Player(win,1,1,'P',100,0,1,3,1,1,1,0,0,'\0');
+	Enemy *E;
+}
+*/
+
+void Logics::gameOver(){
+    wclear(win);
+    mvprintw(7,20,"   ______ ___     __  ___ ______");
+    mvprintw(8,20,"  / ____//   |   /  |/  // ____/");
+    mvprintw(9,20," / / __ / /| |  / /|_/ // __/   ");
+    mvprintw(10,20,"/ /_/ // ___ | / /  / // /___   ");
+    mvprintw(11,20,"\\____//_/  |_|/_/  /_//_____/   ");
+    mvprintw(12,20,"                                ");
+    mvprintw(13,25,"   ____  _    __ ______ ____ ");
+    mvprintw(14,25,"  / __ \\| |  / // ____// __ \\");
+    mvprintw(15,25," / / / /| | / // __/  / /_/ /");
+    mvprintw(16,25,"/ /_/ / | |/ // /___ / _, _/ ");
+    mvprintw(17,25,"\\____/  |___//_____//_/ |_|  ");
 }

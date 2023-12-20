@@ -40,7 +40,7 @@ Room::pRL Room::generateRoomStruct(pRL oldStage){
 	oldStage->alreadyBuilt=true;
 	return p;
 }
-void Room::generateRoom(pRL newStage, Player *p, Logics *L ){
+void Room::generateRoom(pRL newStage, Player *p){
 //10 stanze + 1 market + 1 starting level
 // qui devo capire come salvare e caricare le stanze
 	switch(newStage->roomType){
@@ -49,7 +49,9 @@ void Room::generateRoom(pRL newStage, Player *p, Logics *L ){
 		}
 		break;
 		case 1:      //Market (uso funzione esterna per espandere
-		{L->showmarket(newStage->roomID, p);
+		{
+			Logics *L;
+			L->showmarket(newStage->roomID, p);
 		}
 		break;
 		case 2:

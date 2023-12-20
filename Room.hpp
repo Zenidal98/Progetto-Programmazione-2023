@@ -26,7 +26,7 @@ class Room{
 		typedef roomList *pRL;
 	  	pRL initRoomList();
 		pRL generateRoomStruct(pRL oldStage);
-		void generateRoom(pRL newStage, Player *p, Logics *L);
+		void generateRoom(pRL newStage, Player *p);
 //		pRL getRoomList();
 		void gameOver();        //prima era room::gameover(); l'ho tolto da errore del make
 		pRL spawnMarket(pRL marketPosition);
