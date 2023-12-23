@@ -1,4 +1,4 @@
-#include "logics.hpp"
+#include "Logics.hpp"
 #include <ncurses.h>
 
 int main(){

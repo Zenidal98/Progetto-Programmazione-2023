@@ -264,9 +264,9 @@ void Logics::EnemySpawn(Room::pRL stage){
 		}
 	}
 	     for(int i =0; i<6; i++){
-               if(enemyarray[i]!=NULL){
+               if(enemyarray[i]!=nullptr){
 	        delete enemyarray[i];          // cercare come si svuota 
-                enemyarray[i]=NULL;
+                enemyarray[i]=nullptr;
            }
   }
 }
