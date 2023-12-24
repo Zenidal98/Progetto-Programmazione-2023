@@ -86,15 +86,15 @@ void Logics::showmarket(int roomID, Player *p) {
     if(casualIndex==0){
         powerName="DamageUp";
         powerName2='d';
-        powerPrice=20*roomID;
+        powerPrice=20;
     } else if (casualIndex==1){
         powerName="Highjump";
         powerName2='j';
-        powerPrice=30*roomID;
+        powerPrice=30;
     } else if (casualIndex==2){
         powerName="FullHealth";
         powerName2='z';
-        powerPrice=50*roomID;
+        powerPrice=50;
     }
     Specialpowers s = Specialpowers(powerPrice, powerName2);
 
@@ -105,24 +105,48 @@ void Logics::showmarket(int roomID, Player *p) {
     if((casualIndex2>=0)&&(casualIndex2<=4)){
         weaponName="Pistol";
         weaponName2='p';
-        weaponPrice=10*roomID;
+        weaponPrice=10;
     } else if ((casualIndex2>=5)&&(casualIndex2<=8)){
         weaponName="Firelock";
         weaponName2='f';
-        weaponPrice=100*roomID;
+        weaponPrice=100;
     } else if (casualIndex2==9){
         weaponName="Rocket_Launcher";
         weaponName2='l';
-        weaponPrice=200*roomID;
+        weaponPrice=200;
     }
     Weapons w = Weapons(weaponPrice, weaponName2);
 
     // Mostra il relativo pulsante da premere per acquistare qualcosa che corrisponde alla iniziale in inglese
-    // std::to string trasforma gli interi in stringhe compatibili. c_str crea la stringa finale.
     mvwprintw(healthWin, 1, 1, ("Press H to buy 50 Health. Costs 25 coins."));
-    mvwprintw(powerWin, 1, 1, ("Press P to buy " + powerName + " Power. Costs: " + std::to_string(powerPrice)).c_str());
-    mvwprintw(weaponWin, 1, 1, ("Press W to buy " + weaponName + " Weapon. Costs: " + std::to_string(weaponPrice)).c_str());
 
+    if(powerName2=='d'){
+
+                 mvwprintw(powerWin, 1, 1, ("Press P to buy DamageUp Power. Costs 20 coins." ));
+
+                       } else if (powerName2=='j'){
+
+                                    mvwprintw(powerWin, 1, 1, ("Press P to buy HighJump Power. Costs 30 coins." ));
+
+                                           } else if (powerName2=='z'){
+
+                                              mvwprintw(powerWin, 1, 1, ("Press P to buy FullHealth Power. Costs 50 coins." ));
+
+                                                                       }
+
+    if(weaponName2=='p'){
+
+                 mvwprintw(weaponWin, 1, 1, ("Press W to buy Pistol Weapon. Costs 10 coins." ));
+
+                       } else if (weaponName2=='f'){
+
+                                    mvwprintw(weaponWin, 1, 1, ("Press W to buy Firelock Weapon. Costs 100 coins." ));
+
+                                           } else if (weaponName2=='l'){
+
+                                              mvwprintw(weaponWin, 1, 1, ("Press W to buy Rocket Launcher Weapon. Costs 200 coins." ));
+
+                                                                      }
     // Aggiorna le finestre
     wrefresh(healthWin);
     wrefresh(powerWin);
