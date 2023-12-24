@@ -68,21 +68,16 @@ void Logics::showmarket(int roomID, Player *p) {
     clear();  // Cancella lo schermo
 
 
-    // Le slide richiedono 3 opzioni: vita, poteri e armi
+    // Le slide richiedono 3 opzioni: vita, poteri e armi.      POSSIBILE SEGMENTATION. SI SOVRAPPONGONO ?
     WINDOW *healthWin = newwin(10, 20, 5, 5);
     WINDOW *powerWin = newwin(10, 20, 5, 30);
     WINDOW *weaponWin = newwin(10, 20, 5, 55);
 
     // Inizializzazione attributi da comprare:
 
-     //Inizializzazione prezzi.
-    int healthPrice=0;
+     //Inizializzazione prezzi power e weapon. No health, visto che nel market si potrà comprare solo 50 di vita.
     int powerPrice=0;
     int weaponPrice=0;
-
-    // Per la vita è semplice. Il player ha vita max di 100 quindi un numero casuale fra 1 e 50 va bene.
-    int casualHealth=rand()%(50)+10;   //cosi non ho problemi nella divisione per 10
-    healthPrice=healthPrice*roomID;
 
      // Per i poteri la probabilità che appaia come nome è equivalente
     int casualIndex=rand()%(3);
@@ -124,7 +119,7 @@ void Logics::showmarket(int roomID, Player *p) {
 
     // Mostra il relativo pulsante da premere per acquistare qualcosa che corrisponde alla iniziale in inglese
     // std::to string trasforma gli interi in stringhe compatibili. c_str crea la stringa finale.
-    mvwprintw(healthWin, 1, 1, ("Press H to buy " +  std::to_string(casualHealth) + " Health. Costs: " + std::to_string(healthPrice)).c_str());
+    mvwprintw(healthWin, 1, 1, ("Press H to buy 50 Health. Costs 25 coins."));
     mvwprintw(powerWin, 1, 1, ("Press P to buy " + powerName + " Power. Costs: " + std::to_string(powerPrice)).c_str());
     mvwprintw(weaponWin, 1, 1, ("Press W to buy " + weaponName + " Weapon. Costs: " + std::to_string(weaponPrice)).c_str());
 
@@ -137,10 +132,10 @@ void Logics::showmarket(int roomID, Player *p) {
     char ch = getch();
     switch (ch) {
         case 'h':
-                if(p->coins>=healthPrice){
+                if(p->coins>=25){
               if(p->health<100){
-              p->health=p->health+casualHealth;
-              p->coins=p->coins-healthPrice;
+              p->health=p->health+50;
+              p->coins=p->coins-25;
 
               if(p->health>100){
                     p->health=100;
